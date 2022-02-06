@@ -13,12 +13,16 @@ public class User {
 	
 	private int myY;
 
-	//TODO code smell to store a Maze in User? Poor composition? A Maze has-a User or a User has-a Maze?
-	//A User can only be in one Maze, but a Maze can have many users. I accept storing a Maze in User.
-	//I won't store Users in Maze to stay loosely coupled.
+	/**
+	 * TODO code smell to store a Maze in User? Poor composition? A Maze has-a User or a User has-a Maze?
+	 * A User can only be in one Maze, but a Maze can have many users. I accept storing a Maze in User.
+	 * I won't store Users in Maze to stay loosely coupled.
+	 * See Room class for how to implement without storing a Maze object.
+	 * Also, I don't want a user to have a position that can be applied to any maze except the one.
+	 */
 	private Maze myMaze;
 	
-	//See Room class for how to implement without storing a Maze object.
+
 	User() {
 		myX = 1;
 		myY = 1;

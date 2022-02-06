@@ -17,8 +17,6 @@ import org.junit.jupiter.api.Test;
  */
 class UserTest {
 	
-	//private static User myDefaultUser;
-	
 	private static User my3by3MazeUser;
 
 	/**
