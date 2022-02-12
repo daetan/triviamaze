@@ -7,7 +7,7 @@ package triviamaze;
  * @author daeta
  *
  */
-public class User {
+class User {
 	
 	private int myX;
 	
@@ -89,7 +89,7 @@ public class User {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}

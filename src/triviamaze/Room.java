@@ -137,63 +137,63 @@ class Room {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	static void main(String[] args) {
 		// TODO Auto-generated method stub
 	}
 
 	/**
 	 * @return the myEDoor
 	 */
-	public Door getMyEDoor() {
+	Door getMyEDoor() {
 		return myEDoor;
 	}
 
 	/**
 	 * @param myEDoor the myEDoor to set
 	 */
-	public void setMyEDoor(Door myEDoor) {
+	void setMyEDoor(Door myEDoor) {
 		this.myEDoor = myEDoor;
 	}
 
 	/**
 	 * @return the mySDoor
 	 */
-	public Door getMySDoor() {
+	Door getMySDoor() {
 		return mySDoor;
 	}
 
 	/**
 	 * @param mySDoor the mySDoor to set
 	 */
-	public void setMySDoor(Door mySDoor) {
+	void setMySDoor(Door mySDoor) {
 		this.mySDoor = mySDoor;
 	}
 
 	/**
 	 * @return the myWDoor
 	 */
-	public Door getMyWDoor() {
+	Door getMyWDoor() {
 		return myWDoor;
 	}
 
 	/**
 	 * @param myWDoor the myWDoor to set
 	 */
-	public void setMyWDoor(Door myWDoor) {
+	void setMyWDoor(Door myWDoor) {
 		this.myWDoor = myWDoor;
 	}
 
 	/**
 	 * @return the myNDoor
 	 */
-	public Door getMyNDoor() {
+	Door getMyNDoor() {
 		return myNDoor;
 	}
 
 	/**
 	 * @param myNDoor the myNDoor to set
 	 */
-	public void setMyNDoor(Door myNDoor) {
+	void setMyNDoor(Door myNDoor) {
 		this.myNDoor = myNDoor;
 	}
 }

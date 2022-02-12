@@ -1,6 +1,6 @@
 package triviamaze;
 
-public class Door {
+class Door {
 	boolean myIsLocked;
 	
 	Door() {
