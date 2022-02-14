@@ -1,9 +1,11 @@
 /**
  * 
  */
-package triviamaze;
+package view;
 
 import java.util.Scanner;
+
+import controller.Controller;
 
 /**
  * @author daeta

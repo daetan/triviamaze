@@ -1,7 +1,7 @@
 /**
  * 
  */
-package triviamaze;
+package controller;
 
 /**
  * @author daeta

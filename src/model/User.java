@@ -1,7 +1,7 @@
 /**
  * 
  */
-package triviamaze;
+package model;
 
 /**
  * @author daeta

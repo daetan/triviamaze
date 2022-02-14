@@ -1,4 +1,4 @@
-package triviamaze;
+package model;
 /**
  * 
  */
