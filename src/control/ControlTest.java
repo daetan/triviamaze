@@ -1,7 +1,7 @@
 /**
  * 
  */
-package controller;
+package control;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
  * @author daeta
  *
  */
-class ControllerTest {
+class ControlTest {
 
 	/**
 	 * @throws java.lang.Exception

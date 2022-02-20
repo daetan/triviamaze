@@ -57,27 +57,15 @@ public class User {
 	
 	public boolean move(final int theX, final int theY) {
 		if (myMaze.isValidRoom(myX + theX, myY + theY)) {
-			String theMyIntString; //TODO code smell?
-			String theIntString;
-			if (theX != 0) {
-				theMyIntString = Integer.toString(myX);
-				theIntString = Integer.toString(myX + theX);
-				notifyListeners(this, "myX", theMyIntString, theIntString);
-			}
-			if (theY != 0) {
-				theMyIntString = Integer.toString(myY);
-				theIntString = Integer.toString(myY + theY);
-				notifyListeners(this, "myY", theMyIntString, theIntString);
-			}
+			notifyMove(theX, theY);
 			myX += theX;
 			myY += theY;
-			System.out.println("[" + myX + ", " + myY + "]");
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	public int getMyX() {
 		return myX;
 	}
@@ -86,23 +74,41 @@ public class User {
 		return myY;
 	}
 	
-//	public boolean setMyX(final int theX) {
-//		if (myMaze.isValidRoom(theX, myY)) {
-//			myX = theX;
-//			return true;
-//		} else {
-//			return false;
-//		}
-//	}
-//	
-//	public boolean setMyY(final int theY) {
-//		if (myMaze.isValidRoom(myX, theY)) {
-//			myY = theY;
-//			return true;
-//		} else {
-//			return false;
-//		}
-//	}
+	public boolean setMyX(final int theX) {
+		if (myMaze.isValidRoom(theX, myY)) {
+			notifyMove(theX, 0);
+			myX = theX;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean setMyY(final int theY) {
+		if (myMaze.isValidRoom(myX, theY)) {
+			notifyMove(0, theY);
+			myY = theY;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+	private void notifyMove(int theX, int theY) {
+		String theMyIntString;
+		String theIntString;
+		if (theX != 0) {
+			theMyIntString = Integer.toString(myX);
+			theIntString = Integer.toString(myX + theX);
+			notifyListeners(this, "myX", theMyIntString, theIntString);
+		}
+		if (theY != 0) {
+			theMyIntString = Integer.toString(myY);
+			theIntString = Integer.toString(myY + theY);
+			notifyListeners(this, "myY", theMyIntString, theIntString);
+		}
+	}
 	
 	private void notifyListeners(Object theObject, String theProperty, String theOldValue, String theNewValue) {
 		for (PropertyChangeListener aListener : myListeners) {

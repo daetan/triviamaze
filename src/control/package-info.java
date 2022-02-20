@@ -5,4 +5,4 @@
  * @author daeta
  *
  */
-package controller;
+package control;
