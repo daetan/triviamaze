@@ -7,18 +7,18 @@ package controller;
  * @author daeta
  *
  */
-class Controller {
+public class Controller {
 
 	private static String selection;
 	
-	Controller() {
+	public Controller() {
 	}
 	
-	String getSelection() {
+	public String getSelection() {
 		return selection;
 	}
 	
-	void setSelection(String theSelection) {
+	public void setSelection(String theSelection) {
 		selection = theSelection;
 	}
 	
