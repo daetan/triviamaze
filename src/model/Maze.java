@@ -16,7 +16,7 @@ class Maze {
 	private boolean isSolvable;
 	
 	private Room[][] myRooms;
-	
+		
 	Maze() {
 		myHeight = 4;
 		myWidth = 4;

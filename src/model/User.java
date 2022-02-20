@@ -3,11 +3,16 @@
  */
 package model;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author daeta
  *
  */
-class User {
+public class User {
 	
 	private int myX;
 	
@@ -22,8 +27,9 @@ class User {
 	 */
 	private Maze myMaze;
 	
+	private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
 
-	User() {
+	public User() {
 		myX = 1;
 		myY = 1;
 		myMaze = new Maze();
@@ -35,55 +41,77 @@ class User {
 		myMaze = theMaze;
 	}
 	
-	//YAGNI ¯\_(ツ)_/¯
-	boolean move(final char theDirection) {
+	public boolean move(final char theDirection) {
 		boolean result = false; 
 		if (theDirection == 'E') {
 			result = move(1, 0);
 		} else if (theDirection == 'S') {
-			result = move(0, 1);
+			result = move(0, -1);
 		} else if (theDirection == 'W') {
 			result = move(-1, 0);
 		} else if (theDirection == 'N') {
-			result = move(0, -1);
+			result = move(0, 1);
 		} 
 		return result;
 	}
 	
-	boolean move(final int theX, final int theY) {
+	public boolean move(final int theX, final int theY) {
 		if (myMaze.isValidRoom(myX + theX, myY + theY)) {
+			String theMyIntString; //TODO code smell?
+			String theIntString;
+			if (theX != 0) {
+				theMyIntString = Integer.toString(myX);
+				theIntString = Integer.toString(myX + theX);
+				notifyListeners(this, "myX", theMyIntString, theIntString);
+			}
+			if (theY != 0) {
+				theMyIntString = Integer.toString(myY);
+				theIntString = Integer.toString(myY + theY);
+				notifyListeners(this, "myY", theMyIntString, theIntString);
+			}
 			myX += theX;
 			myY += theY;
+			System.out.println("[" + myX + ", " + myY + "]");
 			return true;
 		} else {
 			return false;
 		}
 	}
 	
-	int getMyX() {
+	public int getMyX() {
 		return myX;
 	}
 	
-	int getMyY() {
+	public int getMyY() {
 		return myY;
 	}
 	
-	boolean setMyX(final int theX) {
-		if (myMaze.isValidRoom(theX, myY)) {
-			myX = theX;
-			return true;
-		} else {
-			return false;
+//	public boolean setMyX(final int theX) {
+//		if (myMaze.isValidRoom(theX, myY)) {
+//			myX = theX;
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
+//	
+//	public boolean setMyY(final int theY) {
+//		if (myMaze.isValidRoom(myX, theY)) {
+//			myY = theY;
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
+	
+	private void notifyListeners(Object theObject, String theProperty, String theOldValue, String theNewValue) {
+		for (PropertyChangeListener aListener : myListeners) {
+			aListener.propertyChange(new PropertyChangeEvent(this, theProperty, theOldValue, theNewValue));
 		}
 	}
 	
-	boolean setMyY(final int theY) {
-		if (myMaze.isValidRoom(myX, theY)) {
-			myY = theY;
-			return true;
-		} else {
-			return false;
-		}
+	public void addChangeListener(PropertyChangeListener theNewListener) {
+		myListeners.add(theNewListener);
 	}
 	
 	/**
