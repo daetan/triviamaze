@@ -13,13 +13,14 @@ import java.util.List;
  *
  */
 public class User {
+	//TODO code smell: user class is unnecessary...does control-like things...hm...
 	
 	private int myX;
 	
 	private int myY;
 
 	/**
-	 * TODO code smell to store a Maze in User? Poor composition? A Maze has-a User or a User has-a Maze?
+	 * TODO code smell to store a Maze in User? Poor design? A Maze has-a User or a User has-a Maze?
 	 * A User can only be in one Maze, but a Maze can have many users. I accept storing a Maze in User.
 	 * I won't store Users in Maze to stay loosely coupled.
 	 * See Room class for how to implement without storing a Maze object.
@@ -32,15 +33,13 @@ public class User {
 	public User() {
 		myX = 1;
 		myY = 1;
-		myMaze = new Maze();
 	}
 	
-	User(final Maze theMaze) {
-		myX = 1;
-		myY = 1;
+	public User(Maze theMaze) {
 		myMaze = theMaze;
 	}
-	
+
+	//TODO control method: move?
 	public boolean move(final char theDirection) {
 		boolean result = false; 
 		if (theDirection == 'E') {
@@ -55,11 +54,34 @@ public class User {
 		return result;
 	}
 	
+	//TODO control method: move?
 	public boolean move(final int theX, final int theY) {
 		if (myMaze.isValidRoom(myX + theX, myY + theY)) {
 			notifyMove(theX, theY);
 			myX += theX;
 			myY += theY;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	//TODO control method: move?
+	public boolean setMyX(final int theX) {
+		if (myMaze.isValidRoom(theX, myY)) {
+			notifyMove(theX, 0);
+			myX = theX;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	//TODO control method: move?
+	public boolean setMyY(final int theY) {
+		if (myMaze.isValidRoom(myX, theY)) {
+			notifyMove(0, theY);
+			myY = theY;
 			return true;
 		} else {
 			return false;
@@ -73,27 +95,6 @@ public class User {
 	public int getMyY() {
 		return myY;
 	}
-	
-	public boolean setMyX(final int theX) {
-		if (myMaze.isValidRoom(theX, myY)) {
-			notifyMove(theX, 0);
-			myX = theX;
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public boolean setMyY(final int theY) {
-		if (myMaze.isValidRoom(myX, theY)) {
-			notifyMove(0, theY);
-			myY = theY;
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
 	
 	private void notifyMove(int theX, int theY) {
 		String theMyIntString;

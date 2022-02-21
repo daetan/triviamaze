@@ -5,6 +5,7 @@ package view;
 
 import java.util.Scanner;
 import control.Control;
+import model.Maze;
 import model.User;
 import view.View;
 import java.beans.PropertyChangeEvent;
@@ -42,8 +43,8 @@ public class View implements PropertyChangeListener {
 		aUser.move(0, -1);
 		
 		System.out.println("Welcome to Trivia Maze test.");
-		
-		myControl = new Control();
+		final View aView = new View(aUser);
+		myControl = new Control(aView);
 		myConsole = new Scanner(System.in);
 		mySelection = "";
 		
@@ -56,6 +57,10 @@ public class View implements PropertyChangeListener {
 		
 		myConsole.close();
 		System.out.println("Goodbye!");
+	}
+
+	public void error(String theString) {
+		System.out.println(theString);
 	}
 
 }

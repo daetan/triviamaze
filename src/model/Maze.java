@@ -7,7 +7,7 @@ package model;
  * @author daeta
  *
  */
-class Maze {
+public class Maze {
 	
 	private int myHeight;
 	
@@ -17,7 +17,7 @@ class Maze {
 	
 	private Room[][] myRooms;
 		
-	Maze() {
+	public Maze() {
 		myHeight = 4;
 		myWidth = 4;
 		isSolvable = true;
