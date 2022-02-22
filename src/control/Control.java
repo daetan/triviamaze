@@ -28,7 +28,7 @@ public class Control {
 
 	private static String mySelection;
 	
-	public Control(View theView) {
+	public Control(final View theView) {
 		myMaze = new Maze();
 		myUser = new User();
 		myView = theView;
@@ -38,7 +38,7 @@ public class Control {
 		return mySelection;
 	}
 	
-	public void setSelection(String theSelection) {
+	public void setSelection(final String theSelection) {
 		mySelection = theSelection;
 	}
 	
@@ -52,6 +52,6 @@ public class Control {
 	/**
 	 * @param args
 	 */
-	static void main(String[] args) {
+	static void main(final String[] args) {
 	}
 }

@@ -13,7 +13,7 @@ import java.util.List;
  *
  */
 public class User {
-	//TODO code smell: user class is unnecessary...does control-like things...hm...
+	//TODO code smell: user class is unnecessary...?
 	
 	private int myX;
 	
