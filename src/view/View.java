@@ -3,6 +3,8 @@
  */
 package view;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import control.Control;
 import model.Maze;
@@ -19,14 +21,15 @@ public class View implements PropertyChangeListener {
 	private static Control myControl;
 	private static Scanner myConsole;
 	private static String mySelection;
-
 	
-	public View(User theUser) {
+	private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
+	
+	public View(final User theUser) {
 		theUser.addChangeListener(this);
 	}
 	
     @Override
-    public void propertyChange(PropertyChangeEvent event) {
+    public void propertyChange(final PropertyChangeEvent event) {
         System.out.println("Changed property: " + event.getPropertyName() + " [old -> "
             + event.getOldValue() + "] | [new -> " + event.getNewValue() +"]");
     }
@@ -34,7 +37,7 @@ public class View implements PropertyChangeListener {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		final User aUser = new User();
 		new View(aUser);
 		aUser.move(1, 0);
@@ -59,8 +62,24 @@ public class View implements PropertyChangeListener {
 		System.out.println("Goodbye!");
 	}
 
-	public void error(String theString) {
+	public void error(final String theString) {
 		System.out.println(theString);
+	}
+	
+	public void setMySelection(final String theString) {
+		notifyListeners(this, "Selection", mySelection, theString);
+		mySelection = theString;
+	}
+	
+	
+	private void notifyListeners(final Object theObject, final String theProperty, final String theOldValue, final String theNewValue) {
+		for (PropertyChangeListener aListener : myListeners) {
+			aListener.propertyChange(new PropertyChangeEvent(this, theProperty, theOldValue, theNewValue));
+		}
+	}
+	
+	public void addChangeListener(final PropertyChangeListener theNewListener) {
+		myListeners.add(theNewListener);
 	}
 
 }

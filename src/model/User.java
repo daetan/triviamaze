@@ -35,7 +35,7 @@ public class User {
 		myY = 1;
 	}
 	
-	public User(Maze theMaze) {
+	public User(final Maze theMaze) {
 		myMaze = theMaze;
 	}
 
@@ -96,7 +96,7 @@ public class User {
 		return myY;
 	}
 	
-	private void notifyMove(int theX, int theY) {
+	private void notifyMove(final int theX, final int theY) {
 		String theMyIntString;
 		String theIntString;
 		if (theX != 0) {
@@ -111,20 +111,20 @@ public class User {
 		}
 	}
 	
-	private void notifyListeners(Object theObject, String theProperty, String theOldValue, String theNewValue) {
+	private void notifyListeners(final Object theObject, final String theProperty, final String theOldValue, final String theNewValue) {
 		for (PropertyChangeListener aListener : myListeners) {
 			aListener.propertyChange(new PropertyChangeEvent(this, theProperty, theOldValue, theNewValue));
 		}
 	}
 	
-	public void addChangeListener(PropertyChangeListener theNewListener) {
+	public void addChangeListener(final PropertyChangeListener theNewListener) {
 		myListeners.add(theNewListener);
 	}
 	
 	/**
 	 * @param args
 	 */
-	static void main(String[] args) {
+	static void main(final String[] args) {
 		// TODO Auto-generated method stub
 
 	}
