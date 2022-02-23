@@ -17,14 +17,14 @@ import org.junit.jupiter.api.Test;
  */
 class ModelUserTest {
 	
-	private static User my3by3MazeUser;
+	private static ModelUser my3by3MazeUser;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		my3by3MazeUser = new ModelUser(new Maze(3, 3));
+		my3by3MazeUser = new ModelUser(new ModelMaze(3, 3));
 	}
 
 	/**

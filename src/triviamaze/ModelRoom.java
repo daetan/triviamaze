@@ -42,10 +42,10 @@ class ModelRoom {
 		setMyHasSDoor(false);
 		setMyHasWDoor(false);
 		setMyHasNDoor(false);
-		setMyEDoor(new Door());
-		setMySDoor(new Door());
-		setMyWDoor(new Door());
-		setMyNDoor(new Door());
+		setMyEDoor(new ModelDoor());
+		setMySDoor(new ModelDoor());
+		setMyWDoor(new ModelDoor());
+		setMyNDoor(new ModelDoor());
 	}
 	
 	//I should implement this manner for User--pass in a Maze?
@@ -80,7 +80,7 @@ class ModelRoom {
 	 * TODO move to View
 	 * @param width
 	 */
-	public void drawRoom(int width) {
+	void drawRoom(int width) {
 		for (int j = 1; j <= width; j++) {
 			System.out.print('*');
 		}
@@ -177,112 +177,112 @@ class ModelRoom {
 	/**
 	 * @return the myEDoor
 	 */
-	Door getMyEDoor() {
+	ModelDoor getMyEDoor() {
 		return myEDoor;
 	}
 
 	/**
 	 * @param myEDoor the myEDoor to set
 	 */
-	void setMyEDoor(final Door myEDoor) {
+	void setMyEDoor(final ModelDoor myEDoor) {
 		this.myEDoor = myEDoor;
 	}
 
 	/**
 	 * @return the mySDoor
 	 */
-	Door getMySDoor() {
+	ModelDoor getMySDoor() {
 		return mySDoor;
 	}
 
 	/**
 	 * @param mySDoor the mySDoor to set
 	 */
-	void setMySDoor(final Door mySDoor) {
+	void setMySDoor(final ModelDoor mySDoor) {
 		this.mySDoor = mySDoor;
 	}
 
 	/**
 	 * @return the myWDoor
 	 */
-	Door getMyWDoor() {
+	ModelDoor getMyWDoor() {
 		return myWDoor;
 	}
 
 	/**
 	 * @param myWDoor the myWDoor to set
 	 */
-	void setMyWDoor(final Door myWDoor) {
+	void setMyWDoor(final ModelDoor myWDoor) {
 		this.myWDoor = myWDoor;
 	}
 
 	/**
 	 * @return the myNDoor
 	 */
-	Door getMyNDoor() {
+	ModelDoor getMyNDoor() {
 		return myNDoor;
 	}
 
 	/**
 	 * @param myNDoor the myNDoor to set
 	 */
-	void setMyNDoor(final Door myNDoor) {
+	void setMyNDoor(final ModelDoor myNDoor) {
 		this.myNDoor = myNDoor;
 	}
 
 	/**
 	 * @return the myX
 	 */
-	public int getMyX() {
+	int getMyX() {
 		return myX;
 	}
 
 	/**
 	 * @param myX the myX to set
 	 */
-	public void setMyX(final int theX) {
+	void setMyX(final int theX) {
 		myX = theX;
 	}
 
 	/**
 	 * @return the myY
 	 */
-	public int getMyY() {
+	int getMyY() {
 		return myY;
 	}
 
 	/**
 	 * @param myY the myY to set
 	 */
-	public void setMyY(final int theY) {
+	void setMyY(final int theY) {
 		myY = theY;
 	}
 
 	/**
 	 * @return the myVisited
 	 */
-	public boolean isMyVisited() {
+	boolean isMyVisited() {
 		return myVisited;
 	}
 
 	/**
 	 * @param myVisited the myVisited to set
 	 */
-	public void setMyVisited(boolean myVisited) {
+	void setMyVisited(boolean myVisited) {
 		this.myVisited = myVisited;
 	}
 
 	/**
 	 * @return the myLocked
 	 */
-	public boolean isMyLocked() {
+	boolean isMyLocked() {
 		return myLocked;
 	}
 
 	/**
 	 * @param myLocked the myLocked to set
 	 */
-	public void setMyLocked(boolean myLocked) {
+	void setMyLocked(boolean myLocked) {
 		this.myLocked = myLocked;
 	}
 }

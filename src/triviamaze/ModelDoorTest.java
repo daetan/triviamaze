@@ -16,9 +16,9 @@ import org.junit.jupiter.api.Test;
  */
 class ModelDoorTest {
 	
-	static Door myTestDoor;
+	static ModelDoor myTestDoor;
 	
-	static Room myTestRoom;
+	static ModelRoom myTestRoom;
 
 	/**
 	 * @throws java.lang.Exception

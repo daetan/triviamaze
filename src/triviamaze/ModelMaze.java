@@ -7,7 +7,7 @@ package triviamaze;
  * @author daeta
  *
  */
-public class ModelMaze {
+class ModelMaze {
 	
 	/**
 	 * 
@@ -37,7 +37,7 @@ public class ModelMaze {
 	/**
 	 * 
 	 */
-	public ModelMaze() {
+	ModelMaze() {
 		myHeight = 4;
 		myWidth = 4;
 		isSolvable = true;
@@ -95,7 +95,7 @@ public class ModelMaze {
 	 * @param theRows
 	 * @param theCols
 	 */
-	public void generateRooms(int theRows, int theCols) {
+	void generateRooms(int theRows, int theCols) {
 		for (int i = 0; i < myWidth; i++) {
 			for (int j = 0; j < myHeight; j++) {
 				myRooms[i][j] = new ModelRoom(i, j);
@@ -131,7 +131,7 @@ public class ModelMaze {
 	 * 
 	 * @return
 	 */
-	Room[][] getMyRooms() {
+	ModelRoom[][] getMyRooms() {
 		return myRooms;
 	}
 	
@@ -140,7 +140,7 @@ public class ModelMaze {
 	 * @param theCurrentRoom
 	 * @return
 	 */
-	public Room getTopNeighbour(final Room theCurrentRoom) {
+	ModelRoom getTopNeighbour(final ModelRoom theCurrentRoom) {
 		return myRooms[theCurrentRoom.getMyX() - 1][theCurrentRoom.getMyY()];
 	}
 
@@ -149,7 +149,7 @@ public class ModelMaze {
 	 * @param theCurrentRoom
 	 * @return
 	 */
-	public Room getRightNeighbour(final Room theCurrentRoom) {
+	ModelRoom getRightNeighbour(final ModelRoom theCurrentRoom) {
 		return myRooms[theCurrentRoom.getMyX()][theCurrentRoom.getMyY() + 1];
 	}
 
@@ -158,7 +158,7 @@ public class ModelMaze {
 	 * @param theCurrentRoom
 	 * @return
 	 */
-	public Room getBottomNeighbour(final Room theCurrentRoom) {
+	ModelRoom getBottomNeighbour(final ModelRoom theCurrentRoom) {
 		return myRooms[theCurrentRoom.getMyX() + 1][theCurrentRoom.getMyY()];
 	}
 
@@ -167,21 +167,21 @@ public class ModelMaze {
 	 * @param theCurrentRoom
 	 * @return
 	 */
-	public Room getLeftNeighbour(final Room theCurrentRoom) {
+	ModelRoom getLeftNeighbour(final ModelRoom theCurrentRoom) {
 		return myRooms[theCurrentRoom.getMyX()][theCurrentRoom.getMyY() - 1];
 	}
 
 	/**
 	 * @return the myUser
 	 */
-	public User getMyUser() {
+	ModelUser getMyUser() {
 		return myUser;
 	}
 
 	/**
 	 * @param myUser the myUser to set
 	 */
-	public void setMyUser(User theUser) {
+	void setMyUser(ModelUser theUser) {
 		myUser = theUser;
 	}
 	

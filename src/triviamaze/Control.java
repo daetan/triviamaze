@@ -7,7 +7,7 @@ package triviamaze;
  * @author daeta
  *
  */
-public class Control {
+class Control {
 	//View -> User
 	//User -> Control
 	
@@ -18,27 +18,27 @@ public class Control {
 	//B:
 	//Control -> View
 	
-	private static Maze myMaze;
-	private static User myUser;
+	private static ModelMaze myMaze;
+	private static ModelUser myUser;
 	private static View myView;
 
 	private static String mySelection;
 	
-	public Control(final View theView) {
-		myMaze = new Maze();
-		myUser = new User();
+	Control(final View theView) {
+		myMaze = new ModelMaze();
+		myUser = new ModelUser();
 		myView = theView;
 	}
 	
-	public String getSelection() {
+	String getSelection() {
 		return mySelection;
 	}
 	
-	public void setSelection(final String theSelection) {
+	void setSelection(final String theSelection) {
 		mySelection = theSelection;
 	}
 	
-	public void move(final char theDirection) {
+	void move(final char theDirection) {
 		boolean result = myUser.move(theDirection);
 		if (!result) { // Could have View observe for Error string...
 			myView.error("Can't move that way.");

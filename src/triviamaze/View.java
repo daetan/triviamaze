@@ -17,19 +17,19 @@ import java.beans.PropertyChangeListener;
  * @author daeta
  *
  */
-public class View implements PropertyChangeListener {
+class View implements PropertyChangeListener {
 	private static Control myControl;
 	private static Scanner myConsole;
 	private static String mySelection;
 	
 	private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
 	
-	public View(final ModelUser theUser) {
+	View(final ModelUser theUser) {
 		theUser.addChangeListener(this);
 	}
 	
     @Override
-    public void propertyChange(final PropertyChangeEvent event) {
+    void propertyChange(final PropertyChangeEvent event) {
         System.out.println("Changed property: " + event.getPropertyName() + " [old -> "
             + event.getOldValue() + "] | [new -> " + event.getNewValue() +"]");
     }
@@ -37,7 +37,7 @@ public class View implements PropertyChangeListener {
 	/**
 	 * @param args
 	 */
-	public static void main(final String[] args) {
+	static void main(final String[] args) {
 		final ModelUser aUser = new ModelUser();
 		new View(aUser);
 		aUser.move(1, 0);
@@ -62,11 +62,11 @@ public class View implements PropertyChangeListener {
 		System.out.println("Goodbye!");
 	}
 
-	public void error(final String theString) {
+	void error(final String theString) {
 		System.out.println(theString);
 	}
 	
-	public void setMySelection(final String theString) {
+	void setMySelection(final String theString) {
 		notifyListeners(this, "Selection", mySelection, theString);
 		mySelection = theString;
 	}
@@ -78,7 +78,7 @@ public class View implements PropertyChangeListener {
 		}
 	}
 	
-	public void addChangeListener(final PropertyChangeListener theNewListener) {
+	void addChangeListener(final PropertyChangeListener theNewListener) {
 		myListeners.add(theNewListener);
 	}
 

@@ -12,7 +12,7 @@ import java.util.List;
  * @author daeta
  *
  */
-public class ModelUser {
+class ModelUser {
 	private String myName;
 	
 	private int myX;
@@ -32,18 +32,18 @@ public class ModelUser {
 	
 	private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
 
-	public ModelUser() {
+	ModelUser() {
 		myX = 1;
 		myY = 1;
 		myName = "Had";
 	}
 	
-	public ModelUser(final ModelMaze theMaze) {
+	ModelUser(final ModelMaze theMaze) {
 		myMaze = theMaze;
 	}
 
 	//TODO control method: move?
-	public boolean move(final char theDirection) {
+	boolean move(final char theDirection) {
 		boolean result = false; 
 		if (theDirection == 'E') {
 			result = move(1, 0);
@@ -58,7 +58,7 @@ public class ModelUser {
 	}
 	
 	//TODO control method: move?
-	public boolean move(final int theX, final int theY) {
+	boolean move(final int theX, final int theY) {
 		if (myMaze.isValidRoom(myX + theX, myY + theY)) {
 			notifyMove(theX, theY);
 			myX += theX;
@@ -70,7 +70,7 @@ public class ModelUser {
 	}
 	
 	//TODO control method: move?
-	public boolean setMyX(final int theX) {
+	boolean setMyX(final int theX) {
 		if (myMaze.isValidRoom(theX, myY)) {
 			notifyMove(theX, 0);
 			myX = theX;
@@ -81,7 +81,7 @@ public class ModelUser {
 	}
 	
 	//TODO control method: move?
-	public boolean setMyY(final int theY) {
+	boolean setMyY(final int theY) {
 		if (myMaze.isValidRoom(myX, theY)) {
 			notifyMove(0, theY);
 			myY = theY;
@@ -91,11 +91,11 @@ public class ModelUser {
 		}
 	}
 
-	public int getMyX() {
+	int getMyX() {
 		return myX;
 	}
 	
-	public int getMyY() {
+	int getMyY() {
 		return myY;
 	}
 	
@@ -120,7 +120,7 @@ public class ModelUser {
 		}
 	}
 	
-	public void addChangeListener(final PropertyChangeListener theNewListener) {
+	void addChangeListener(final PropertyChangeListener theNewListener) {
 		myListeners.add(theNewListener);
 	}
 	
@@ -135,28 +135,28 @@ public class ModelUser {
 	/**
 	 * @return the myName
 	 */
-	public String getMyName() {
+	String getMyName() {
 		return myName;
 	}
 
 	/**
 	 * @param myName the myName to set
 	 */
-	public void setMyName(String myName) {
+	void setMyName(String myName) {
 		this.myName = myName;
 	}
 
 	/**
 	 * @return the myRoom
 	 */
-	public Room getMyRoom() {
+	Room getMyRoom() {
 		return myRoom;
 	}
 
 	/**
 	 * @param myRoom the myRoom to set
 	 */
-	public void setMyRoom(ModelRoom theRoom) {
+	void setMyRoom(ModelRoom theRoom) {
 		myRoom = theRoom;
 	}
 
