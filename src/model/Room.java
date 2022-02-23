@@ -9,6 +9,9 @@ package model;
  *
  */
 class Room {
+	//TODO code smell of repetitive get/set code below.
+	
+	
 	private int myNumDoors;
 	
 	//TODO? Boolean[][] would follow Maze Room[][] pattern, allow use of nested loop
@@ -24,7 +27,16 @@ class Room {
 	private Door myWDoor;
 	private Door myNDoor;
 	
-	Room() {
+	private int myX;
+	private int myY;
+	private boolean myVisited;
+	private boolean myLocked;
+	
+	Room(final int theX, final int theY) {
+		setMyX(theX);
+		setMyY(theY);
+		setMyVisited(false);
+		setMyLocked(true);
 		setMyNumDoors(0);
 		setMyHasEDoor(false);
 		setMyHasSDoor(false);
@@ -65,6 +77,27 @@ class Room {
 	}
 
 	/**
+	 * TODO move to View
+	 * @param width
+	 */
+	public void drawRoom(int width) {
+		for (int j = 1; j <= width; j++) {
+			System.out.print('*');
+		}
+		System.out.println();
+		for (int i = 1; i <= width - 2; i++) {
+			System.out.print('*');
+			for (int j = 1; j <= width - 2; j++) {
+				System.out.print(" ");
+			}
+			System.out.println('*');
+		}
+		for (int j = 1; j <= width; j++) {
+			System.out.print('*');
+		}
+	}
+	
+	/**
 	 * @return the myNumDoors
 	 */
 	int getMyNumDoors() {
@@ -74,7 +107,7 @@ class Room {
 	/**
 	 * @param myNumDoors the myNumDoors to set
 	 */
-	void setMyNumDoors(int theNumDoors) {
+	void setMyNumDoors(final int theNumDoors) {
 		myNumDoors = theNumDoors;
 	}
 
@@ -88,7 +121,7 @@ class Room {
 	/**
 	 * @param hasEDoor the hasEDoor to set
 	 */
-	void setMyHasEDoor(boolean hasEDoor) {
+	void setMyHasEDoor(final boolean hasEDoor) {
 		myHasEDoor = hasEDoor;
 	}
 
@@ -102,7 +135,7 @@ class Room {
 	/**
 	 * @param hasSDoor the hasSDoor to set
 	 */
-	void setMyHasSDoor(boolean hasSDoor) {
+	void setMyHasSDoor(final boolean hasSDoor) {
 		myHasSDoor = hasSDoor;
 	}
 
@@ -116,7 +149,7 @@ class Room {
 	/**
 	 * @param hasWDoor the hasWDoor to set
 	 */
-	void setMyHasWDoor(boolean hasWDoor) {
+	void setMyHasWDoor(final boolean hasWDoor) {
 		myHasWDoor = hasWDoor;
 	}
 
@@ -130,14 +163,14 @@ class Room {
 	/**
 	 * @param hasNDoor the hasNDoor to set
 	 */
-	void setMyHasNDoor(boolean hasNDoor) {
+	void setMyHasNDoor(final boolean hasNDoor) {
 		myHasNDoor = hasNDoor;
 	}
 
 	/**
 	 * @param args
 	 */
-	static void main(String[] args) {
+	static void main(final String[] args) {
 		// TODO Auto-generated method stub
 	}
 
@@ -151,7 +184,7 @@ class Room {
 	/**
 	 * @param myEDoor the myEDoor to set
 	 */
-	void setMyEDoor(Door myEDoor) {
+	void setMyEDoor(final Door myEDoor) {
 		this.myEDoor = myEDoor;
 	}
 
@@ -165,7 +198,7 @@ class Room {
 	/**
 	 * @param mySDoor the mySDoor to set
 	 */
-	void setMySDoor(Door mySDoor) {
+	void setMySDoor(final Door mySDoor) {
 		this.mySDoor = mySDoor;
 	}
 
@@ -179,7 +212,7 @@ class Room {
 	/**
 	 * @param myWDoor the myWDoor to set
 	 */
-	void setMyWDoor(Door myWDoor) {
+	void setMyWDoor(final Door myWDoor) {
 		this.myWDoor = myWDoor;
 	}
 
@@ -193,7 +226,63 @@ class Room {
 	/**
 	 * @param myNDoor the myNDoor to set
 	 */
-	void setMyNDoor(Door myNDoor) {
+	void setMyNDoor(final Door myNDoor) {
 		this.myNDoor = myNDoor;
+	}
+
+	/**
+	 * @return the myX
+	 */
+	public int getMyX() {
+		return myX;
+	}
+
+	/**
+	 * @param myX the myX to set
+	 */
+	public void setMyX(final int theX) {
+		myX = theX;
+	}
+
+	/**
+	 * @return the myY
+	 */
+	public int getMyY() {
+		return myY;
+	}
+
+	/**
+	 * @param myY the myY to set
+	 */
+	public void setMyY(final int theY) {
+		myY = theY;
+	}
+
+	/**
+	 * @return the myVisited
+	 */
+	public boolean isMyVisited() {
+		return myVisited;
+	}
+
+	/**
+	 * @param myVisited the myVisited to set
+	 */
+	public void setMyVisited(boolean myVisited) {
+		this.myVisited = myVisited;
+	}
+
+	/**
+	 * @return the myLocked
+	 */
+	public boolean isMyLocked() {
+		return myLocked;
+	}
+
+	/**
+	 * @param myLocked the myLocked to set
+	 */
+	public void setMyLocked(boolean myLocked) {
+		this.myLocked = myLocked;
 	}
 }

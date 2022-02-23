@@ -13,13 +13,16 @@ import java.util.List;
  *
  */
 public class User {
+	private String myName;
 	
 	private int myX;
 	
 	private int myY;
+	
+	private Room myRoom;
 
 	/**
-	 * TODO code smell to store a Maze in User? Poor composition? A Maze has-a User or a User has-a Maze?
+	 * TODO code smell to store a Maze in User? Poor design? A Maze has-a User or a User has-a Maze?
 	 * A User can only be in one Maze, but a Maze can have many users. I accept storing a Maze in User.
 	 * I won't store Users in Maze to stay loosely coupled.
 	 * See Room class for how to implement without storing a Maze object.
@@ -32,15 +35,14 @@ public class User {
 	public User() {
 		myX = 1;
 		myY = 1;
-		myMaze = new Maze();
+		myName = "Had";
 	}
 	
-	User(final Maze theMaze) {
-		myX = 1;
-		myY = 1;
+	public User(final Maze theMaze) {
 		myMaze = theMaze;
 	}
-	
+
+	//TODO control method: move?
 	public boolean move(final char theDirection) {
 		boolean result = false; 
 		if (theDirection == 'E') {
@@ -55,11 +57,34 @@ public class User {
 		return result;
 	}
 	
+	//TODO control method: move?
 	public boolean move(final int theX, final int theY) {
 		if (myMaze.isValidRoom(myX + theX, myY + theY)) {
 			notifyMove(theX, theY);
 			myX += theX;
 			myY += theY;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	//TODO control method: move?
+	public boolean setMyX(final int theX) {
+		if (myMaze.isValidRoom(theX, myY)) {
+			notifyMove(theX, 0);
+			myX = theX;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	//TODO control method: move?
+	public boolean setMyY(final int theY) {
+		if (myMaze.isValidRoom(myX, theY)) {
+			notifyMove(0, theY);
+			myY = theY;
 			return true;
 		} else {
 			return false;
@@ -74,28 +99,7 @@ public class User {
 		return myY;
 	}
 	
-	public boolean setMyX(final int theX) {
-		if (myMaze.isValidRoom(theX, myY)) {
-			notifyMove(theX, 0);
-			myX = theX;
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public boolean setMyY(final int theY) {
-		if (myMaze.isValidRoom(myX, theY)) {
-			notifyMove(0, theY);
-			myY = theY;
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	
-	private void notifyMove(int theX, int theY) {
+	private void notifyMove(final int theX, final int theY) {
 		String theMyIntString;
 		String theIntString;
 		if (theX != 0) {
@@ -110,22 +114,50 @@ public class User {
 		}
 	}
 	
-	private void notifyListeners(Object theObject, String theProperty, String theOldValue, String theNewValue) {
+	private void notifyListeners(final Object theObject, final String theProperty, final String theOldValue, final String theNewValue) {
 		for (PropertyChangeListener aListener : myListeners) {
 			aListener.propertyChange(new PropertyChangeEvent(this, theProperty, theOldValue, theNewValue));
 		}
 	}
 	
-	public void addChangeListener(PropertyChangeListener theNewListener) {
+	public void addChangeListener(final PropertyChangeListener theNewListener) {
 		myListeners.add(theNewListener);
 	}
 	
 	/**
 	 * @param args
 	 */
-	static void main(String[] args) {
+	static void main(final String[] args) {
 		// TODO Auto-generated method stub
 
+	}
+
+	/**
+	 * @return the myName
+	 */
+	public String getMyName() {
+		return myName;
+	}
+
+	/**
+	 * @param myName the myName to set
+	 */
+	public void setMyName(String myName) {
+		this.myName = myName;
+	}
+
+	/**
+	 * @return the myRoom
+	 */
+	public Room getMyRoom() {
+		return myRoom;
+	}
+
+	/**
+	 * @param myRoom the myRoom to set
+	 */
+	public void setMyRoom(Room theRoom) {
+		myRoom = theRoom;
 	}
 
 }
