@@ -13,11 +13,13 @@ import java.util.List;
  *
  */
 public class User {
-	//TODO code smell: user class is unnecessary...?
+	private String myName;
 	
 	private int myX;
 	
 	private int myY;
+	
+	private Room myRoom;
 
 	/**
 	 * TODO code smell to store a Maze in User? Poor design? A Maze has-a User or a User has-a Maze?
@@ -33,6 +35,7 @@ public class User {
 	public User() {
 		myX = 1;
 		myY = 1;
+		myName = "Had";
 	}
 	
 	public User(final Maze theMaze) {
@@ -127,6 +130,34 @@ public class User {
 	static void main(final String[] args) {
 		// TODO Auto-generated method stub
 
+	}
+
+	/**
+	 * @return the myName
+	 */
+	public String getMyName() {
+		return myName;
+	}
+
+	/**
+	 * @param myName the myName to set
+	 */
+	public void setMyName(String myName) {
+		this.myName = myName;
+	}
+
+	/**
+	 * @return the myRoom
+	 */
+	public Room getMyRoom() {
+		return myRoom;
+	}
+
+	/**
+	 * @param myRoom the myRoom to set
+	 */
+	public void setMyRoom(Room theRoom) {
+		myRoom = theRoom;
 	}
 
 }

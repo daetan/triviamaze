@@ -27,7 +27,16 @@ class Room {
 	private Door myWDoor;
 	private Door myNDoor;
 	
-	Room() {
+	private int myX;
+	private int myY;
+	private boolean myVisited;
+	private boolean myLocked;
+	
+	Room(final int theX, final int theY) {
+		setMyX(theX);
+		setMyY(theY);
+		setMyVisited(false);
+		setMyLocked(true);
 		setMyNumDoors(0);
 		setMyHasEDoor(false);
 		setMyHasSDoor(false);
@@ -67,6 +76,27 @@ class Room {
 		myNDoor = new Door();
 	}
 
+	/**
+	 * TODO move to View
+	 * @param width
+	 */
+	public void drawRoom(int width) {
+		for (int j = 1; j <= width; j++) {
+			System.out.print('*');
+		}
+		System.out.println();
+		for (int i = 1; i <= width - 2; i++) {
+			System.out.print('*');
+			for (int j = 1; j <= width - 2; j++) {
+				System.out.print(" ");
+			}
+			System.out.println('*');
+		}
+		for (int j = 1; j <= width; j++) {
+			System.out.print('*');
+		}
+	}
+	
 	/**
 	 * @return the myNumDoors
 	 */
@@ -198,5 +228,61 @@ class Room {
 	 */
 	void setMyNDoor(final Door myNDoor) {
 		this.myNDoor = myNDoor;
+	}
+
+	/**
+	 * @return the myX
+	 */
+	public int getMyX() {
+		return myX;
+	}
+
+	/**
+	 * @param myX the myX to set
+	 */
+	public void setMyX(final int theX) {
+		myX = theX;
+	}
+
+	/**
+	 * @return the myY
+	 */
+	public int getMyY() {
+		return myY;
+	}
+
+	/**
+	 * @param myY the myY to set
+	 */
+	public void setMyY(final int theY) {
+		myY = theY;
+	}
+
+	/**
+	 * @return the myVisited
+	 */
+	public boolean isMyVisited() {
+		return myVisited;
+	}
+
+	/**
+	 * @param myVisited the myVisited to set
+	 */
+	public void setMyVisited(boolean myVisited) {
+		this.myVisited = myVisited;
+	}
+
+	/**
+	 * @return the myLocked
+	 */
+	public boolean isMyLocked() {
+		return myLocked;
+	}
+
+	/**
+	 * @param myLocked the myLocked to set
+	 */
+	public void setMyLocked(boolean myLocked) {
+		this.myLocked = myLocked;
 	}
 }
