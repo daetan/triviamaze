@@ -1,11 +1,7 @@
 /**
  * 
  */
-package control;
-
-import model.Maze;
-import model.User;
-import view.View;
+package triviamaze;
 
 /**
  * @author daeta

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package model;
+package triviamaze;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -12,14 +12,14 @@ import java.util.List;
  * @author daeta
  *
  */
-public class User {
+public class ModelUser {
 	private String myName;
 	
 	private int myX;
 	
 	private int myY;
 	
-	private Room myRoom;
+	private ModelRoom myRoom;
 
 	/**
 	 * TODO code smell to store a Maze in User? Poor design? A Maze has-a User or a User has-a Maze?
@@ -28,17 +28,17 @@ public class User {
 	 * See Room class for how to implement without storing a Maze object.
 	 * Also, I don't want a user to have a position that can be applied to any maze except the one.
 	 */
-	private Maze myMaze;
+	private ModelMaze myMaze;
 	
 	private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
 
-	public User() {
+	public ModelUser() {
 		myX = 1;
 		myY = 1;
 		myName = "Had";
 	}
 	
-	public User(final Maze theMaze) {
+	public ModelUser(final ModelMaze theMaze) {
 		myMaze = theMaze;
 	}
 
@@ -156,7 +156,7 @@ public class User {
 	/**
 	 * @param myRoom the myRoom to set
 	 */
-	public void setMyRoom(Room theRoom) {
+	public void setMyRoom(ModelRoom theRoom) {
 		myRoom = theRoom;
 	}
 

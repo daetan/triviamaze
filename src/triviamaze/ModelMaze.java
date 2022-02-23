@@ -1,13 +1,13 @@
 /**
  * 
  */
-package model;
+package triviamaze;
 
 /**
  * @author daeta
  *
  */
-public class Maze {
+public class ModelMaze {
 	
 	/**
 	 * 
@@ -27,22 +27,22 @@ public class Maze {
 	/**
 	 * 
 	 */
-	private Room[][] myRooms;
+	private ModelRoom[][] myRooms;
 	
 	/**
 	 * 
 	 */
-	private User myUser;
+	private ModelUser myUser;
 		
 	/**
 	 * 
 	 */
-	public Maze() {
+	public ModelMaze() {
 		myHeight = 4;
 		myWidth = 4;
 		isSolvable = true;
-		myRooms = new Room[myHeight][myWidth];
-		myUser = new User();
+		myRooms = new ModelRoom[myHeight][myWidth];
+		myUser = new ModelUser();
 	}
 	
 	/**
@@ -50,11 +50,11 @@ public class Maze {
 	 * @param theX
 	 * @param theY
 	 */
-	Maze(final int theX, final int theY) {
+	ModelMaze(final int theX, final int theY) {
 		myHeight = theY + 2;
 		myWidth = theX + 2;
 		isSolvable = true;
-		myRooms = new Room[myHeight][myWidth];
+		myRooms = new ModelRoom[myHeight][myWidth];
 		generateRooms(myHeight, myWidth);
 	}
 	
@@ -64,8 +64,8 @@ public class Maze {
 	 * @param theY
 	 * @return
 	 */
-	Room getRoom(final int theX, final int theY) {
-		Room returnRoom = null;
+	ModelRoom getRoom(final int theX, final int theY) {
+		ModelRoom returnRoom = null;
 		if (theX < myWidth && theY < myHeight) {
 			returnRoom = myRooms[theX][theY];
 		}
@@ -76,7 +76,7 @@ public class Maze {
 	 * 
 	 * @return
 	 */
-	Room getPlayerLocation() {
+	ModelRoom getPlayerLocation() {
 		return myUser.getMyRoom();
 	}
 	
@@ -98,7 +98,7 @@ public class Maze {
 	public void generateRooms(int theRows, int theCols) {
 		for (int i = 0; i < myWidth; i++) {
 			for (int j = 0; j < myHeight; j++) {
-				myRooms[i][j] = new Room(i, j);
+				myRooms[i][j] = new ModelRoom(i, j);
 			}
 		}
 	}

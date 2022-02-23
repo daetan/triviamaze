@@ -1,7 +1,7 @@
 /**
  * 
  */
-package model;
+package triviamaze;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,27 +15,27 @@ import org.junit.jupiter.api.Test;
  * @author daeta
  *
  */
-class RoomTest {
+class ModelRoomTest {
 	
-	static Room my1By1MazeCenterRoom;
+	static ModelRoom my1By1MazeCenterRoom;
 	
-	static Room my3By3MazeCenterRoom;
+	static ModelRoom my3By3MazeCenterRoom;
 	
-	static Room[][] my3By3MazeRooms;
+	static ModelRoom[][] my3By3MazeRooms;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		my1By1MazeCenterRoom = new Room(new Maze(1,1), 1, 1);
-		Maze a3By3Maze = new Maze(3, 3);
-		my3By3MazeCenterRoom = new Room(a3By3Maze, 2, 2);
+		my1By1MazeCenterRoom = new ModelRoom(new Maze(1,1), 1, 1);
+		Maze a3By3Maze = new ModelMaze(3, 3);
+		my3By3MazeCenterRoom = new ModelRoom(a3By3Maze, 2, 2);
 		//TODO import below snippet into Maze for Room[][] initialization 
 		my3By3MazeRooms = a3By3Maze.getMyRooms();
 		for (int x = 1; x <= 3; x++) {
 			for (int y = 1; y <= 3; y++) {
-				my3By3MazeRooms[x][y] = new Room(a3By3Maze, x, y);
+				my3By3MazeRooms[x][y] = new ModelRoom(a3By3Maze, x, y);
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package view;
+package triviamaze;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class View implements PropertyChangeListener {
 	
 	private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
 	
-	public View(final User theUser) {
+	public View(final ModelUser theUser) {
 		theUser.addChangeListener(this);
 	}
 	
@@ -38,7 +38,7 @@ public class View implements PropertyChangeListener {
 	 * @param args
 	 */
 	public static void main(final String[] args) {
-		final User aUser = new User();
+		final ModelUser aUser = new ModelUser();
 		new View(aUser);
 		aUser.move(1, 0);
 		aUser.move(0, 1);

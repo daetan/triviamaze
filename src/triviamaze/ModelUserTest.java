@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
  * @author daeta
  *
  */
-class UserTest {
+class ModelUserTest {
 	
 	private static User my3by3MazeUser;
 
@@ -24,7 +24,7 @@ class UserTest {
 	 */
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		my3by3MazeUser = new User(new Maze(3, 3));
+		my3by3MazeUser = new ModelUser(new Maze(3, 3));
 	}
 
 	/**

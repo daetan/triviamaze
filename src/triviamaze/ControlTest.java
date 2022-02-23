@@ -1,10 +1,9 @@
 /**
  * 
  */
-package model;
+package triviamaze;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,19 +14,13 @@ import org.junit.jupiter.api.Test;
  * @author daeta
  *
  */
-class DoorTest {
-	
-	static Door myTestDoor;
-	
-	static Room myTestRoom;
+class ControlTest {
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		myTestDoor = new Door();
-		myTestRoom = new Room();
 	}
 
 	/**
@@ -52,23 +45,8 @@ class DoorTest {
 	}
 
 	@Test
-	void doorStartsLocked() {
-		assertTrue(myTestDoor.getMyIsLocked());
+	void test() {
+		fail("Not yet implemented");
 	}
-	
-	@Test
-	void testDoorUnlocksAndLocks() {
-		myTestDoor.setMyIsLocked(false);
-		assertFalse(myTestDoor.getMyIsLocked());
-		myTestDoor.setMyIsLocked(true);
-		assertTrue(myTestDoor.getMyIsLocked());
-	}
-	
-	void testRoomLocked() {
-		assertTrue(myTestRoom.getMyEDoor().getMyIsLocked());
-		assertTrue(myTestRoom.getMySDoor().getMyIsLocked());
-		assertTrue(myTestRoom.getMyWDoor().getMyIsLocked());
-		assertTrue(myTestRoom.getMyNDoor().getMyIsLocked());
-	}
-	
+
 }

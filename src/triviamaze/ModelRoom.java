@@ -1,4 +1,4 @@
-package model;
+package triviamaze;
 /**
  * 
  */
@@ -8,7 +8,7 @@ package model;
  * @author daeta
  *
  */
-class Room {
+class ModelRoom {
 	//TODO code smell of repetitive get/set code below.
 	
 	
@@ -22,17 +22,17 @@ class Room {
 	
 	
 	//TODO? Door[][] would follow  Maze Room[][] pattern, allow use of nested loop
-	private Door myEDoor;
-	private Door mySDoor;
-	private Door myWDoor;
-	private Door myNDoor;
+	private ModelDoor myEDoor;
+	private ModelDoor mySDoor;
+	private ModelDoor myWDoor;
+	private ModelDoor myNDoor;
 	
 	private int myX;
 	private int myY;
 	private boolean myVisited;
 	private boolean myLocked;
 	
-	Room(final int theX, final int theY) {
+	ModelRoom(final int theX, final int theY) {
 		setMyX(theX);
 		setMyY(theY);
 		setMyVisited(false);
@@ -49,7 +49,7 @@ class Room {
 	}
 	
 	//I should implement this manner for User--pass in a Maze?
-	Room(final Maze theMaze, final int theX, final int theY) {
+	ModelRoom(final Maze theMaze, final int theX, final int theY) {
 		int aNumDoors = 0;
 		
 		if (theMaze.isValidRoom(theX + 1, theY)) {
@@ -70,10 +70,10 @@ class Room {
 		}
 		setMyNumDoors(aNumDoors);
 		
-		myEDoor = new Door();
-		mySDoor = new Door();
-		myWDoor = new Door();
-		myNDoor = new Door();
+		myEDoor = new ModelDoor();
+		mySDoor = new ModelDoor();
+		myWDoor = new ModelDoor();
+		myNDoor = new ModelDoor();
 	}
 
 	/**

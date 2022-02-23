@@ -1,7 +1,7 @@
 /**
  * 
  */
-package model;
+package triviamaze;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,18 +17,18 @@ import org.junit.jupiter.api.Test;
  */
 class MazeTest {
 	
-	private static Maze testDefaultMaze;
-	private static Room[][] testDefaultRooms;
+	private static ModelMaze testDefaultMaze;
+	private static ModelRoom[][] testDefaultRooms;
 	
-	private static Maze testEdge1000Maze;
-	private static Room[][] testEdge1000Rooms;
+	private static ModelMaze testEdge1000Maze;
+	private static ModelRoom[][] testEdge1000Rooms;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		testDefaultMaze = new Maze();
+		testDefaultMaze = new ModelMaze();
 		testDefaultRooms = testDefaultMaze.getMyRooms();
 		
-		testEdge1000Maze = new Maze(1000, 1000);
+		testEdge1000Maze = new ModelMaze(1000, 1000);
 		testEdge1000Rooms = testEdge1000Maze.getMyRooms();
 	}
 

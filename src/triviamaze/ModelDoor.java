@@ -1,9 +1,9 @@
-package model;
+package triviamaze;
 
-class Door {
+class ModelDoor {
 	boolean myIsLocked;
 	
-	Door() {
+	ModelDoor() {
 		myIsLocked = true;
 	}
 	
