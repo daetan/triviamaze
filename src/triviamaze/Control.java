@@ -19,23 +19,17 @@ class Control {
 	//Control -> View
 	
 	private static ModelMaze myMaze;
-	private static ModelUser myUser;
 	private static View myView;
-
-	private static String mySelection;
 	
-	Control(final View theView) {
-		myMaze = new ModelMaze();
-		myUser = new ModelUser();
-		myView = theView;
+	Control(final ModelMaze theMaze) {
+		myMaze = theMaze;
+		myView = new View(this, myMaze);
+		myView.createView();
+		myView.promptInput();
 	}
 	
-	String getSelection() {
-		return mySelection;
-	}
-	
-	void setSelection(final String theSelection) {
-		mySelection = theSelection;
+	void start() {
+		//TODO user enters, maze setup
 	}
 	
 	void move(final char theDirection) {
@@ -43,6 +37,43 @@ class Control {
 		if (!result) { // Could have View observe for Error string...
 			myView.error("Can't move that way.");
 		}
+	}
+	
+	void ask() {
+		//TODO user moves in direction of locked door
+
+
+	}
+	
+	void answer(final char theAnswer) {
+		//TODO pass char as answer to trivia object
+		//TODO combine with String signature below
+	}
+	
+	void answer(final String theAnswer) {
+		//TODO pass short word or number to trivia object
+		//Answers: A B C D T F 1 2 Short answer
+		//File operations: [S]ave [L]oad [E]xit
+	}
+	
+	void save() {
+		//TODO implement serialization
+	}
+	
+	void load() {
+		//TODO implement deserialization
+	}
+	
+	void exit() {
+		//TODO
+	}
+	
+	void about() {
+		//TODO Abo[u]t, [G]ame play instructions, C[h]eats
+	}
+	
+	void win() {
+		//TODO
 	}
 	
 	/**

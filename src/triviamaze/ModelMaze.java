@@ -3,12 +3,23 @@
  */
 package triviamaze;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.*;
+
 /**
  * @author daeta
  *
  */
-class ModelMaze {
+class ModelMaze implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3365061151045669276L;
+
 	/**
 	 * 
 	 */
@@ -33,7 +44,12 @@ class ModelMaze {
 	 * 
 	 */
 	private ModelUser myUser;
-		
+	
+	/**
+	 * 
+	 */
+	private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
+	
 	/**
 	 * 
 	 */
@@ -101,6 +117,28 @@ class ModelMaze {
 				myRooms[i][j] = new ModelRoom(i, j);
 			}
 		}
+	}
+	
+	/**
+	 * 
+	 * @param theObject
+	 * @param theProperty
+	 * @param theOldValue
+	 * @param theNewValue
+	 */
+	@SuppressWarnings("unused")
+	private void notifyListeners(final Object theObject, final String theProperty, final String theOldValue, final String theNewValue) {
+		for (PropertyChangeListener aListener : myListeners) {
+			aListener.propertyChange(new PropertyChangeEvent(this, theProperty, theOldValue, theNewValue));
+		}
+	}
+	
+	/**
+	 * 
+	 * @param theNewListener
+	 */
+	void addChangeListener(final PropertyChangeListener theNewListener) {
+		myListeners.add(theNewListener);
 	}
 
 	/**

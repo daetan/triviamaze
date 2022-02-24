@@ -7,7 +7,7 @@ package triviamaze;
  * @author daeta
  *
  */
-public class ALauncher {
+public class ATriviaMaze {
 	/**
 	 * @param args
 	 */

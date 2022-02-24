@@ -18,33 +18,22 @@ import java.beans.PropertyChangeListener;
  *
  */
 class View implements PropertyChangeListener {
-	private static Control myControl;
+	private static ModelMaze myMaze;
+	private static Control myControl;	
+	
 	private static Scanner myConsole;
 	private static String mySelection;
 	
 	private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
 	
-	View(final ModelUser theUser) {
-		theUser.addChangeListener(this);
+    View(Control theControl, ModelMaze theMaze) {
+		myMaze = theMaze;
+		myControl = theControl;
+		myMaze.addChangeListener(this);
 	}
-	
-    @Override
-    void propertyChange(final PropertyChangeEvent event) {
-        System.out.println("Changed property: " + event.getPropertyName() + " [old -> "
-            + event.getOldValue() + "] | [new -> " + event.getNewValue() +"]");
-    }
-
-	/**
-	 * @param args
-	 */
-	static void main(final String[] args) {
-		final ModelUser aUser = new ModelUser();
-		new View(aUser);
-		aUser.move(1, 0);
-		aUser.move(0, 1);
-		aUser.move(-1, 0);
-		aUser.move(0, -1);
-		
+    
+	void createView() {
+		// TODO write escape
 		System.out.println("Welcome to Trivia Maze test.");
 		final View aView = new View(aUser);
 		myControl = new Control(aView);
@@ -60,6 +49,11 @@ class View implements PropertyChangeListener {
 		
 		myConsole.close();
 		System.out.println("Goodbye!");
+	}
+
+	void promptInput() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	void error(final String theString) {
@@ -81,5 +75,10 @@ class View implements PropertyChangeListener {
 	void addChangeListener(final PropertyChangeListener theNewListener) {
 		myListeners.add(theNewListener);
 	}
-
+	
+	@Override
+	public void propertyChange(final PropertyChangeEvent event) {
+        System.out.println("Changed property: " + event.getPropertyName() + " [old -> "
+            + event.getOldValue() + "] | [new -> " + event.getNewValue() +"]");
+    }
 }

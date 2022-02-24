@@ -1,11 +1,11 @@
 package triviamaze;
 
-class ModelDoor {
+class ModelQuestionAnswer {
 	boolean myIsLocked;
 	
 	boolean myIsPermanentLocked;
 	
-	ModelDoor() {
+	ModelQuestionAnswer() {
 		myIsLocked = true;
 		myIsPermanentLocked = false;
 	}
