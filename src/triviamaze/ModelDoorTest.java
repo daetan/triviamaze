@@ -15,59 +15,59 @@ import org.junit.jupiter.api.Test;
  *
  */
 class ModelDoorTest {
-	
-	static ModelDoor myTestDoor;
-	
-	static ModelRoom myTestRoom;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-		myTestDoor = new ModelDoor();
-		myTestRoom = new ModelRoom();
-	}
+    static ModelDoor myTestDoor;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterAll
-	static void tearDownAfterClass() throws Exception {
-	}
+    static ModelRoom myTestRoom;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeEach
-	void setUp() throws Exception {
-	}
+    /**
+     * @throws java.lang.Exception
+     */
+    @BeforeAll
+    static void setUpBeforeClass() throws Exception {
+        myTestDoor = new ModelDoor();
+        myTestRoom = new ModelRoom();
+    }
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterEach
-	void tearDown() throws Exception {
-	}
+    /**
+     * @throws java.lang.Exception
+     */
+    @AfterAll
+    static void tearDownAfterClass() throws Exception {
+    }
 
-	@Test
-	void doorStartsLocked() {
-		assertTrue(myTestDoor.getMyIsLocked());
-	}
-	
-	@Test
-	void testDoorUnlocksAndLocks() {
-		myTestDoor.setMyIsLocked(false);
-		assertFalse(myTestDoor.getMyIsLocked());
-		myTestDoor.setMyIsLocked(true);
-		assertTrue(myTestDoor.getMyIsLocked());
-	}
-	
-	void testRoomLocked() {
-		assertTrue(myTestRoom.getMyEDoor().getMyIsLocked());
-		assertTrue(myTestRoom.getMySDoor().getMyIsLocked());
-		assertTrue(myTestRoom.getMyWDoor().getMyIsLocked());
-		assertTrue(myTestRoom.getMyNDoor().getMyIsLocked());
-	}
-	
+    /**
+     * @throws java.lang.Exception
+     */
+    @BeforeEach
+    void setUp() throws Exception {
+    }
+
+    /**
+     * @throws java.lang.Exception
+     */
+    @AfterEach
+    void tearDown() throws Exception {
+    }
+
+    @Test
+    void doorStartsLocked() {
+        assertTrue(myTestDoor.getMyIsLocked());
+    }
+
+    @Test
+    void testDoorUnlocksAndLocks() {
+        myTestDoor.setMyIsLocked(false);
+        assertFalse(myTestDoor.getMyIsLocked());
+        myTestDoor.setMyIsLocked(true);
+        assertTrue(myTestDoor.getMyIsLocked());
+    }
+
+    void testRoomLocked() {
+        assertTrue(myTestRoom.getMyEDoor().getMyIsLocked());
+        assertTrue(myTestRoom.getMySDoor().getMyIsLocked());
+        assertTrue(myTestRoom.getMyWDoor().getMyIsLocked());
+        assertTrue(myTestRoom.getMyNDoor().getMyIsLocked());
+    }
+
 }

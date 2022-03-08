@@ -3,286 +3,285 @@ package triviamaze;
  * 
  */
 
-
 /**
  * @author daeta
  *
  */
 class ModelRoom {
-	//TODO code smell of repetitive get/set code below.
-	
-	
-	private int myNumDoors;
-	
-	//TODO? Boolean[][] would follow Maze Room[][] pattern, allow use of nested loop
-	private boolean myHasEDoor;
-	private boolean myHasSDoor;
-	private boolean myHasWDoor;
-	private boolean myHasNDoor;
-	
-	
-	//TODO? Door[][] would follow  Maze Room[][] pattern, allow use of nested loop
-	private ModelDoor myEDoor;
-	private ModelDoor mySDoor;
-	private ModelDoor myWDoor;
-	private ModelDoor myNDoor;
-	
-	private int myX;
-	private int myY;
-	private boolean myVisited;
-	private boolean myLocked;
-	
-	ModelRoom(final int theX, final int theY) {
-		setMyX(theX);
-		setMyY(theY);
-		setMyVisited(false);
-		setMyLocked(true);
-		setMyNumDoors(0);
-		setMyHasEDoor(false);
-		setMyHasSDoor(false);
-		setMyHasWDoor(false);
-		setMyHasNDoor(false);
-		setMyEDoor(new ModelDoor());
-		setMySDoor(new ModelDoor());
-		setMyWDoor(new ModelDoor());
-		setMyNDoor(new ModelDoor());
-	}
-	
-	//I should implement this manner for User--pass in a Maze?
-	ModelRoom(final Maze theMaze, final int theX, final int theY) {
-		int aNumDoors = 0;
-		
-		if (theMaze.isValidRoom(theX + 1, theY)) {
-			setMyHasEDoor(true);
-			aNumDoors++;
-		}
-		if (theMaze.isValidRoom(theX, theY + 1)) {
-			setMyHasSDoor(true);
-			aNumDoors++;
-		}
-		if (theMaze.isValidRoom(theX - 1, theY)) {
-			setMyHasWDoor(true);
-			aNumDoors++;
-		}
-		if (theMaze.isValidRoom(theX, theY - 1)) {
-			setMyHasNDoor(true);
-			aNumDoors++;
-		}
-		setMyNumDoors(aNumDoors);
-		
-		myEDoor = new ModelDoor();
-		mySDoor = new ModelDoor();
-		myWDoor = new ModelDoor();
-		myNDoor = new ModelDoor();
-	}
+    // TODO code smell of repetitive get/set code below.
 
-	/**
-	 * TODO move to View
-	 * @param width
-	 */
-	void drawRoom(int width) {
-		for (int j = 1; j <= width; j++) {
-			System.out.print('*');
-		}
-		System.out.println();
-		for (int i = 1; i <= width - 2; i++) {
-			System.out.print('*');
-			for (int j = 1; j <= width - 2; j++) {
-				System.out.print(" ");
-			}
-			System.out.println('*');
-		}
-		for (int j = 1; j <= width; j++) {
-			System.out.print('*');
-		}
-	}
-	
-	/**
-	 * @return the myNumDoors
-	 */
-	int getMyNumDoors() {
-		return myNumDoors;
-	}
+    private int myNumDoors;
 
-	/**
-	 * @param myNumDoors the myNumDoors to set
-	 */
-	void setMyNumDoors(final int theNumDoors) {
-		myNumDoors = theNumDoors;
-	}
+    // TODO? Boolean[][] would follow Maze Room[][] pattern, allow use of nested
+    // loop
+    private boolean myHasEDoor;
+    private boolean myHasSDoor;
+    private boolean myHasWDoor;
+    private boolean myHasNDoor;
 
-	/**
-	 * @return the hasEDoor
-	 */
-	boolean getMyHasEDoor() {
-		return myHasEDoor;
-	}
+    // TODO? Door[][] would follow Maze Room[][] pattern, allow use of nested loop
+    private ModelDoor myEDoor;
+    private ModelDoor mySDoor;
+    private ModelDoor myWDoor;
+    private ModelDoor myNDoor;
 
-	/**
-	 * @param hasEDoor the hasEDoor to set
-	 */
-	void setMyHasEDoor(final boolean hasEDoor) {
-		myHasEDoor = hasEDoor;
-	}
+    private int myX;
+    private int myY;
+    private boolean myVisited;
+    private boolean myLocked;
 
-	/**
-	 * @return the hasSDoor
-	 */
-	boolean getMyHasSDoor() {
-		return myHasSDoor;
-	}
+    ModelRoom(final int theX, final int theY) {
+        setMyX(theX);
+        setMyY(theY);
+        setMyVisited(false);
+        setMyLocked(true);
+        setMyNumDoors(0);
+        setMyHasEDoor(false);
+        setMyHasSDoor(false);
+        setMyHasWDoor(false);
+        setMyHasNDoor(false);
+        setMyEDoor(new ModelDoor());
+        setMySDoor(new ModelDoor());
+        setMyWDoor(new ModelDoor());
+        setMyNDoor(new ModelDoor());
+    }
 
-	/**
-	 * @param hasSDoor the hasSDoor to set
-	 */
-	void setMyHasSDoor(final boolean hasSDoor) {
-		myHasSDoor = hasSDoor;
-	}
+    // I should implement this manner for User--pass in a Maze?
+    ModelRoom(final Maze theMaze, final int theX, final int theY) {
+        int aNumDoors = 0;
 
-	/**
-	 * @return the hasWDoor
-	 */
-	boolean getMyHasWDoor() {
-		return myHasWDoor;
-	}
+        if (theMaze.isValidRoom(theX + 1, theY)) {
+            setMyHasEDoor(true);
+            aNumDoors++;
+        }
+        if (theMaze.isValidRoom(theX, theY + 1)) {
+            setMyHasSDoor(true);
+            aNumDoors++;
+        }
+        if (theMaze.isValidRoom(theX - 1, theY)) {
+            setMyHasWDoor(true);
+            aNumDoors++;
+        }
+        if (theMaze.isValidRoom(theX, theY - 1)) {
+            setMyHasNDoor(true);
+            aNumDoors++;
+        }
+        setMyNumDoors(aNumDoors);
 
-	/**
-	 * @param hasWDoor the hasWDoor to set
-	 */
-	void setMyHasWDoor(final boolean hasWDoor) {
-		myHasWDoor = hasWDoor;
-	}
+        myEDoor = new ModelDoor();
+        mySDoor = new ModelDoor();
+        myWDoor = new ModelDoor();
+        myNDoor = new ModelDoor();
+    }
 
-	/**
-	 * @return the hasNDoor
-	 */
-	boolean getMyHasNDoor() {
-		return myHasNDoor;
-	}
+    /**
+     * TODO move to View
+     * 
+     * @param width
+     */
+    void drawRoom(int width) {
+        for (int j = 1; j <= width; j++) {
+            System.out.print('*');
+        }
+        System.out.println();
+        for (int i = 1; i <= width - 2; i++) {
+            System.out.print('*');
+            for (int j = 1; j <= width - 2; j++) {
+                System.out.print(" ");
+            }
+            System.out.println('*');
+        }
+        for (int j = 1; j <= width; j++) {
+            System.out.print('*');
+        }
+    }
 
-	/**
-	 * @param hasNDoor the hasNDoor to set
-	 */
-	void setMyHasNDoor(final boolean hasNDoor) {
-		myHasNDoor = hasNDoor;
-	}
+    /**
+     * @return the myNumDoors
+     */
+    int getMyNumDoors() {
+        return myNumDoors;
+    }
 
-	/**
-	 * @param args
-	 */
-	static void main(final String[] args) {
-		// TODO Auto-generated method stub
-	}
+    /**
+     * @param myNumDoors the myNumDoors to set
+     */
+    void setMyNumDoors(final int theNumDoors) {
+        myNumDoors = theNumDoors;
+    }
 
-	/**
-	 * @return the myEDoor
-	 */
-	ModelDoor getMyEDoor() {
-		return myEDoor;
-	}
+    /**
+     * @return the hasEDoor
+     */
+    boolean getMyHasEDoor() {
+        return myHasEDoor;
+    }
 
-	/**
-	 * @param myEDoor the myEDoor to set
-	 */
-	void setMyEDoor(final ModelDoor myEDoor) {
-		this.myEDoor = myEDoor;
-	}
+    /**
+     * @param hasEDoor the hasEDoor to set
+     */
+    void setMyHasEDoor(final boolean hasEDoor) {
+        myHasEDoor = hasEDoor;
+    }
 
-	/**
-	 * @return the mySDoor
-	 */
-	ModelDoor getMySDoor() {
-		return mySDoor;
-	}
+    /**
+     * @return the hasSDoor
+     */
+    boolean getMyHasSDoor() {
+        return myHasSDoor;
+    }
 
-	/**
-	 * @param mySDoor the mySDoor to set
-	 */
-	void setMySDoor(final ModelDoor mySDoor) {
-		this.mySDoor = mySDoor;
-	}
+    /**
+     * @param hasSDoor the hasSDoor to set
+     */
+    void setMyHasSDoor(final boolean hasSDoor) {
+        myHasSDoor = hasSDoor;
+    }
 
-	/**
-	 * @return the myWDoor
-	 */
-	ModelDoor getMyWDoor() {
-		return myWDoor;
-	}
+    /**
+     * @return the hasWDoor
+     */
+    boolean getMyHasWDoor() {
+        return myHasWDoor;
+    }
 
-	/**
-	 * @param myWDoor the myWDoor to set
-	 */
-	void setMyWDoor(final ModelDoor myWDoor) {
-		this.myWDoor = myWDoor;
-	}
+    /**
+     * @param hasWDoor the hasWDoor to set
+     */
+    void setMyHasWDoor(final boolean hasWDoor) {
+        myHasWDoor = hasWDoor;
+    }
 
-	/**
-	 * @return the myNDoor
-	 */
-	ModelDoor getMyNDoor() {
-		return myNDoor;
-	}
+    /**
+     * @return the hasNDoor
+     */
+    boolean getMyHasNDoor() {
+        return myHasNDoor;
+    }
 
-	/**
-	 * @param myNDoor the myNDoor to set
-	 */
-	void setMyNDoor(final ModelDoor myNDoor) {
-		this.myNDoor = myNDoor;
-	}
+    /**
+     * @param hasNDoor the hasNDoor to set
+     */
+    void setMyHasNDoor(final boolean hasNDoor) {
+        myHasNDoor = hasNDoor;
+    }
 
-	/**
-	 * @return the myX
-	 */
-	int getMyX() {
-		return myX;
-	}
+    /**
+     * @param args
+     */
+    static void main(final String[] args) {
+        // TODO Auto-generated method stub
+    }
 
-	/**
-	 * @param myX the myX to set
-	 */
-	void setMyX(final int theX) {
-		myX = theX;
-	}
+    /**
+     * @return the myEDoor
+     */
+    ModelDoor getMyEDoor() {
+        return myEDoor;
+    }
 
-	/**
-	 * @return the myY
-	 */
-	int getMyY() {
-		return myY;
-	}
+    /**
+     * @param myEDoor the myEDoor to set
+     */
+    void setMyEDoor(final ModelDoor myEDoor) {
+        this.myEDoor = myEDoor;
+    }
 
-	/**
-	 * @param myY the myY to set
-	 */
-	void setMyY(final int theY) {
-		myY = theY;
-	}
+    /**
+     * @return the mySDoor
+     */
+    ModelDoor getMySDoor() {
+        return mySDoor;
+    }
 
-	/**
-	 * @return the myVisited
-	 */
-	boolean isMyVisited() {
-		return myVisited;
-	}
+    /**
+     * @param mySDoor the mySDoor to set
+     */
+    void setMySDoor(final ModelDoor mySDoor) {
+        this.mySDoor = mySDoor;
+    }
 
-	/**
-	 * @param myVisited the myVisited to set
-	 */
-	void setMyVisited(boolean myVisited) {
-		this.myVisited = myVisited;
-	}
+    /**
+     * @return the myWDoor
+     */
+    ModelDoor getMyWDoor() {
+        return myWDoor;
+    }
 
-	/**
-	 * @return the myLocked
-	 */
-	boolean isMyLocked() {
-		return myLocked;
-	}
+    /**
+     * @param myWDoor the myWDoor to set
+     */
+    void setMyWDoor(final ModelDoor myWDoor) {
+        this.myWDoor = myWDoor;
+    }
 
-	/**
-	 * @param myLocked the myLocked to set
-	 */
-	void setMyLocked(boolean myLocked) {
-		this.myLocked = myLocked;
-	}
+    /**
+     * @return the myNDoor
+     */
+    ModelDoor getMyNDoor() {
+        return myNDoor;
+    }
+
+    /**
+     * @param myNDoor the myNDoor to set
+     */
+    void setMyNDoor(final ModelDoor myNDoor) {
+        this.myNDoor = myNDoor;
+    }
+
+    /**
+     * @return the myX
+     */
+    int getMyX() {
+        return myX;
+    }
+
+    /**
+     * @param myX the myX to set
+     */
+    void setMyX(final int theX) {
+        myX = theX;
+    }
+
+    /**
+     * @return the myY
+     */
+    int getMyY() {
+        return myY;
+    }
+
+    /**
+     * @param myY the myY to set
+     */
+    void setMyY(final int theY) {
+        myY = theY;
+    }
+
+    /**
+     * @return the myVisited
+     */
+    boolean isMyVisited() {
+        return myVisited;
+    }
+
+    /**
+     * @param myVisited the myVisited to set
+     */
+    void setMyVisited(boolean myVisited) {
+        this.myVisited = myVisited;
+    }
+
+    /**
+     * @return the myLocked
+     */
+    boolean isMyLocked() {
+        return myLocked;
+    }
+
+    /**
+     * @param myLocked the myLocked to set
+     */
+    void setMyLocked(boolean myLocked) {
+        this.myLocked = myLocked;
+    }
 }
