@@ -3,11 +3,13 @@ package triviamaze;
  * 
  */
 
+import java.io.Serializable;
+
 /**
  * @author daeta
  *
  */
-class ModelRoom {
+class ModelRoom implements Serializable {
 //    // TODO code smell of repetitive get/set code below.
 //
 //    private int myNumDoors;
@@ -30,6 +32,10 @@ class ModelRoom {
 //    private boolean myVisited;
 //    private boolean myLocked;
     
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 4116940108462532359L;
     private String myUserString;
     private boolean myHasUser;
     

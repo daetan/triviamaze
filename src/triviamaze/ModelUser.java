@@ -3,6 +3,8 @@
  */
 package triviamaze;
 
+import java.io.Serializable;
+
 //import java.beans.PropertyChangeEvent;
 //import java.beans.PropertyChangeListener;
 //import java.util.ArrayList;
@@ -12,7 +14,12 @@ package triviamaze;
  * @author daeta
  *
  */
-class ModelUser {
+class ModelUser implements Serializable {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -6750355880804259040L;
 
     private Integer myX;
 

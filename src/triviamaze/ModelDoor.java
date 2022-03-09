@@ -1,6 +1,13 @@
 package triviamaze;
 
-class ModelDoor {
+import java.io.Serializable;
+
+class ModelDoor implements Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 2742738560353830826L;
+
     boolean myIsLocked;
 
     boolean myIsBlocked;

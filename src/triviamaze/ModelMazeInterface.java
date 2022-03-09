@@ -14,7 +14,7 @@ interface ModelMazeInterface {
     void move(final String theMove);
     void answer(final String theAnswer);
     void save();
-    void load(final String theLoad);
+    ModelMazeInterface load(final ModelMazeInterface theMaze);
     void about();
     void exit();
     void win();

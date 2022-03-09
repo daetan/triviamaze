@@ -160,20 +160,67 @@ class ModelMaze implements ModelMazeInterface, Serializable {
 
     @Override
     public void save() {
-        // TODO Auto-generated method stub
+        String filename = "save.tm"; 
         
+        // Serialization 
+        try { 
+  
+            // Saving of object in a file 
+            FileOutputStream file = new FileOutputStream 
+                                           (filename); 
+            ObjectOutputStream out = new ObjectOutputStream 
+                                           (file); 
+  
+            // Method for serialization of object 
+            out.writeObject(this); 
+  
+            out.close(); 
+            file.close(); 
+  
+            System.out.println("Object has been serialized."); 
+        } 
+  
+        catch (IOException ex) { 
+            System.out.println("IOException is caught"); 
+        }
     }
 
     @Override
-    public void load(String theLoad) {
-        // TODO Auto-generated method stub
+    public ModelMazeInterface load(ModelMazeInterface theMaze) {
+        String filename = "save.tm";
         
+        try { 
+            
+            // Reading the object from a file 
+            FileInputStream file = new FileInputStream 
+                                         (filename); 
+            ObjectInputStream in = new ObjectInputStream 
+                                         (file); 
+  
+            // Method for deserialization of object 
+            theMaze = (ModelMazeInterface) in.readObject(); 
+            
+            in.close(); 
+            file.close(); 
+            System.out.println("Object has been deserialized.");
+            
+        } 
+  
+        catch (IOException ex) { 
+            System.out.println("IOException is caught"); 
+        } 
+  
+        catch (ClassNotFoundException ex) { 
+            System.out.println("ClassNotFoundException" + 
+                                " is caught"); 
+        }
+        return theMaze;
     }
 
     @Override
     public void about() {
-        // TODO Auto-generated method stub
-        
+        System.out.println("Trivia Maze Group 6 v1.0 Winter 2022");
+        System.out.println("Made by Abdulrehim, Daetan, and Hanad");
     }
 
     @Override
@@ -308,15 +355,7 @@ class ModelMaze implements ModelMazeInterface, Serializable {
         
         ModelMazeInterface myMaze = new ModelMaze();
         
-        myMaze.start(); //TODO Move to Control
-        
-//        ((ModelMaze) myMaze).print();
-//        
-//        myMaze.move("S");
-//        
-//        ((ModelMaze) myMaze).print();
-//        
-//        myMaze.move("E");
+        myMaze.start(); //TODO move to Control
 //        
 //        ((ModelMaze) myMaze).print();
 //        
@@ -333,17 +372,24 @@ class ModelMaze implements ModelMazeInterface, Serializable {
 
         while (!mySelection.equalsIgnoreCase("X")) {
             ((ModelMaze) myMaze).print();
+            System.out.println("Move [N]orth, [S]outh, [E]ast, or [W]est.");
+            System.out.println("Sa[V]e, [L]oad, Abou[T], or E[X]it.");
             System.out.print("Enter your selection: ");
             mySelection = myConsole.nextLine();
-            myMaze.move(mySelection);
-//            myControl.setSelection(mySelection);
-            System.out.println("Your selection was: " + mySelection);
+            if (mySelection.equalsIgnoreCase("N") || mySelection.equalsIgnoreCase("S") || mySelection.equalsIgnoreCase("E") || mySelection.equalsIgnoreCase("W")) {
+                myMaze.move(mySelection);
+            } else if (mySelection.equalsIgnoreCase("V")) {
+                myMaze.save();
+            } else if (mySelection.equalsIgnoreCase("L")) {
+                myMaze = myMaze.load(myMaze);
+            } else if (mySelection.equalsIgnoreCase("T")) {
+                myMaze.about();
+            } else if (mySelection.equalsIgnoreCase("X")) {
+                System.out.println("Goodbye!");
+            }
         }
-
         myConsole.close();
-        System.out.println("Goodbye!");
     }
-
 }
 
 ///**
