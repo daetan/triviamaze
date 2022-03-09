@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package triviamaze;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,7 +15,7 @@ import org.junit.jupiter.api.Test;
  * @author daeta
  *
  */
-class ModelMazeTest {
+class MazeTest {
 
     private static ModelMaze testDefaultMaze;
     private static ModelRoom[][] testDefaultRooms;
@@ -43,12 +46,12 @@ class ModelMazeTest {
 
     @Test
     void testDefaultConstructorHeight() {
-        assertEquals(testDefaultMaze.getMyHeight(), 4);
+        assertEquals(testDefaultMaze.getMyHeight(), 2);
     }
 
     @Test
     void testDefaultConstructorWidth() {
-        assertEquals(testDefaultMaze.getMyWidth(), 4);
+        assertEquals(testDefaultMaze.getMyWidth(), 2);
     }
 
     @Test
@@ -58,12 +61,12 @@ class ModelMazeTest {
 
     @Test
     void testDefaultConstructorMyRoomsHeight() {
-        assertEquals(testDefaultRooms.length, 6);
+        assertEquals(testDefaultRooms.length, 4);
     }
 
     @Test
     void testDefaultConstructorMyRoomsWidth() {
-        assertEquals(testDefaultRooms[0].length, 6);
+        assertEquals(testDefaultRooms[0].length, 4);
     }
 
     /**
@@ -77,13 +80,13 @@ class ModelMazeTest {
         assertFalse(testDefaultMaze.isValidRoom(0, 3), "Room 0, 3 returned true instead of false.");
 
         assertFalse(testDefaultMaze.isValidRoom(1, 0), "Room 1, 0 returned true instead of false.");
-        assertFalse(testDefaultMaze.isValidRoom(1, 5), "Room 1, 5 returned true instead of false.");
+        assertFalse(testDefaultMaze.isValidRoom(1, 3), "Room 1, 3 returned true instead of false.");
 
         assertFalse(testDefaultMaze.isValidRoom(2, 0), "Room 2, 0 returned true instead of false.");
-        assertFalse(testDefaultMaze.isValidRoom(2, 5), "Room 2, 5 returned true instead of false.");
+        assertFalse(testDefaultMaze.isValidRoom(2, 3), "Room 2, 3 returned true instead of false.");
 
         assertFalse(testDefaultMaze.isValidRoom(3, 0), "Room 3, 0 returned true instead of false.");
-        assertFalse(testDefaultMaze.isValidRoom(3, 5), "Room 3, 5 returned true instead of false.");
+        assertFalse(testDefaultMaze.isValidRoom(3, 3), "Room 3, 3 returned true instead of false.");
 
         assertTrue(testDefaultMaze.isValidRoom(1, 1), "Room 1, 1 returned false instead of true.");
         assertTrue(testDefaultMaze.isValidRoom(1, 2), "Room 1, 2 returned false instead of true.");

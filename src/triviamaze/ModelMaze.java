@@ -116,13 +116,13 @@ class ModelMaze implements ModelMazeInterface, Serializable {
     public void move(final String theMove) {
         boolean result = false;
         if (theMove.equalsIgnoreCase("E")) {
-            result = move(1, 0);
-        } else if (theMove.equalsIgnoreCase("S")) {
-            result = move(0, -1);
-        } else if (theMove.equalsIgnoreCase("W")) {
-            result = move(-1, 0);
-        } else if (theMove.equalsIgnoreCase("N")) {
             result = move(0, 1);
+        } else if (theMove.equalsIgnoreCase("S")) {
+            result = move(1, 0);
+        } else if (theMove.equalsIgnoreCase("W")) {
+            result = move(0, -1);
+        } else if (theMove.equalsIgnoreCase("N")) {
+            result = move(-1, 0);
         }
         if (!result) {
             System.out.println("Could not move.");
@@ -130,9 +130,20 @@ class ModelMaze implements ModelMazeInterface, Serializable {
     }
 
     boolean move(final Integer theX, final Integer theY) {
-        if (isValidRoom(myUser.getMyX() + theX, myUser.getMyY() + theY)) {
-            notifyListeners((Object) this, "X", myUser.getMyX().toString(), theX.toString());
-            notifyListeners((Object) this, "Y", myUser.getMyY().toString(), theY.toString());
+        Integer userX = myUser.getMyX();
+        Integer userY = myUser.getMyY();
+        
+        Integer moveToX = userX + theX;
+        Integer moveToY = userY + theY;
+        if (isValidRoom(moveToX, moveToY)) {
+            if (theX != 0) {
+                notifyListeners((Object) this, "X", myUser.getMyX().toString(), moveToX.toString());
+            }
+            if (theY != 0) {
+                notifyListeners((Object) this, "Y", myUser.getMyY().toString(), moveToY.toString());
+            }
+            myRooms[userX][userY].setMyHasUser(false);
+            myRooms[moveToX][moveToY].setMyHasUser(true);
             myUser.setMyX(myUser.getMyX() + theX);
             myUser.setMyY(myUser.getMyY() + theY);
             return true;
@@ -190,7 +201,7 @@ class ModelMaze implements ModelMazeInterface, Serializable {
      * @return
      */
     boolean isValidRoom(final Integer theX, final Integer theY) {
-        return theX > 0 && theX < myWidth - 1 && theY > 0 && theY < myHeight - 1;
+        return theX > 0 && theX < myWidth && theY > 0 && theY < myHeight;
     }
 
     /**
@@ -199,7 +210,7 @@ class ModelMaze implements ModelMazeInterface, Serializable {
     void startRooms() {
         for (int i = 1; i < myRooms.length; i++) {
             for (int j = 1; j < myRooms[0].length; j++) {
-                myRooms[i][j] = new ModelRoom(); //TODO why passing int to Room?
+                myRooms[i][j] = new ModelRoom();
             }
         }
     }
@@ -264,64 +275,6 @@ class ModelMaze implements ModelMazeInterface, Serializable {
     boolean getIsSolvable() {
         return isSolvable;
     }
-
-    /**
-     * 
-     * @return
-     */
-    ModelRoom[][] getMyRooms() {
-        return myRooms;
-    }
-
-    /**
-     * 
-     * @param theCurrentRoom
-     * @return
-     */
-    ModelRoom getTopNeighbour(final ModelRoom theCurrentRoom) {
-        return myRooms[theCurrentRoom.getMyX() - 1][theCurrentRoom.getMyY()];
-    }
-
-    /**
-     * 
-     * @param theCurrentRoom
-     * @return
-     */
-    ModelRoom getRightNeighbour(final ModelRoom theCurrentRoom) {
-        return myRooms[theCurrentRoom.getMyX()][theCurrentRoom.getMyY() + 1];
-    }
-
-    /**
-     * 
-     * @param theCurrentRoom
-     * @return
-     */
-    ModelRoom getBottomNeighbour(final ModelRoom theCurrentRoom) {
-        return myRooms[theCurrentRoom.getMyX() + 1][theCurrentRoom.getMyY()];
-    }
-
-    /**
-     * 
-     * @param theCurrentRoom
-     * @return
-     */
-    ModelRoom getLeftNeighbour(final ModelRoom theCurrentRoom) {
-        return myRooms[theCurrentRoom.getMyX()][theCurrentRoom.getMyY() - 1];
-    }
-
-    /**
-     * @return the myUser
-     */
-    ModelUser getMyUser() {
-        return myUser;
-    }
-
-    /**
-     * @param myUser the myUser to set
-     */
-    void setMyUser(ModelUser theUser) {
-        myUser = theUser;
-    }
     
     @Override
     public String toString() {
@@ -329,6 +282,7 @@ class ModelMaze implements ModelMazeInterface, Serializable {
     }
     
     void print() {
+        System.out.println("Maze:");
         for (int i = 1; i < myDoors.length-1; i++) {
             for (int j = 1; j < myDoors[0].length-1; j++) {
                 if (i % 2 != 0 ^ j % 2 != 0) {
@@ -345,6 +299,7 @@ class ModelMaze implements ModelMazeInterface, Serializable {
             }
             System.out.println();
         }
+        System.out.println();
     }
     
     public static void main(final String[] args) {
@@ -352,30 +307,99 @@ class ModelMaze implements ModelMazeInterface, Serializable {
         System.out.println("Welcome to Trivia Maze!");
         
         ModelMazeInterface myMaze = new ModelMaze();
-        myMaze.start();
         
-        ((ModelMaze) myMaze).print();
+        myMaze.start(); //TODO Move to Control
         
-        
-//        final Scanner myConsole = new Scanner(System.in);
-//        final String mySelection = "";
+//        ((ModelMaze) myMaze).print();
 //        
-//        //TODO ATriviaMaze
-//        myMaze.start();
+//        myMaze.move("S");
 //        
-//        //TODO View
-//        System.out.println(myMaze.toString());
-//
-//        while (!mySelection.equalsIgnoreCase("E")) {
-//            myMaze.toString();
-//            System.out.print("Enter your selection: ");
-//            mySelection = myConsole.nextLine();
+//        ((ModelMaze) myMaze).print();
+//        
+//        myMaze.move("E");
+//        
+//        ((ModelMaze) myMaze).print();
+//        
+//        myMaze.move("N");
+//        
+//        ((ModelMaze) myMaze).print();
+//        
+//        myMaze.move("W");
+//        
+//        ((ModelMaze) myMaze).print();
+        
+        final Scanner myConsole = new Scanner(System.in);
+        String mySelection = "";
+
+        while (!mySelection.equalsIgnoreCase("X")) {
+            ((ModelMaze) myMaze).print();
+            System.out.print("Enter your selection: ");
+            mySelection = myConsole.nextLine();
+            myMaze.move(mySelection);
 //            myControl.setSelection(mySelection);
-//            System.out.println("Your selection was: " + myControl.getSelection());
-//        }
-//
-//        myConsole.close();
-//        System.out.println("Goodbye!");
+            System.out.println("Your selection was: " + mySelection);
+        }
+
+        myConsole.close();
+        System.out.println("Goodbye!");
     }
 
 }
+
+///**
+//* @return the myUser
+//*/
+//ModelUser getMyUser() {
+// return myUser;
+//}
+//
+///**
+//* @param myUser the myUser to set
+//*/
+//void setMyUser(ModelUser theUser) {
+// myUser = theUser;
+//}
+
+///**
+//* 
+//* @return
+//*/
+//ModelRoom[][] getMyRooms() {
+// return myRooms;
+//}
+//
+///**
+//* 
+//* @param theCurrentRoom
+//* @return
+//*/
+//ModelRoom getTopNeighbour(final ModelRoom theCurrentRoom) {
+// return myRooms[theCurrentRoom.getMyX() - 1][theCurrentRoom.getMyY()];
+//}
+//
+///**
+//* 
+//* @param theCurrentRoom
+//* @return
+//*/
+//ModelRoom getRightNeighbour(final ModelRoom theCurrentRoom) {
+// return myRooms[theCurrentRoom.getMyX()][theCurrentRoom.getMyY() + 1];
+//}
+//
+///**
+//* 
+//* @param theCurrentRoom
+//* @return
+//*/
+//ModelRoom getBottomNeighbour(final ModelRoom theCurrentRoom) {
+// return myRooms[theCurrentRoom.getMyX() + 1][theCurrentRoom.getMyY()];
+//}
+//
+///**
+//* 
+//* @param theCurrentRoom
+//* @return
+//*/
+//ModelRoom getLeftNeighbour(final ModelRoom theCurrentRoom) {
+// return myRooms[theCurrentRoom.getMyX()][theCurrentRoom.getMyY() - 1];
+//}
