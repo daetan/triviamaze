@@ -7,7 +7,7 @@ package triviamaze;
  * @author daeta
  *
  */
-class Control {
+class Control implements ControlInterface {
     // View -> User
     // User -> Control
 
@@ -18,67 +18,67 @@ class Control {
     // B:
     // Control -> View
 
-    private static ModelMaze myMaze;
+    private static ModelMazeInterface myMaze;
     private static View myView;
 
-    Control(final ModelMaze theMaze) {
-        myMaze = theMaze;
+    Control(final ModelMazeInterface theModel) {
+        myMaze = theModel;
         myView = new View(this, myMaze);
         myView.createView();
         myView.promptInput();
         myMaze.initialize();
     }
 
+    @Override
     void start() {
-        // TODO place user at 1, 1
+        model.placeuser();
+        view.
     }
 
-    void move(final char theDirection) {
-        boolean result = myUser.move(theDirection);
+    @Override
+    void move(final String theMove) {
+        // TODO Auto-generated method stub
+        boolean result = myUser.move(theMove);
         if (!result) { // Could have View observe for Error string...
             myView.error("Can't move that way.");
         }
     }
 
-    void ask() {
-        // TODO user moves in direction of locked door
-
-    }
-
-    void answer(final char theAnswer) {
-        // TODO pass char as answer to trivia object
-        // TODO combine with String signature below
-    }
-
+    @Override
     void answer(final String theAnswer) {
         // TODO pass short word or number to trivia object
         // Answers: A B C D T F 1 2 Short answer
         // File operations: [S]ave [L]oad [E]xit
     }
 
+    @Override
     void save() {
         // TODO implement serialization
     }
 
-    void load() {
+    @Override
+    void load(final String theLoad) {
         // TODO implement deserialization
     }
 
+    @Override
     void exit() {
         // TODO
     }
 
+    @Override
     void about() {
         // TODO Abo[u]t, [G]ame play instructions, C[h]eats
     }
-
+    
+    @Override
     void win() {
         // TODO
     }
-
-    /**
-     * @param args
-     */
-    static void main(final String[] args) {
+    
+    @Override
+    void lose() {
+        // TODO Auto-generated method stub
+        
     }
 }

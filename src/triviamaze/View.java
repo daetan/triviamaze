@@ -18,7 +18,7 @@ import java.beans.PropertyChangeListener;
  *
  */
 class View implements PropertyChangeListener {
-    private static ModelMaze myMaze;
+    private static ModelMazeInterface myMaze;
     private static Control myControl;
 
     private static Scanner myConsole;
@@ -26,7 +26,7 @@ class View implements PropertyChangeListener {
 
     private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
 
-    View(Control theControl, ModelMaze theMaze) {
+    View(Control theControl, ModelMazeInterface theMaze) {
         myMaze = theMaze;
         myControl = theControl;
         myMaze.addChangeListener(this);

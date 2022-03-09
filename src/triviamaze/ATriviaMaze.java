@@ -12,7 +12,8 @@ public class ATriviaMaze {
      * @param args
      */
     public static void main(final String[] args) {
-        ModelMaze model = new ModelMaze(); //TODO refactor to interfaces: ModelMazeInterface and ControlInterface
-        Control control = new Control(model);
+        ModelMazeInterface model = new ModelMaze(); //TODO refactor to interfaces: ModelMazeInterface and ControlInterface
+        @SuppressWarnings("unused")
+        ControlInterface control = new Control(model);
     }
 }

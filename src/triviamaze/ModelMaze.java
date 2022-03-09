@@ -13,7 +13,7 @@ import java.io.*;
  * @author daeta
  *
  */
-class ModelMaze implements Serializable {
+class ModelMaze implements ModelMazeInterface, Serializable {
 
     /**
      * 
@@ -138,6 +138,7 @@ class ModelMaze implements Serializable {
      * 
      * @param theNewListener
      */
+    @Override
     void addChangeListener(final PropertyChangeListener theNewListener) {
         myListeners.add(theNewListener);
     }
@@ -224,9 +225,4 @@ class ModelMaze implements Serializable {
         myUser = theUser;
     }
 
-    /**
-     * @param args
-     */
-    static void main(String[] args) {
-    }
 }
