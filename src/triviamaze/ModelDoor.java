@@ -3,11 +3,14 @@ package triviamaze;
 class ModelDoor {
     boolean myIsLocked;
 
-    boolean myIsPermanentLocked;
+    boolean myIsBlocked;
+    
+    String myStateString;
 
     ModelDoor() {
-        myIsLocked = true;
-        myIsPermanentLocked = false;
+        setMyIsLocked(true);
+        setMyIsBlocked(false);
+        myStateString = " X ";
     }
 
     boolean getMyIsLocked() {
@@ -15,7 +18,24 @@ class ModelDoor {
     }
 
     void setMyIsLocked(final boolean theIsLocked) {
+        if (!theIsLocked && !myIsBlocked) {
+            myStateString = " O ";
+        }
         myIsLocked = theIsLocked;
+    }
+    
+    boolean getMyIsBlocked() {
+        return myIsBlocked;
+    }
+
+    void setMyIsBlocked(final boolean theIsBlocked) {
+        myStateString = " # ";
+        myIsBlocked = theIsBlocked;
+    }
+    
+    @Override
+    public String toString() {
+        return myStateString;
     }
 
 }

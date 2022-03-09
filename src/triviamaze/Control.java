@@ -8,15 +8,6 @@ package triviamaze;
  *
  */
 class Control implements ControlInterface {
-    // View -> User
-    // User -> Control
-
-    // A:
-    // Control -> Model
-    // Model -> View
-
-    // B:
-    // Control -> View
 
     private static ModelMazeInterface myMaze;
     private static View myView;
@@ -24,19 +15,18 @@ class Control implements ControlInterface {
     Control(final ModelMazeInterface theModel) {
         myMaze = theModel;
         myView = new View(this, myMaze);
-        myView.createView();
-        myView.promptInput();
-        myMaze.initialize();
+        myView.start();
+        myMaze.start();
     }
 
     @Override
-    void start() {
-        model.placeuser();
-        view.
+    public void start() {
+        myMaze.start();
+        myView.start();
     }
 
     @Override
-    void move(final String theMove) {
+    public void move(final String theMove) {
         // TODO Auto-generated method stub
         boolean result = myUser.move(theMove);
         if (!result) { // Could have View observe for Error string...
@@ -45,39 +35,39 @@ class Control implements ControlInterface {
     }
 
     @Override
-    void answer(final String theAnswer) {
+    public void answer(final String theAnswer) {
         // TODO pass short word or number to trivia object
         // Answers: A B C D T F 1 2 Short answer
-        // File operations: [S]ave [L]oad [E]xit
+        // File operations: [F]ile -> [S]ave [L]oad [E]xit
     }
 
     @Override
-    void save() {
+    public void save() {
         // TODO implement serialization
     }
 
     @Override
-    void load(final String theLoad) {
+    public void load(final String theLoad) {
         // TODO implement deserialization
     }
 
     @Override
-    void exit() {
+    public void exit() {
         // TODO
     }
 
     @Override
-    void about() {
+    public void about() {
         // TODO Abo[u]t, [G]ame play instructions, C[h]eats
     }
     
     @Override
-    void win() {
+    public void win() {
         // TODO
     }
     
     @Override
-    void lose() {
+    public void lose() {
         // TODO Auto-generated method stub
         
     }

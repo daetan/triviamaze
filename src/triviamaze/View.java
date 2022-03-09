@@ -19,28 +19,27 @@ import java.beans.PropertyChangeListener;
  */
 class View implements PropertyChangeListener {
     private static ModelMazeInterface myMaze;
-    private static Control myControl;
+    private static ControlInterface myControl;
 
     private static Scanner myConsole;
     private static String mySelection;
 
     private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
 
-    View(Control theControl, ModelMazeInterface theMaze) {
+    View(final ControlInterface theControl, final ModelMazeInterface theMaze) {
         myMaze = theMaze;
         myControl = theControl;
         myMaze.addChangeListener(this);
     }
 
-    void createView() {
-        // TODO write escape
-        System.out.println("Welcome to Trivia Maze test.");
-        final View aView = new View(aUser);
-        myControl = new Control(aView);
+    void start() {
+        //TODO write escape
+        System.out.println("Welcome to Trivia Maze!");
         myConsole = new Scanner(System.in);
         mySelection = "";
 
-        while (!mySelection.equalsIgnoreCase("exit")) {
+        while (!mySelection.equalsIgnoreCase("E")) {
+            printView();
             System.out.print("Enter your selection: ");
             mySelection = myConsole.nextLine();
             myControl.setSelection(mySelection);
@@ -49,11 +48,6 @@ class View implements PropertyChangeListener {
 
         myConsole.close();
         System.out.println("Goodbye!");
-    }
-
-    void promptInput() {
-        // TODO Auto-generated method stub
-
     }
 
     void error(final String theString) {

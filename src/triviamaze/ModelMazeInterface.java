@@ -10,8 +10,6 @@ import java.beans.PropertyChangeListener;
  *
  */
 interface ModelMazeInterface {
-    
-    void initialize();
     void start();
     void move(final String theMove);
     void answer(final String theAnswer);
