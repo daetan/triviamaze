@@ -57,6 +57,12 @@ class ModelMaze implements ModelMazeInterface, Serializable {
      */
     private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
 
+    private static Scanner myScanner = new Scanner(System.in);
+    
+    private ModelRoom myWinningRoom;
+    
+    private Boolean[][] reachableRooms;
+    
     /**
      * 
      */
@@ -110,6 +116,10 @@ class ModelMaze implements ModelMazeInterface, Serializable {
         startRooms();
         startDoors();
         myRooms[myUser.getMyX()][myUser.getMyY()].setMyHasUser(true);
+        ModelQuestionDatabase.databaseConnection();
+        myWinningRoom = myRooms[myHeight-1][myWidth-1];
+        myWinningRoom.setMyIsWinningRoom(true);
+        reachableRooms = new Boolean[myHeight-2][myWidth-2];
     }
 
     @Override
@@ -135,7 +145,39 @@ class ModelMaze implements ModelMazeInterface, Serializable {
         
         Integer moveToX = userX + theX;
         Integer moveToY = userY + theY;
+        
+        boolean aBoolean = false;
+        
         if (isValidRoom(moveToX, moveToY)) {
+            //Identify door
+            Integer doorX = userX * 2 - 1 + theX;
+            Integer doorY = userY * 2 - 1 + theY;
+            //If door locked, query user for trivia
+            if (myDoors[doorX][doorY].getMyIsBlocked()) {
+                System.out.println("Door is blocked.");
+            } else {
+                if (myDoors[doorX][doorY].getMyIsLocked()) {
+                    final ModelQuestion QA = ModelQuestionDatabase.createQuestion();
+                    System.out.print(QA.getQuestion() + " ");
+                    String aSelection = "";
+                    aSelection = myScanner.nextLine();
+                    if (QA.getAnswer().equalsIgnoreCase(aSelection)) {
+                        myDoors[doorX][doorY].setMyIsLocked(false);
+                        aBoolean = true;
+                    } else {
+                        System.out.println("Incorrect answer.");
+                        myDoors[doorX][doorY].setMyIsBlocked(true);
+                        calculateSolvable();
+                    }
+                } else {
+                    aBoolean = true;
+                }
+            
+            }
+        } else {
+            System.out.println("There's no door that way.");
+        }
+        if (aBoolean) {
             if (theX != 0) {
                 notifyListeners((Object) this, "X", myUser.getMyX().toString(), moveToX.toString());
             }
@@ -146,10 +188,8 @@ class ModelMaze implements ModelMazeInterface, Serializable {
             myRooms[moveToX][moveToY].setMyHasUser(true);
             myUser.setMyX(myUser.getMyX() + theX);
             myUser.setMyY(myUser.getMyY() + theY);
-            return true;
-        } else {
-            return false;
         }
+        return aBoolean;
     }
 
     @Override
@@ -225,8 +265,7 @@ class ModelMaze implements ModelMazeInterface, Serializable {
 
     @Override
     public void exit() {
-        // TODO Auto-generated method stub
-        
+        System.out.println("Goodbye!");
     }
 
     @Override
@@ -323,6 +362,10 @@ class ModelMaze implements ModelMazeInterface, Serializable {
         return isSolvable;
     }
     
+    void calculateSolvable() {
+        //depthFirstSearch()
+    }
+    
     @Override
     public String toString() {
         return "hi";
@@ -350,32 +393,21 @@ class ModelMaze implements ModelMazeInterface, Serializable {
     }
     
     public static void main(final String[] args) {
-        //TODO write escape
         System.out.println("Welcome to Trivia Maze!");
         
         ModelMazeInterface myMaze = new ModelMaze();
         
-        myMaze.start(); //TODO move to Control
-//        
-//        ((ModelMaze) myMaze).print();
-//        
-//        myMaze.move("N");
-//        
-//        ((ModelMaze) myMaze).print();
-//        
-//        myMaze.move("W");
-//        
-//        ((ModelMaze) myMaze).print();
-        
-        final Scanner myConsole = new Scanner(System.in);
+        myMaze.start();
+
         String mySelection = "";
 
-        while (!mySelection.equalsIgnoreCase("X")) {
+        while (!mySelection.equalsIgnoreCase("X") && ((ModelMaze) myMaze).getIsSolvable()) {
             ((ModelMaze) myMaze).print();
+            System.out.println("Get to the * * room!");
             System.out.println("Move [N]orth, [S]outh, [E]ast, or [W]est.");
             System.out.println("Sa[V]e, [L]oad, Abou[T], or E[X]it.");
             System.out.print("Enter your selection: ");
-            mySelection = myConsole.nextLine();
+            mySelection = myScanner.nextLine();
             if (mySelection.equalsIgnoreCase("N") || mySelection.equalsIgnoreCase("S") || mySelection.equalsIgnoreCase("E") || mySelection.equalsIgnoreCase("W")) {
                 myMaze.move(mySelection);
             } else if (mySelection.equalsIgnoreCase("V")) {
@@ -385,10 +417,11 @@ class ModelMaze implements ModelMazeInterface, Serializable {
             } else if (mySelection.equalsIgnoreCase("T")) {
                 myMaze.about();
             } else if (mySelection.equalsIgnoreCase("X")) {
-                System.out.println("Goodbye!");
+                myMaze.exit();
             }
         }
-        myConsole.close();
+        myScanner.close();
+        
     }
 }
 
