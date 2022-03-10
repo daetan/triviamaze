@@ -59,9 +59,13 @@ class ModelMaze implements ModelMazeInterface, Serializable {
 
     private static Scanner myScanner = new Scanner(System.in);
     
+    private final Integer myWinningX;
+    private final Integer myWinningY;
     private ModelRoom myWinningRoom;
     
     private Boolean[][] reachableRooms;
+    
+    private boolean isWin;
     
     /**
      * 
@@ -73,6 +77,9 @@ class ModelMaze implements ModelMazeInterface, Serializable {
         myRooms = new ModelRoom[myHeight][myWidth];
         myDoors = new ModelDoor[myHeight*2-1][myWidth*2-1];
         myUser = new ModelUser();
+        myWinningX = 4;
+        myWinningY = 4;
+        setWin(false);
     }
 
     /**
@@ -87,6 +94,8 @@ class ModelMaze implements ModelMazeInterface, Serializable {
         myRooms = new ModelRoom[myHeight][myWidth];
         myDoors = new ModelDoor[myHeight*2-1][myWidth*2-1];
         myUser = new ModelUser();
+        myWinningX = theX;
+        myWinningY = theY;
     }
 
 //    /**
@@ -117,7 +126,8 @@ class ModelMaze implements ModelMazeInterface, Serializable {
         startDoors();
         myRooms[myUser.getMyX()][myUser.getMyY()].setMyHasUser(true);
         ModelQuestionDatabase.databaseConnection();
-        myWinningRoom = myRooms[myHeight-1][myWidth-1];
+
+        myWinningRoom = myRooms[myWinningX][myWinningY];
         myWinningRoom.setMyIsWinningRoom(true);
         reachableRooms = new Boolean[myHeight-2][myWidth-2];
     }
@@ -188,10 +198,14 @@ class ModelMaze implements ModelMazeInterface, Serializable {
             myRooms[moveToX][moveToY].setMyHasUser(true);
             myUser.setMyX(myUser.getMyX() + theX);
             myUser.setMyY(myUser.getMyY() + theY);
+            if (myUser.getMyX() == myWinningX && myUser.getMyY() == myWinningY) {
+                setWin(true);
+            }
         }
         return aBoolean;
     }
 
+    
     @Override
     public void answer(String theAnswer) {
         // TODO Auto-generated method stub
@@ -237,7 +251,7 @@ class ModelMaze implements ModelMazeInterface, Serializable {
             ObjectInputStream in = new ObjectInputStream 
                                          (file); 
   
-            // Method for deserialization of object 
+            // Method for de-serialization of object 
             theMaze = (ModelMazeInterface) in.readObject(); 
             
             in.close(); 
@@ -270,14 +284,12 @@ class ModelMaze implements ModelMazeInterface, Serializable {
 
     @Override
     public void win() {
-        // TODO Auto-generated method stub
-        
+        System.out.println("Winner, winner, chicken dinner!!");
     }
 
     @Override
     public void lose() {
-        // TODO Auto-generated method stub
-        
+        System.out.println("You lost the game!");
     }
     
     /**
@@ -362,10 +374,73 @@ class ModelMaze implements ModelMazeInterface, Serializable {
         return isSolvable;
     }
     
-    void calculateSolvable() {
-        //depthFirstSearch()
+    void setIsSolvable(final boolean theIsSolvable) {
+        isSolvable = theIsSolvable;
     }
     
+    void calculateSolvable() {
+        /*
+         * Cite: Algorithms Dasgupta
+         * 
+         * procedure explore
+         * input: G = (V, E) is a graph; v e V
+         * output: visited(u) is set to true for all nodes u reachable from v
+         * 
+         * visited(v) = true
+         * previsit(v)
+         * for each edge (v, u) e E:
+         *      if not visited(u): explore(u)
+         * postvisit(v)
+         */
+        
+        //visited(v) = true
+        //previsit(v)
+        //for each edge (v, u) e E: if not visited(u): explore(u)
+        depthFirstSearch(myHeight, myWidth);
+        
+        //postvisit(v)
+        if (!reachableRooms[myUser.getMyY()][myUser.getMyX()]) {
+            setIsSolvable(false);
+        }
+    }
+    
+    private void depthFirstSearch(Integer theHeight, Integer theWidth) {
+        //visited(v) = true
+        reachableRooms[theHeight][theWidth] = true;
+        
+        //previsit(v)
+        //for each edge (v, u) e E:
+        //    if not visited(u): explore(u)
+        
+        //TODO refactor? a lot of repetition
+        //  Is there a door to the:
+        //  North?
+        if (theHeight * 2 - 2 > 0 && !myDoors[theHeight *2 - 2][theWidth * 2 - 1].getMyIsBlocked()) {
+            if (!reachableRooms[theHeight - 1][theWidth]) {
+                depthFirstSearch(theHeight - 1, theWidth);
+            }
+        }
+        //  South?
+        if (theHeight * 2 < myDoors[0].length && !myDoors[theHeight * 2][theWidth * 2 - 1].getMyIsBlocked()) {
+            if (!reachableRooms[theHeight + 1][theWidth]) {
+                depthFirstSearch(theHeight + 1, theWidth);
+            }
+        }
+        //  West?
+        if (theWidth * 2 - 2 > 0 && !myDoors[theHeight * 2 - 1][theWidth * 2 - 2].getMyIsBlocked()) {
+            if (!reachableRooms[theHeight][theWidth - 1]) {
+                depthFirstSearch(theHeight, theWidth - 1);
+            }
+        }
+        //  East?
+        if (theWidth * 2 > 0 && !myDoors[theHeight * 2 - 1][theWidth * 2].getMyIsBlocked()) {
+            if (!reachableRooms[theHeight][theWidth + 1]) {
+                depthFirstSearch(theHeight, theWidth + 1);
+            }
+        }
+        //postvisit(v) in calculateSolvable()
+    }
+
     @Override
     public String toString() {
         return "hi";
@@ -392,6 +467,20 @@ class ModelMaze implements ModelMazeInterface, Serializable {
         System.out.println();
     }
     
+    /**
+     * @return the isWin
+     */
+    public boolean getWin() {
+        return isWin;
+    }
+
+    /**
+     * @param isWin the isWin to set
+     */
+    public void setWin(final boolean theWin) {
+        isWin = theWin;
+    }
+    
     public static void main(final String[] args) {
         System.out.println("Welcome to Trivia Maze!");
         
@@ -401,7 +490,7 @@ class ModelMaze implements ModelMazeInterface, Serializable {
 
         String mySelection = "";
 
-        while (!mySelection.equalsIgnoreCase("X") && ((ModelMaze) myMaze).getIsSolvable()) {
+        while (!mySelection.equalsIgnoreCase("X") && ((ModelMaze) myMaze).getIsSolvable() && !((ModelMaze) myMaze).getWin()) {
             ((ModelMaze) myMaze).print();
             System.out.println("Get to the * * room!");
             System.out.println("Move [N]orth, [S]outh, [E]ast, or [W]est.");
@@ -421,7 +510,13 @@ class ModelMaze implements ModelMazeInterface, Serializable {
             }
         }
         myScanner.close();
+        if (!((ModelMaze) myMaze).getIsSolvable()) {
+            myMaze.lose();
+        }
         
+        if (((ModelMaze) myMaze).getWin()) {
+            myMaze.win();
+        }
     }
 }
 
