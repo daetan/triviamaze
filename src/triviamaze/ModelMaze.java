@@ -130,6 +130,11 @@ class ModelMaze implements ModelMazeInterface, Serializable {
         myWinningRoom = myRooms[myWinningX][myWinningY];
         myWinningRoom.setMyIsWinningRoom(true);
         reachableRooms = new Boolean[myHeight-2][myWidth-2];
+        for (int i = 0; i < reachableRooms[0].length; i++) {
+            for (int j = 0; j < reachableRooms.length; j++) {
+                reachableRooms[i][j] = false;
+            }
+        }
     }
 
     @Override
@@ -396,7 +401,7 @@ class ModelMaze implements ModelMazeInterface, Serializable {
         //visited(v) = true
         //previsit(v)
         //for each edge (v, u) e E: if not visited(u): explore(u)
-        depthFirstSearch(myHeight, myWidth);
+        depthFirstSearch(myHeight-3, myWidth-3);
         
         //postvisit(v)
         if (!reachableRooms[myUser.getMyY()][myUser.getMyX()]) {
@@ -433,7 +438,7 @@ class ModelMaze implements ModelMazeInterface, Serializable {
             }
         }
         //  East?
-        if (theWidth * 2 > 0 && !myDoors[theHeight * 2 - 1][theWidth * 2].getMyIsBlocked()) {
+        if (theWidth * 2 < myDoors.length && !myDoors[theHeight * 2 - 1][theWidth * 2].getMyIsBlocked()) {
             if (!reachableRooms[theHeight][theWidth + 1]) {
                 depthFirstSearch(theHeight, theWidth + 1);
             }
