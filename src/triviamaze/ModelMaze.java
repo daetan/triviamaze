@@ -127,7 +127,7 @@ class ModelMaze implements Serializable {
      * @return ModelRoom, the room of the user.
      */
     ModelRoom getPlayerRoom() {
-        return myRooms[myUser.getMyCol()][myUser.getMyRow()];
+        return myRooms[myUser.getMyRow()][myUser.getMyCol()];
     }
 
     /**
@@ -137,7 +137,7 @@ class ModelMaze implements Serializable {
     void start() {
         startRooms();
         startDoors();
-        myRooms[myUser.getMyCol()][myUser.getMyRow()].setMyHasUser(true);
+        myRooms[myUser.getMyRow()][myUser.getMyCol()].setMyHasUser(true);
         myWinningRoom = myRooms[myWinningRow][myWinningCol];
         myWinningRoom.setMyIsWinningRoom(true);
         ModelQuestionDatabase.databaseConnection();
