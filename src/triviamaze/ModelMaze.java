@@ -13,55 +13,78 @@ import java.io.*;
 class ModelMaze implements Serializable {
 
     /**
-     * 
+     * Serializable long.
      */
     private static final long serialVersionUID = -3365061151045669276L;
 
     /**
-     * 
+     * The number of rows (including padding).
      */
-    private final Integer myRows;
+    private final int myRows;
 
     /**
-     * 
+     * The number of columns (including padding).
      */
-    private final Integer myCols;
+    private final int myCols;
 
     /**
-     * 
+     * If the maze is solvable; i.e., the user can still reach the end of the maze.
      */
     private boolean myIsSolvable;
 
     /**
-     * 
+     * The 2d array of Rooms.
      */
     private final ModelRoom[][] myRooms;
     
     /**
-     * 
+     * The 2d array of Doors.
      */
     private final ModelDoor[][] myDoors;
 
 
     /**
-     * 
+     * The user.
      */
     private final ModelUser myUser;
-
-    private static Scanner myScanner = new Scanner(System.in);
-    
-    private final Integer myWinningCol;
-    private final Integer myWinningRow;
-    private ModelRoom myWinningRoom;
-    
-    private boolean foundUser;
-    
-    private Boolean[][] reachableRoomsFromFinish;
-    
-    private boolean isWin;
     
     /**
-     * 
+     * The scanner for console input.
+     */
+    private static Scanner myScanner = new Scanner(System.in);
+    
+    /**
+     * The column of the exit/winning room.
+     */
+    private final int myWinningCol;
+    
+    /**
+     * The row of the exit/winning room.
+     */
+    private final int myWinningRow;
+    
+    /**
+     * A reference to the winning room.
+     */
+    private ModelRoom myWinningRoom;
+    
+    /**
+     * A helper boolean to end depth-first search early if it reaches the user.
+     */
+    private boolean myFoundUser;
+    
+    /**
+     * A helper 2d array of boolean 2d to mark visited rooms during depth-first search.
+     */
+    private boolean[][] myVisitedRooms;
+    
+    /**
+     * A boolean of if the user won the maze (by getting to the exit/winning room).    
+     */
+    private boolean myIsWin;
+    
+    /**
+     * Default constructor of 4-by-4 maze.
      */
     ModelMaze() {
         myRows = 6;
@@ -74,10 +97,18 @@ class ModelMaze implements Serializable {
         myUser = new ModelUser();
         myWinningCol = 4;
         myWinningRow = 4;
-        setWin(false);
+        setMyIsWin(false);
     }
     
+    /**
+     * A constructor that creates a custom-size maze.
+     * @param theRows, the rows of the custom maze.
+     * @param theCols, the columns of the custom maze.
+     */
     ModelMaze(final int theRows, final int theCols) {
+        if (theRows < 1 || theCols < 1) {
+            throw new IllegalArgumentException();
+        }
         myRows = theRows + 2;
         myCols = theCols + 2;
         myIsSolvable = true;
@@ -88,30 +119,32 @@ class ModelMaze implements Serializable {
         myUser = new ModelUser();
         myWinningCol = myRows - 2;
         myWinningRow = myCols - 2;
-        setWin(false);
+        setMyIsWin(false);
     }
 
     /**
-     * 
-     * @return
+     * Getter for the room the user is in.
+     * @return ModelRoom, the room of the user.
      */
     ModelRoom getPlayerRoom() {
         return myRooms[myUser.getMyCol()][myUser.getMyRow()];
     }
 
+    /**
+     * A setup method that initializes the 2d room and door and visited-rooms arrays,
+     * places the user, marks the winning room, and initializes the database.
+     */
     void start() {
         startRooms();
         startDoors();
-        startReachableRooms();
         myRooms[myUser.getMyCol()][myUser.getMyRow()].setMyHasUser(true);
         myWinningRoom = myRooms[myWinningRow][myWinningCol];
         myWinningRoom.setMyIsWinningRoom(true);
-        foundUser = false;
         ModelQuestionDatabase.databaseConnection();
     }
     
     /**
-     * 
+     * Uses a 2d for-loop to create new rooms. Padded by null. TODO refactor to pad with unreachable, empty rooms?
      */
     void startRooms() {
         for (int i = 1; i < myRooms.length-1; i++) {
@@ -122,7 +155,7 @@ class ModelMaze implements Serializable {
     }
     
     /**
-     * 
+     * Uses a 2d for-loop to create new doors iff the row xor column of the door 2d array is odd (the location of a room-connecting door).
      */
     void startDoors() {
         for (int i = 1; i < myDoors.length-1; i++) {
@@ -134,66 +167,77 @@ class ModelMaze implements Serializable {
         }
     }
     
-    void startReachableRooms() {
-        reachableRoomsFromFinish = new Boolean[myRows][myCols];
-        for (int i = 0; i < reachableRoomsFromFinish.length; i++) {
-            for (int j = 0; j < reachableRoomsFromFinish[0].length; j++) {
-                reachableRoomsFromFinish[i][j] = false;
+    /**
+     * Uses a 2d for-loop to set all visitedRooms to false.
+     */
+    void startVisitedRooms() {
+        myVisitedRooms = new boolean[myRows][myCols];
+        for (int i = 0; i < myVisitedRooms.length; i++) {
+            for (int j = 0; j < myVisitedRooms[0].length; j++) {
+                myVisitedRooms[i][j] = false;
             }
         }
     }
     
-    void calculateSolvable() {  
-        //visited(v) = true
-        //previsit(v)
-        //for each edge (v, u) e E: if not visited(u): explore(u)
-        startReachableRooms();
-        foundUser = false;
+    /**
+     * Method determines if the maze is solvable using depth-first search.
+     */
+    void calculateSolvable() {
+        //Initialize (or reinitialized) visitedRooms, myFoundUser to false.
+        startVisitedRooms();
+        myFoundUser = false;
+        
+        //Starts search at the exit.
         depthFirstSearch(myRows-2, myCols-2);
         
-        //postvisit(v)
-        if (!foundUser) {
+        if (!myFoundUser) {
             setMyIsSolvable(false);
         }
     }
     
-    private void depthFirstSearch(Integer theRow, Integer theCol) {
+    /**
+     * Depth-first search to reach the user's room from the exit/winning room.
+     * Bypass more searching if the user is found.
+     * @param int theRow, the row of the room to search.
+     * @param int theCol, the column of the room to search.
+     */
+    private void depthFirstSearch(int theRow, int theCol) {
         if (theRow == myUser.getMyRow() && theCol == myUser.getMyCol()) {
-            foundUser = true;
+            myFoundUser = true;
         }
         
-        if (!foundUser) {
+        if (!myFoundUser) {
             final int myDoorArrayRows = theRow * 2 - 1;
             final int myDoorArrayCols = theCol * 2 - 1;
-            //TODO refactor? a lot of repetition
+            
             //  Is there a door to the:
             //  North?
-            if (theRow - 1 > 0 && !reachableRoomsFromFinish[theRow - 1][theCol]
+            if (theRow - 1 > 0 && !myVisitedRooms[theRow - 1][theCol]
                     && !myDoors[myDoorArrayRows - 1][myDoorArrayCols].getMyIsBlocked()) {
-                System.out.println("Search N");
                 depthFirstSearch(theRow - 1, theCol);
             }
             //  West?
-            if (theCol - 1 > 0 && !reachableRoomsFromFinish[theRow][theCol - 1]
+            if (theCol - 1 > 0 && !myVisitedRooms[theRow][theCol - 1]
                     && !myDoors[myDoorArrayRows][myDoorArrayCols - 1].getMyIsBlocked()) {
-                System.out.println("Search W");
                 depthFirstSearch(theRow, theCol - 1);
             }
             //  South?
-            if (theRow + 1 < myRooms.length - 1 && !reachableRoomsFromFinish[theRow + 1][theCol]
+            if (theRow + 1 < myRooms.length - 1 && !myVisitedRooms[theRow + 1][theCol]
                     && !myDoors[myDoorArrayRows + 1][myDoorArrayCols].getMyIsBlocked()) {
-                System.out.println("Search S");
                 depthFirstSearch(theRow + 1, theCol);
             }
             //  East?
-            if (theCol + 1 < myRooms[0].length - 1 && !reachableRoomsFromFinish[theRow][theCol + 1]
+            if (theCol + 1 < myRooms[0].length - 1 && !myVisitedRooms[theRow][theCol + 1]
                     && !myDoors[myDoorArrayRows][myDoorArrayCols + 1].getMyIsBlocked()) {
-                System.out.println("Search E");
                 depthFirstSearch(theRow, theCol + 1);
-            } 
+            }
         }
     }
 
+    /**
+     * Moves the user by calling a column, row move method.
+     * @param String theMove
+     */
     void move(final String theMove) {
         boolean result = false;
         if (theMove.equalsIgnoreCase("E")) {
@@ -206,23 +250,30 @@ class ModelMaze implements Serializable {
             result = move(-1, 0);
         }
         if (!result) {
-            System.out.println("Could not move.");
+            System.out.println("Did not move.");
         }
     }
 
-    boolean move(final Integer theRow, final Integer theCol) {
-        Integer userRow = myUser.getMyRow();
-        Integer userCol = myUser.getMyCol();
+    /**
+     * Moves the user.
+     * @param theRow
+     * @param theCol
+     * @return boolean if the user moved.
+     */
+    boolean move(final int theRow, final int theCol) {
+        int userRow = myUser.getMyRow();
+        int userCol = myUser.getMyCol();
 
-        Integer moveToRow = userRow + theRow;       
-        Integer moveToCol = userCol + theCol;
+        int moveToRow = userRow + theRow;       
+        int moveToCol = userCol + theCol;
         
         boolean aBoolean = false;
         
         if (isValidRoom(moveToRow, moveToCol)) {
             //Identify door
-            Integer doorRow = userRow * 2 - 1 + theRow;
-            Integer doorCol = userCol * 2 - 1 + theCol;
+            int doorRow = userRow * 2 - 1 + theRow;
+            int doorCol = userCol * 2 - 1 + theCol;
+            
             //If door locked, query user for trivia
             if (myDoors[doorRow][doorCol].getMyIsBlocked()) {
                 System.out.println("Door is blocked.");
@@ -238,7 +289,7 @@ class ModelMaze implements Serializable {
                     } else {
                         System.out.println("Incorrect answer.");
                         myDoors[doorRow][doorCol].setMyIsBlocked(true);
-                        //calculateSolvable();
+                        //calculateSolvable(); TODO
                     }
                 } else {
                     aBoolean = true;
@@ -254,12 +305,15 @@ class ModelMaze implements Serializable {
             myUser.setMyCol(myUser.getMyCol() + theCol);
             myUser.setMyRow(myUser.getMyRow() + theRow);
             if (myUser.getMyCol() == myWinningCol && myUser.getMyRow() == myWinningRow) {
-                setWin(true);
+                setMyIsWin(true);
             }
         }
         return aBoolean;
     }
 
+    /**
+     * Saves the state to save.tm.
+     */
     void save() {
         String filename = "save.tm"; 
         
@@ -286,6 +340,11 @@ class ModelMaze implements Serializable {
         }
     }
 
+    /**
+     * Loads a maze from a file.
+     * @param theMaze
+     * @return the loaded maze.
+     */
     ModelMaze load(ModelMaze theMaze) {
         String filename = "save.tm";
         
@@ -317,45 +376,64 @@ class ModelMaze implements Serializable {
         return theMaze;
     }
 
+    /**
+     * Presents information about the project.
+     */
     void about() {
         System.out.println("Trivia Maze Group 6 v1.0 Winter 2022");
         System.out.println("Made by Abdulrehim, Daetan, and Hanad");
     }
 
+    /**
+     * Exit dialog.
+     */
     void exit() {
         System.out.println("Goodbye!");
     }
 
+    /**
+     * Win dialog.
+     */
     void win() {
         System.out.println("Winner, winner, chicken dinner!!");
     }
 
+    /**
+     * Lose dialog.
+     */
     void lose() {
         System.out.println("You lost the game!");
     }
     
     /**
-     * 
-     * @param theX
-     * @param theY
-     * @return
+     * Returns true iff a room exists at the specified location.
+     * @param int theRow
+     * @param int theCol
+     * @return boolean if a room exists at the location.
      */
-    boolean isValidRoom(final Integer theRow, final Integer theCol) {
+    boolean isValidRoom(final int theRow, final int theCol) {
         return theCol > 0 && theCol < myCols - 1 && theRow > 0 && theRow < myRows - 1;
     }
 
     /**
-     * 
-     * @return
+     * Getter for if maze is solvable.
+     * @return boolean of if the maze is still solvable.
      */
     boolean getMyIsSolvable() {
         return myIsSolvable;
     }
     
+    /**
+     * Setter for if the maze is solvable.
+     * @param boolean theIsSolvable
+     */
     void setMyIsSolvable(final boolean theIsSolvable) {
         myIsSolvable = theIsSolvable;
     }
     
+    /**
+     * Calls toString while iterating through myDoors with algorithm to identify rooms.
+     */
     void print() {
         System.out.println("Maze:");
         for (int i = 1; i < myDoors.length-1; i++) {
@@ -378,31 +456,49 @@ class ModelMaze implements Serializable {
     }
     
     /**
-     * @return the isWin
+     * Getter of if the user won the game.
+     * @return boolean myIsWin
      */
-    boolean getWin() {
-        return isWin;
+    boolean getMyIsWin() {
+        return myIsWin;
     }
 
     /**
-     * @param isWin the isWin to set
+     * Setter of if the user won the game.
+     * @param boolean myIsWin
      */
-    void setWin(final boolean theWin) {
-        isWin = theWin;
+    void setMyIsWin(final boolean theWin) {
+        myIsWin = theWin;
     }
     
+    /**
+     * Getter for myRooms.
+     * @return ModelRoom[][] myRooms
+     */
     ModelRoom[][] getMyRooms() {
         return myRooms;
     }
 
-    Integer getMyRows() {
+    /**
+     * Getter for rows.
+     * @return int myRows
+     */
+    int getMyRows() {
         return myRows;
     }
 
-    Integer getMyCols() {
+    /**
+     * Getter for columns.
+     * @return int myCols
+     */
+    int getMyCols() {
         return myCols;
     }
     
+    /**
+     * Main method that takes user input.
+     * @param args
+     */
     public static void main(final String[] args) {
         System.out.println("Welcome to Trivia Maze!");
         
@@ -412,7 +508,7 @@ class ModelMaze implements Serializable {
 
         String mySelection = "";
 
-        while (!mySelection.equalsIgnoreCase("X") && myMaze.getMyIsSolvable() && !myMaze.getWin()) {
+        while (!mySelection.equalsIgnoreCase("X") && myMaze.getMyIsSolvable() && !myMaze.getMyIsWin()) {
             myMaze.print();
             System.out.println("Get to the * * room!");
             System.out.println("Move [N]orth, [S]outh, [E]ast, or [W]est.");
@@ -437,7 +533,7 @@ class ModelMaze implements Serializable {
             myMaze.lose();
         }
         
-        if (myMaze.getWin()) {
+        if (myMaze.getMyIsWin()) {
             myMaze.print();
             myMaze.win();
         }
