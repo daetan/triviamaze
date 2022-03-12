@@ -21,31 +21,31 @@ class ModelUser implements Serializable {
      */
     private static final long serialVersionUID = -6750355880804259040L;
 
-    private Integer myX;
+    private Integer myCol;
 
-    private Integer myY;
+    private Integer myRow;
 
 //    private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
 
     ModelUser() {
-        myX = 1;
-        myY = 1;
+        myCol = 1;
+        myRow = 1;
     }
 
-    void setMyX(final Integer theX) {
-        myX = theX;
+    void setMyCol(final Integer theX) {
+        myCol = theX;
     }
 
-    void setMyY(final Integer theY) {
-        myY = theY;
+    void setMyRow(final Integer theY) {
+        myRow = theY;
     }
 
-    Integer getMyX() {
-        return myX;
+    Integer getMyCol() {
+        return myCol;
     }
 
-    Integer getMyY() {
-        return myY;
+    Integer getMyRow() {
+        return myRow;
     }
 
 //    private void notifyMove(final int theX, final int theY) {

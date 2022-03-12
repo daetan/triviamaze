@@ -24,46 +24,41 @@ class ModelMaze implements ModelMazeInterface, Serializable {
     /**
      * 
      */
-    private Integer myHeight;
+    private final Integer myRows;
 
     /**
      * 
      */
-    private Integer myWidth;
+    private final Integer myCols;
 
     /**
      * 
      */
-    private boolean isSolvable;
+    private boolean myIsSolvable;
 
     /**
      * 
      */
-    private ModelRoom[][] myRooms;
+    private final ModelRoom[][] myRooms;
     
     /**
      * 
      */
-    private ModelDoor[][] myDoors;
+    private final ModelDoor[][] myDoors;
 
 
     /**
      * 
      */
-    private ModelUser myUser;
-
-    /**
-     * 
-     */
-    private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
+    private final ModelUser myUser;
 
     private static Scanner myScanner = new Scanner(System.in);
     
-    private final Integer myWinningX;
-    private final Integer myWinningY;
+    private final Integer myWinningCol;
+    private final Integer myWinningRow;
     private ModelRoom myWinningRoom;
     
-    private Boolean[][] reachableRooms;
+    private Boolean[][] reachableRoomsFromFinish;
     
     private boolean isWin;
     
@@ -71,68 +66,40 @@ class ModelMaze implements ModelMazeInterface, Serializable {
      * 
      */
     ModelMaze() {
-        myHeight = 6;
-        myWidth = 6;
-        isSolvable = true;
-        myRooms = new ModelRoom[myHeight][myWidth];
-        myDoors = new ModelDoor[myHeight*2-1][myWidth*2-1];
+        myRows = 6;
+        myCols = 6;
+        myIsSolvable = true;
+        myRooms = new ModelRoom[myRows][myCols];
+        final int myDoorArrayRows = (myRows - 2) * 2 - 1;
+        final int myDoorArrayCols = (myCols - 2) * 2 - 1;
+        myDoors = new ModelDoor[myDoorArrayRows][myDoorArrayCols];
         myUser = new ModelUser();
-        myWinningX = 4;
-        myWinningY = 4;
+        myWinningCol = 4;
+        myWinningRow = 4;
         setWin(false);
     }
 
     /**
      * 
-     * @param theX
-     * @param theY
-     */
-    ModelMaze(final Integer theX, final Integer theY) {
-        myHeight = theY + 2;
-        myWidth = theX + 2;
-        isSolvable = true;
-        myRooms = new ModelRoom[myHeight][myWidth];
-        myDoors = new ModelDoor[myHeight*2-1][myWidth*2-1];
-        myUser = new ModelUser();
-        myWinningX = theX;
-        myWinningY = theY;
-    }
-
-//    /**
-//     * 
-//     * @param theX
-//     * @param theY
-//     * @return
-//     */
-//    ModelRoom getRoom(final Integer theX, final Integer theY) {
-//        ModelRoom returnRoom = new ModelRoom();
-//        if (theX < myWidth && theX > 0 && theY < myHeight && theY > 0) {
-//            returnRoom = myRooms[theX][theY];
-//        }
-//        return returnRoom;
-//    }
-
-    /**
-     * 
      * @return
      */
-    ModelRoom getPlayerLocation() {
-        return myRooms[myUser.getMyX()][myUser.getMyY()];
+    ModelRoom getPlayerRoom() {
+        return myRooms[myUser.getMyCol()][myUser.getMyRow()];
     }
 
     @Override
     public void start() {
         startRooms();
         startDoors();
-        myRooms[myUser.getMyX()][myUser.getMyY()].setMyHasUser(true);
+        myRooms[myUser.getMyCol()][myUser.getMyRow()].setMyHasUser(true);
         ModelQuestionDatabase.databaseConnection();
 
-        myWinningRoom = myRooms[myWinningX][myWinningY];
+        myWinningRoom = myRooms[myWinningRow][myWinningCol];
         myWinningRoom.setMyIsWinningRoom(true);
-        reachableRooms = new Boolean[myHeight-2][myWidth-2];
-        for (int i = 0; i < reachableRooms[0].length; i++) {
-            for (int j = 0; j < reachableRooms.length; j++) {
-                reachableRooms[i][j] = false;
+        reachableRoomsFromFinish = new Boolean[myRows][myCols];
+        for (int i = 0; i < reachableRoomsFromFinish.length; i++) {
+            for (int j = 0; j < reachableRoomsFromFinish[0].length; j++) {
+                reachableRoomsFromFinish[i][j] = false;
             }
         }
     }
@@ -154,34 +121,34 @@ class ModelMaze implements ModelMazeInterface, Serializable {
         }
     }
 
-    boolean move(final Integer theX, final Integer theY) {
-        Integer userX = myUser.getMyX();
-        Integer userY = myUser.getMyY();
-        
-        Integer moveToX = userX + theX;
-        Integer moveToY = userY + theY;
+    boolean move(final Integer theRow, final Integer theCol) {
+        Integer userRow = myUser.getMyRow();
+        Integer userCol = myUser.getMyCol();
+
+        Integer moveToRow = userRow + theRow;       
+        Integer moveToCol = userCol + theCol;
         
         boolean aBoolean = false;
         
-        if (isValidRoom(moveToX, moveToY)) {
+        if (isValidRoom(moveToRow, moveToCol)) {
             //Identify door
-            Integer doorX = userX * 2 - 1 + theX;
-            Integer doorY = userY * 2 - 1 + theY;
+            Integer doorRow = userRow * 2 - 1 + theRow;
+            Integer doorCol = userCol * 2 - 1 + theCol;
             //If door locked, query user for trivia
-            if (myDoors[doorX][doorY].getMyIsBlocked()) {
+            if (myDoors[doorRow][doorCol].getMyIsBlocked()) {
                 System.out.println("Door is blocked.");
             } else {
-                if (myDoors[doorX][doorY].getMyIsLocked()) {
+                if (myDoors[doorRow][doorCol].getMyIsLocked()) {
                     final ModelQuestion QA = ModelQuestionDatabase.createQuestion();
                     System.out.print(QA.getQuestion() + " ");
                     String aSelection = "";
                     aSelection = myScanner.nextLine();
                     if (QA.getAnswer().equalsIgnoreCase(aSelection)) {
-                        myDoors[doorX][doorY].setMyIsLocked(false);
+                        myDoors[doorRow][doorCol].setMyIsLocked(false);
                         aBoolean = true;
                     } else {
                         System.out.println("Incorrect answer.");
-                        myDoors[doorX][doorY].setMyIsBlocked(true);
+                        myDoors[doorRow][doorCol].setMyIsBlocked(true);
                         calculateSolvable();
                     }
                 } else {
@@ -193,17 +160,11 @@ class ModelMaze implements ModelMazeInterface, Serializable {
             System.out.println("There's no door that way.");
         }
         if (aBoolean) {
-            if (theX != 0) {
-                notifyListeners((Object) this, "X", myUser.getMyX().toString(), moveToX.toString());
-            }
-            if (theY != 0) {
-                notifyListeners((Object) this, "Y", myUser.getMyY().toString(), moveToY.toString());
-            }
-            myRooms[userX][userY].setMyHasUser(false);
-            myRooms[moveToX][moveToY].setMyHasUser(true);
-            myUser.setMyX(myUser.getMyX() + theX);
-            myUser.setMyY(myUser.getMyY() + theY);
-            if (myUser.getMyX() == myWinningX && myUser.getMyY() == myWinningY) {
+            myRooms[userRow][userCol].setMyHasUser(false);
+            myRooms[moveToRow][moveToCol].setMyHasUser(true);
+            myUser.setMyCol(myUser.getMyCol() + theCol);
+            myUser.setMyRow(myUser.getMyRow() + theRow);
+            if (myUser.getMyCol() == myWinningCol && myUser.getMyRow() == myWinningRow) {
                 setWin(true);
             }
         }
@@ -303,16 +264,16 @@ class ModelMaze implements ModelMazeInterface, Serializable {
      * @param theY
      * @return
      */
-    boolean isValidRoom(final Integer theX, final Integer theY) {
-        return theX > 0 && theX < myWidth && theY > 0 && theY < myHeight;
+    boolean isValidRoom(final Integer theRow, final Integer theCol) {
+        return theCol > 0 && theCol < myCols && theRow > 0 && theRow < myRows;
     }
 
     /**
      * 
      */
     void startRooms() {
-        for (int i = 1; i < myRooms.length; i++) {
-            for (int j = 1; j < myRooms[0].length; j++) {
+        for (int i = 1; i < myRooms.length-1; i++) {
+            for (int j = 1; j < myRooms[0].length-1; j++) {
                 myRooms[i][j] = new ModelRoom();
             }
         }
@@ -333,122 +294,60 @@ class ModelMaze implements ModelMazeInterface, Serializable {
 
     /**
      * 
-     * @param theObject
-     * @param theProperty
-     * @param theOldValue
-     * @param theNewValue
-     */
-    @SuppressWarnings("unused")
-    public void notifyListeners(final Object theObject, final String theProperty, final String theOldValue,
-            final String theNewValue) {
-        for (PropertyChangeListener aListener : myListeners) {
-            aListener.propertyChange(new PropertyChangeEvent(this, theProperty, theOldValue, theNewValue));
-        }
-    }
-
-    /**
-     * 
-     * @param theNewListener
-     */
-    @Override
-    public void addChangeListener(final PropertyChangeListener theNewListener) {
-        myListeners.add(theNewListener);
-    }
-
-    /**
-     * 
      * @return
      */
-    Integer getMyHeight() {
-        return myHeight - 2;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    Integer getMyWidth() {
-        return myWidth - 2;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    boolean getIsSolvable() {
-        return isSolvable;
+    boolean getMyIsSolvable() {
+        return myIsSolvable;
     }
     
-    void setIsSolvable(final boolean theIsSolvable) {
-        isSolvable = theIsSolvable;
+    void setMyIsSolvable(final boolean theIsSolvable) {
+        myIsSolvable = theIsSolvable;
     }
     
-    void calculateSolvable() {
-        /*
-         * Cite: Algorithms Dasgupta
-         * 
-         * procedure explore
-         * input: G = (V, E) is a graph; v e V
-         * output: visited(u) is set to true for all nodes u reachable from v
-         * 
-         * visited(v) = true
-         * previsit(v)
-         * for each edge (v, u) e E:
-         *      if not visited(u): explore(u)
-         * postvisit(v)
-         */
-        
+    void calculateSolvable() {  
         //visited(v) = true
         //previsit(v)
         //for each edge (v, u) e E: if not visited(u): explore(u)
-        depthFirstSearch(myHeight-3, myWidth-3);
+        depthFirstSearch(myRows-1, myCols-1);
         
         //postvisit(v)
-        if (!reachableRooms[myUser.getMyY()][myUser.getMyX()]) {
-            setIsSolvable(false);
+        if (!reachableRoomsFromFinish[myUser.getMyRow()][myUser.getMyCol()]) {
+            setMyIsSolvable(false);
         }
     }
     
-    private void depthFirstSearch(Integer theHeight, Integer theWidth) {
-        //visited(v) = true
-        reachableRooms[theHeight][theWidth] = true;
+    private void depthFirstSearch(Integer theRow, Integer theCol) {
+        reachableRoomsFromFinish[theRow][theCol] = true;
         
-        //previsit(v)
-        //for each edge (v, u) e E:
-        //    if not visited(u): explore(u)
+        final int myDoorArrayRows = (theRow - 2) * 2 - 1;
+        final int myDoorArrayCols = (theCol - 2) * 2 - 1;
         
         //TODO refactor? a lot of repetition
         //  Is there a door to the:
         //  North?
-        if (theHeight * 2 - 2 > 0 && !myDoors[theHeight *2 - 2][theWidth * 2 - 1].getMyIsBlocked()) {
-            if (!reachableRooms[theHeight - 1][theWidth]) {
-                depthFirstSearch(theHeight - 1, theWidth);
+        if (myDoorArrayRows - 1 > 0) {
+            if (!myDoors[myDoorArrayRows - 1][myDoorArrayCols].getMyIsBlocked() && !reachableRoomsFromFinish[theRow - 1][theCol]) {
+                depthFirstSearch(theRow - 1, theCol);
             }
         }
         //  South?
-        if (theHeight * 2 < myDoors[0].length && !myDoors[theHeight * 2][theWidth * 2 - 1].getMyIsBlocked()) {
-            if (!reachableRooms[theHeight + 1][theWidth]) {
-                depthFirstSearch(theHeight + 1, theWidth);
+        if (myDoorArrayRows + 1 < myDoors[0].length) {
+            if (!myDoors[myDoorArrayRows + 1][myDoorArrayCols].getMyIsBlocked() && !reachableRoomsFromFinish[theRow + 1][theCol]) {
+                depthFirstSearch(theRow + 1, theCol);
             }
         }
         //  West?
-        if (theWidth * 2 - 2 > 0 && !myDoors[theHeight * 2 - 1][theWidth * 2 - 2].getMyIsBlocked()) {
-            if (!reachableRooms[theHeight][theWidth - 1]) {
-                depthFirstSearch(theHeight, theWidth - 1);
+        if (myDoorArrayCols - 1 > 0) {
+            if (!myDoors[myDoorArrayRows][myDoorArrayCols - 1].getMyIsBlocked() && !reachableRoomsFromFinish[theRow][theCol - 1]) {
+                depthFirstSearch(theRow, theCol - 1);
             }
         }
         //  East?
-        if (theWidth * 2 < myDoors.length && !myDoors[theHeight * 2 - 1][theWidth * 2].getMyIsBlocked()) {
-            if (!reachableRooms[theHeight][theWidth + 1]) {
-                depthFirstSearch(theHeight, theWidth + 1);
+        if (myDoorArrayCols + 1 < myDoors.length) {
+            if (!myDoors[myDoorArrayRows][myDoorArrayCols + 1].getMyIsBlocked() && !reachableRoomsFromFinish[theRow][theCol + 1]) {
+                depthFirstSearch(theRow, theCol + 1);
             }
         }
-        //postvisit(v) in calculateSolvable()
-    }
-
-    @Override
-    public String toString() {
-        return "hi";
     }
     
     void print() {
@@ -495,7 +394,7 @@ class ModelMaze implements ModelMazeInterface, Serializable {
 
         String mySelection = "";
 
-        while (!mySelection.equalsIgnoreCase("X") && ((ModelMaze) myMaze).getIsSolvable() && !((ModelMaze) myMaze).getWin()) {
+        while (!mySelection.equalsIgnoreCase("X") && ((ModelMaze) myMaze).getMyIsSolvable() && !((ModelMaze) myMaze).getWin()) {
             ((ModelMaze) myMaze).print();
             System.out.println("Get to the * * room!");
             System.out.println("Move [N]orth, [S]outh, [E]ast, or [W]est.");
@@ -515,7 +414,7 @@ class ModelMaze implements ModelMazeInterface, Serializable {
             }
         }
         myScanner.close();
-        if (!((ModelMaze) myMaze).getIsSolvable()) {
+        if (!((ModelMaze) myMaze).getMyIsSolvable()) {
             myMaze.lose();
         }
         
@@ -524,61 +423,3 @@ class ModelMaze implements ModelMazeInterface, Serializable {
         }
     }
 }
-
-///**
-//* @return the myUser
-//*/
-//ModelUser getMyUser() {
-// return myUser;
-//}
-//
-///**
-//* @param myUser the myUser to set
-//*/
-//void setMyUser(ModelUser theUser) {
-// myUser = theUser;
-//}
-
-///**
-//* 
-//* @return
-//*/
-//ModelRoom[][] getMyRooms() {
-// return myRooms;
-//}
-//
-///**
-//* 
-//* @param theCurrentRoom
-//* @return
-//*/
-//ModelRoom getTopNeighbour(final ModelRoom theCurrentRoom) {
-// return myRooms[theCurrentRoom.getMyX() - 1][theCurrentRoom.getMyY()];
-//}
-//
-///**
-//* 
-//* @param theCurrentRoom
-//* @return
-//*/
-//ModelRoom getRightNeighbour(final ModelRoom theCurrentRoom) {
-// return myRooms[theCurrentRoom.getMyX()][theCurrentRoom.getMyY() + 1];
-//}
-//
-///**
-//* 
-//* @param theCurrentRoom
-//* @return
-//*/
-//ModelRoom getBottomNeighbour(final ModelRoom theCurrentRoom) {
-// return myRooms[theCurrentRoom.getMyX() + 1][theCurrentRoom.getMyY()];
-//}
-//
-///**
-//* 
-//* @param theCurrentRoom
-//* @return
-//*/
-//ModelRoom getLeftNeighbour(final ModelRoom theCurrentRoom) {
-// return myRooms[theCurrentRoom.getMyX()][theCurrentRoom.getMyY() - 1];
-//}

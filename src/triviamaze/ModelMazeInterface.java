@@ -19,8 +19,8 @@ interface ModelMazeInterface {
     void exit();
     void win();
     void lose();
-    void notifyListeners(final Object theObject, final String theProperty, final String theOldValue,
-            final String theNewValue);
-    void addChangeListener(final PropertyChangeListener theNewListener);
+    //void notifyListeners(final Object theObject, final String theProperty, final String theOldValue,
+    //        final String theNewValue);
+    //void addChangeListener(final PropertyChangeListener theNewListener);
 
 }
