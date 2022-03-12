@@ -106,7 +106,7 @@ class ModelMaze implements Serializable {
      * @param theCols, the columns of the custom maze.
      */
     ModelMaze(final int theRows, final int theCols) {
-        if (theRows < 1 || theCols < 1) {
+        if (theRows < 2 || theCols < 2) {
             throw new IllegalArgumentException();
         }
         myRows = theRows + 2;
@@ -183,7 +183,7 @@ class ModelMaze implements Serializable {
      * Method determines if the maze is solvable using depth-first search.
      */
     void calculateSolvable() {
-        //Initialize (or reinitialized) visitedRooms, myFoundUser to false.
+        //Initialize (or reinitialize) visitedRooms, myFoundUser to false.
         startVisitedRooms();
         myFoundUser = false;
         
@@ -202,6 +202,8 @@ class ModelMaze implements Serializable {
      * @param int theCol, the column of the room to search.
      */
     private void depthFirstSearch(int theRow, int theCol) {
+        myVisitedRooms[theRow][theCol] = true;
+        
         if (theRow == myUser.getMyRow() && theCol == myUser.getMyCol()) {
             myFoundUser = true;
         }
@@ -289,7 +291,7 @@ class ModelMaze implements Serializable {
                     } else {
                         System.out.println("Incorrect answer.");
                         myDoors[doorRow][doorCol].setMyIsBlocked(true);
-                        //calculateSolvable(); TODO
+                        calculateSolvable();
                     }
                 } else {
                     aBoolean = true;
