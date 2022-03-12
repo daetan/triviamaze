@@ -43,17 +43,17 @@ class ModelMazeTest {
 
     @Test
     void testDefaultConstructorHeight() {
-        assertEquals(testDefaultMaze.getMyHeight(), 4);
+        assertEquals(testDefaultMaze.getMyRows(), 4);
     }
 
     @Test
     void testDefaultConstructorWidth() {
-        assertEquals(testDefaultMaze.getMyWidth(), 4);
+        assertEquals(testDefaultMaze.getMyCols(), 4);
     }
 
     @Test
     void testDefaultConstructorIsSolvable() {
-        assertTrue(testDefaultMaze.getIsSolvable());
+        assertTrue(testDefaultMaze.getMyIsSolvable());
     }
 
     @Test

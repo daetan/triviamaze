@@ -25,8 +25,12 @@ class ModelDoor implements Serializable {
     }
 
     void setMyIsLocked(final boolean theIsLocked) {
-        if (!theIsLocked && !myIsBlocked) {
-            myStateString = " O ";
+        if (!myIsBlocked) {
+            if (theIsLocked) {
+                myStateString = " X ";
+            } else {
+                myStateString = " O ";
+            }
         }
         myIsLocked = theIsLocked;
     }
