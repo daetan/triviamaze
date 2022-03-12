@@ -1,6 +1,13 @@
 package triviamaze;
 
-class ModelDoor {
+import java.io.Serializable;
+
+class ModelDoor implements Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 2742738560353830826L;
+
     boolean myIsLocked;
 
     boolean myIsBlocked;
@@ -18,8 +25,12 @@ class ModelDoor {
     }
 
     void setMyIsLocked(final boolean theIsLocked) {
-        if (!theIsLocked && !myIsBlocked) {
-            myStateString = " O ";
+        if (!myIsBlocked) {
+            if (theIsLocked) {
+                myStateString = " X ";
+            } else {
+                myStateString = " O ";
+            }
         }
         myIsLocked = theIsLocked;
     }

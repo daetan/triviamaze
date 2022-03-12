@@ -3,6 +3,8 @@
  */
 package triviamaze;
 
+import java.io.Serializable;
+
 //import java.beans.PropertyChangeEvent;
 //import java.beans.PropertyChangeListener;
 //import java.util.ArrayList;
@@ -12,33 +14,38 @@ package triviamaze;
  * @author daeta
  *
  */
-class ModelUser {
+class ModelUser implements Serializable {
 
-    private Integer myX;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -6750355880804259040L;
 
-    private Integer myY;
+    private Integer myCol;
+
+    private Integer myRow;
 
 //    private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
 
     ModelUser() {
-        myX = 1;
-        myY = 1;
+        myCol = 1;
+        myRow = 1;
     }
 
-    void setMyX(final Integer theX) {
-        myX = theX;
+    void setMyCol(final Integer theX) {
+        myCol = theX;
     }
 
-    void setMyY(final Integer theY) {
-        myY = theY;
+    void setMyRow(final Integer theY) {
+        myRow = theY;
     }
 
-    Integer getMyX() {
-        return myX;
+    Integer getMyCol() {
+        return myCol;
     }
 
-    Integer getMyY() {
-        return myY;
+    Integer getMyRow() {
+        return myRow;
     }
 
 //    private void notifyMove(final int theX, final int theY) {
