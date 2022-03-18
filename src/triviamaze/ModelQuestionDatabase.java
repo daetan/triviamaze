@@ -14,23 +14,38 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * @author daeta
- *
+ *  Class that connects to the database and pulls 
+ *  questions and answers from the tables in the database
+ *  and loads them into Lists that can be easily used.
+ *       1. call databaseConnection in order to setup the database
+ *       2. call createQuestion() to create a question object
+ *  
  */
 public class ModelQuestionDatabase implements Serializable {
     /**
-     * 1. first call databaseConnection in order to setup the database
-     * 2. call createQuestion() to create a question object
+     *  A long for serialization.
      */
     private static final long serialVersionUID = 7843813149543978519L;
 
+    /**
+     * Holds the index for which question and answer to search for.
+     */
     private static int dbIndex = 0;
 
+    /**
+     * Holds the questions pulled from database.
+     */
     private static final ArrayList<String> Questions = new ArrayList<>();
 
+    /**
+     * Holds the answers pulled from database.
+     */
     private static final ArrayList<String> Answers = new ArrayList<>();
 
-    public static void databaseConnection() {
+    /**
+     * Connects to database and loads data within tables into lists.
+     */
+    static void databaseConnection() {
 
         // Create DataSource object
         SQLiteDataSource ds = new SQLiteDataSource();
@@ -54,18 +69,33 @@ public class ModelQuestionDatabase implements Serializable {
         }
     }
 
-    public static ModelQuestion createQuestion() {
+    /**
+     * Creates question and answer from data in lists
+     * 
+     * @return Question object
+     */
+    static ModelQuestion createQuestion() {
         return new ModelQuestion(getQuestion(), getAnswer());
     }
 
-    public static String getQuestion() {
+    /**
+     * Gets Question
+     * 
+     * @return question at Index
+     */
+    static String getQuestion() {
 
         Random rand = new Random();
         dbIndex = rand.nextInt(Questions.size());
         return Questions.get(dbIndex);
     }
 
-    public static String getAnswer() {
+    /**
+     * Gets Answer
+     * 
+     * @return Answer at Index
+     */
+    static String getAnswer() {
         return Answers.get(dbIndex);
     }
 
