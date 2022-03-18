@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_wPgf8KZvEeyL89Psa8odKw">
+  <modelElement href="triviamaze.uml#_uOpbcKZvEeyL89Psa8odKw"/>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_we0uUKZvEeyL89Psa8odKw" name="java">
+    <modelElement href="triviamaze.uml#_v_H6kKZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_we0uUaZvEeyL89Psa8odKw" position="50.0,50.0" size="-1.0,-1.0"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_wfMhwKZvEeyL89Psa8odKw" name="triviamaze">
+    <modelElement href="triviamaze.uml#_v_QdcKZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_wfMhwaZvEeyL89Psa8odKw" position="195.0,50.0" size="-1.0,-1.0"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_wfNv4KZvEeyL89Psa8odKw" name="org">
+    <modelElement href="triviamaze.uml#_v_r7QKZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_wfNv4aZvEeyL89Psa8odKw" position="-115.0,50.0" size="-1.0,-1.0"/>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>

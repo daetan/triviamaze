@@ -1,0 +1,1120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.diagrams="http://ns.yatta-solutions.com/umllab/diagrams/1.1.0" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_wQZQwKZvEeyL89Psa8odKw">
+  <modelElement href="triviamaze.uml#_v_QdcKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_w5ClIKZvEeyL89Psa8odKw" sourceAnchor="0.0,275.0" targetAnchor="221.0,332.0" target="_w4iO0KZvEeyL89Psa8odKw" source="_w5c02aZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJYp0aZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_w67bgaZvEeyL89Psa8odKw" position="190.0,190.0"/>
+    <bendpoints xmi:id="_8GyP8KZvEeyL89Psa8odKw" sourceX="-320" targetY="330"/>
+    <stereotypes xmi:id="_w5FocqZvEeyL89Psa8odKw" name="Reference">
+      <modelElement href="triviamaze.uml#_wJZQ4KZvEeyL89Psa8odKw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_w5FBYKZvEeyL89Psa8odKw" text="">
+      <visualProperties xmi:id="_xIQs4KZvEeyL89Psa8odKw" position="2.0,-165.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_w5FocKZvEeyL89Psa8odKw" aggregationKind="NONE" name="">
+      <modelElement href="triviamaze.uml#_wJYp0qZvEeyL89Psa8odKw"/>
+      <visualProperties xmi:id="_xIQF0KZvEeyL89Psa8odKw" position="-18.0,2.0"/>
+      <visibility xmi:id="_w5ROoaZvEeyL89Psa8odKw" label="+"/>
+      <cardinality xmi:id="_w5ROoKZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_w5FocaZvEeyL89Psa8odKw" aggregationKind="NONE" name="myDoors" navigable="true">
+      <modelElement href="triviamaze.uml#_wIuigqZvEeyL89Psa8odKw"/>
+      <visualProperties xmi:id="_xIQs4aZvEeyL89Psa8odKw" position="1.9999999999998863,1.0000000000001137"/>
+      <stereotypes xmi:id="_6fI8sKZvEeyL89Psa8odKw" name="Array"/>
+      <stereotypes xmi:id="_6fKx4KZvEeyL89Psa8odKw" name="LegacyStyledElement"/>
+      <visibility xmi:id="_w5R1saZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5R1sKZvEeyL89Psa8odKw" label="1..*" max="-1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5EaUKZvEeyL89Psa8odKw" targetItem="_w5c02aZvEeyL89Psa8odKw" sourceItem="_w5DzQKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5FodKZvEeyL89Psa8odKw" targetItem="_w5c1JKZvEeyL89Psa8odKw" sourceItem="_w5Foc6ZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5GPgaZvEeyL89Psa8odKw" targetItem="_w5c1KqZvEeyL89Psa8odKw" sourceItem="_w5GPgKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5G2kaZvEeyL89Psa8odKw" targetItem="_w5c1OKZvEeyL89Psa8odKw" sourceItem="_w5G2kKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5G2k6ZvEeyL89Psa8odKw" targetItem="_w5c1PaZvEeyL89Psa8odKw" sourceItem="_w5G2kqZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5HdoKZvEeyL89Psa8odKw" targetItem="_w5c1QKZvEeyL89Psa8odKw" sourceItem="_w5G2lKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5HdoqZvEeyL89Psa8odKw" targetItem="_w5c1Q6ZvEeyL89Psa8odKw" sourceItem="_w5HdoaZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5HdpKZvEeyL89Psa8odKw" targetItem="_w5c1RqZvEeyL89Psa8odKw" sourceItem="_w5Hdo6ZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5IEsaZvEeyL89Psa8odKw" targetItem="_w5c1SaZvEeyL89Psa8odKw" sourceItem="_w5IEsKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5IrwKZvEeyL89Psa8odKw" targetItem="_w5c1TKZvEeyL89Psa8odKw" sourceItem="_w5IEsqZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5IrwqZvEeyL89Psa8odKw" targetItem="_w5c1VaZvEeyL89Psa8odKw" sourceItem="_w5IrwaZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5JS0aZvEeyL89Psa8odKw" targetItem="_w5c1XKZvEeyL89Psa8odKw" sourceItem="_w5JS0KZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5JS06ZvEeyL89Psa8odKw" targetItem="_w5c1aaZvEeyL89Psa8odKw" sourceItem="_w5JS0qZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5JS1aZvEeyL89Psa8odKw" targetItem="_w5c1bKZvEeyL89Psa8odKw" sourceItem="_w5JS1KZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5J54aZvEeyL89Psa8odKw" targetItem="_w5c1b6ZvEeyL89Psa8odKw" sourceItem="_w5J54KZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5J546ZvEeyL89Psa8odKw" targetItem="_w5c1cqZvEeyL89Psa8odKw" sourceItem="_w5J54qZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5Kg8aZvEeyL89Psa8odKw" targetItem="_w5c1daZvEeyL89Psa8odKw" sourceItem="_w5Kg8KZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5LIAKZvEeyL89Psa8odKw" targetItem="_w5c1eKZvEeyL89Psa8odKw" sourceItem="_w5Kg8qZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5LIAqZvEeyL89Psa8odKw" targetItem="_w5c1haZvEeyL89Psa8odKw" sourceItem="_w5LIAaZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5LIBKZvEeyL89Psa8odKw" targetItem="_w5c1iKZvEeyL89Psa8odKw" sourceItem="_w5LIA6ZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5LvEaZvEeyL89Psa8odKw" targetItem="_w5c1jqZvEeyL89Psa8odKw" sourceItem="_w5LvEKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5MWIaZvEeyL89Psa8odKw" targetItem="_w5c1k6ZvEeyL89Psa8odKw" sourceItem="_w5MWIKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w5M9MaZvEeyL89Psa8odKw" targetItem="_w5c1mqZvEeyL89Psa8odKw" sourceItem="_w5M9MKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_w5YjYKZvEeyL89Psa8odKw" sourceAnchor="293.0,0.0" targetAnchor="246.0,248.0" target="_w6qVwKZvEeyL89Psa8odKw" source="_w5c02aZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJYCwKZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_w67bgKZvEeyL89Psa8odKw" position="170.0,170.0"/>
+    <stereotypes xmi:id="_w5YjYaZvEeyL89Psa8odKw" name="Reference">
+      <modelElement href="triviamaze.uml#_wJYp0KZvEeyL89Psa8odKw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_w5YjYqZvEeyL89Psa8odKw" text="">
+      <visualProperties xmi:id="_xITwMKZvEeyL89Psa8odKw" position="-53.0,23.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_w5YjY6ZvEeyL89Psa8odKw" aggregationKind="NONE" name="">
+      <modelElement href="triviamaze.uml#_wJYCwaZvEeyL89Psa8odKw"/>
+      <visualProperties xmi:id="_xISiEKZvEeyL89Psa8odKw" position="-19.0,-112.66666666666663"/>
+      <visibility xmi:id="_w5YjZKZvEeyL89Psa8odKw" label="+"/>
+      <cardinality xmi:id="_w5YjZaZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_w5YjZqZvEeyL89Psa8odKw" aggregationKind="NONE" name="myRooms" navigable="true">
+      <modelElement href="triviamaze.uml#_wIt7c6ZvEeyL89Psa8odKw"/>
+      <visualProperties xmi:id="_xITwMaZvEeyL89Psa8odKw" position="-139.0,1.0"/>
+      <visibility xmi:id="_w5YjZ6ZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5YjaKZvEeyL89Psa8odKw" label="1..*" max="-1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_w5aYkKZvEeyL89Psa8odKw" sourceAnchor="560.0,331.0" targetAnchor="225.0,164.0" target="_w6178KZvEeyL89Psa8odKw" source="_w5c02aZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJZQ4aZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_w68CkKZvEeyL89Psa8odKw" position="210.0,210.0"/>
+    <bendpoints xmi:id="_8Gy3AKZvEeyL89Psa8odKw" sourceX="296" targetY="386"/>
+    <stereotypes xmi:id="_w5aYkaZvEeyL89Psa8odKw" name="Reference">
+      <modelElement href="triviamaze.uml#_wJafAKZvEeyL89Psa8odKw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_w5aYkqZvEeyL89Psa8odKw" text="">
+      <visualProperties xmi:id="_xIWMcKZvEeyL89Psa8odKw" position="-48.0,-193.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_w5aYk6ZvEeyL89Psa8odKw" aggregationKind="NONE" name="">
+      <modelElement href="triviamaze.uml#_wJZQ4qZvEeyL89Psa8odKw"/>
+      <visualProperties xmi:id="_xIU-UKZvEeyL89Psa8odKw" position="1.0,-67.0"/>
+      <visibility xmi:id="_w5aYlKZvEeyL89Psa8odKw" label="+"/>
+      <cardinality xmi:id="_w5aYlaZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_w5aYlqZvEeyL89Psa8odKw" aggregationKind="NONE" name="myUser" navigable="true">
+      <modelElement href="triviamaze.uml#_wIvJk6ZvEeyL89Psa8odKw"/>
+      <visualProperties xmi:id="_xIWMcaZvEeyL89Psa8odKw" position="2.0,1.0"/>
+      <visibility xmi:id="_w5aYl6ZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5aYmKZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_w5bmsKZvEeyL89Psa8odKw" source="_w5c02aZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJafAaZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_w68CkaZvEeyL89Psa8odKw" position="230.0,230.0"/>
+    <stereotypes xmi:id="_w5cNwKZvEeyL89Psa8odKw" name="Reference">
+      <modelElement href="triviamaze.uml#_wJbtIKZvEeyL89Psa8odKw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_w5cNwaZvEeyL89Psa8odKw" text=""/>
+    <sourceRole xmi:id="_w5cNwqZvEeyL89Psa8odKw" aggregationKind="NONE" name="">
+      <modelElement href="triviamaze.uml#_wJafAqZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5cNw6ZvEeyL89Psa8odKw" label="+"/>
+      <cardinality xmi:id="_w5cNxKZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_w5cNxaZvEeyL89Psa8odKw" aggregationKind="NONE" name="myScanner" navigable="true">
+      <modelElement href="triviamaze.uml#_wIvwoaZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5cNxqZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5cNx6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_w5c00KZvEeyL89Psa8odKw" sourceAnchor="323.0,0.0" targetAnchor="276.0,248.0" target="_w6qVwKZvEeyL89Psa8odKw" source="_w5c02aZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJbtIaZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_w68CkqZvEeyL89Psa8odKw" position="250.0,250.0"/>
+    <stereotypes xmi:id="_w5c00aZvEeyL89Psa8odKw" name="Reference">
+      <modelElement href="triviamaze.uml#_wJc7QKZvEeyL89Psa8odKw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_w5c00qZvEeyL89Psa8odKw" text="">
+      <visualProperties xmi:id="_xIZPwKZvEeyL89Psa8odKw" position="2.0,23.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_w5c006ZvEeyL89Psa8odKw" aggregationKind="NONE" name="">
+      <modelElement href="triviamaze.uml#_wJbtIqZvEeyL89Psa8odKw"/>
+      <visualProperties xmi:id="_xIYBoKZvEeyL89Psa8odKw" position="-19.0,-89.33333333333331"/>
+      <visibility xmi:id="_w5c01KZvEeyL89Psa8odKw" label="+"/>
+      <cardinality xmi:id="_w5c01aZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_w5c01qZvEeyL89Psa8odKw" aggregationKind="NONE" name="myWinningRoom" navigable="true">
+      <modelElement href="triviamaze.uml#_wIw-wKZvEeyL89Psa8odKw"/>
+      <visualProperties xmi:id="_xIZ20KZvEeyL89Psa8odKw" position="2.0,24.33333333333337"/>
+      <visibility xmi:id="_w5c016ZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5c02KZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w6U-kaZvEeyL89Psa8odKw" targetItem="_w6YB4KZvEeyL89Psa8odKw" sourceItem="_w6U-kKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w6VloaZvEeyL89Psa8odKw" targetItem="_w6YB8aZvEeyL89Psa8odKw" sourceItem="_w6VloKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w6WMsaZvEeyL89Psa8odKw" targetItem="_w6YB_6ZvEeyL89Psa8odKw" sourceItem="_w6WMsKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w6WzwaZvEeyL89Psa8odKw" targetItem="_w6YCBKZvEeyL89Psa8odKw" sourceItem="_w6WzwKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w6evkKZvEeyL89Psa8odKw" targetItem="_w6jBAKZvEeyL89Psa8odKw" sourceItem="_w6eIgKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w6evkqZvEeyL89Psa8odKw" targetItem="_w6jBFqZvEeyL89Psa8odKw" sourceItem="_w6evkaZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w6fWoaZvEeyL89Psa8odKw" targetItem="_w6jBGaZvEeyL89Psa8odKw" sourceItem="_w6fWoKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w6fWo6ZvEeyL89Psa8odKw" targetItem="_w6jBHqZvEeyL89Psa8odKw" sourceItem="_w6fWoqZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w6f9saZvEeyL89Psa8odKw" targetItem="_w6jBI6ZvEeyL89Psa8odKw" sourceItem="_w6f9sKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_w6hy4KZvEeyL89Psa8odKw" source="_w6jBAKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJc7QaZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_w68Ck6ZvEeyL89Psa8odKw" position="270.0,270.0"/>
+    <stereotypes xmi:id="_w6hy4aZvEeyL89Psa8odKw" name="Reference">
+      <modelElement href="triviamaze.uml#_wJeJYKZvEeyL89Psa8odKw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_w6hy4qZvEeyL89Psa8odKw" text=""/>
+    <sourceRole xmi:id="_w6hy46ZvEeyL89Psa8odKw" aggregationKind="NONE" name="">
+      <modelElement href="triviamaze.uml#_wJc7QqZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6hy5KZvEeyL89Psa8odKw" label="+"/>
+      <cardinality xmi:id="_w6hy5aZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_w6hy5qZvEeyL89Psa8odKw" aggregationKind="NONE" name="Questions" navigable="true">
+      <modelElement href="triviamaze.uml#_wI2eUaZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6hy56ZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w6hy6KZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_w6iZ8KZvEeyL89Psa8odKw" source="_w6jBAKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJeJYaZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_w68ClKZvEeyL89Psa8odKw" position="290.0,290.0"/>
+    <stereotypes xmi:id="_w6iZ8aZvEeyL89Psa8odKw" name="Reference">
+      <modelElement href="triviamaze.uml#_wJewcKZvEeyL89Psa8odKw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_w6iZ8qZvEeyL89Psa8odKw" text=""/>
+    <sourceRole xmi:id="_w6iZ86ZvEeyL89Psa8odKw" aggregationKind="NONE" name="">
+      <modelElement href="triviamaze.uml#_wJeJYqZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6iZ9KZvEeyL89Psa8odKw" label="+"/>
+      <cardinality xmi:id="_w6iZ9aZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_w6iZ9qZvEeyL89Psa8odKw" aggregationKind="NONE" name="Answers" navigable="true">
+      <modelElement href="triviamaze.uml#_wI4TgKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6iZ96ZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w6iZ-KZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w6ogkKZvEeyL89Psa8odKw" targetItem="_w6qVwKZvEeyL89Psa8odKw" sourceItem="_w6n5gKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w6pHoaZvEeyL89Psa8odKw" targetItem="_w6qV26ZvEeyL89Psa8odKw" sourceItem="_w6pHoKZvEeyL89Psa8odKw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_w60GwaZvEeyL89Psa8odKw" targetItem="_w6178KZvEeyL89Psa8odKw" sourceItem="_w60GwKZvEeyL89Psa8odKw"/>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5DzQKZvEeyL89Psa8odKw" sourceConnectionVisual="_w5EaUKZvEeyL89Psa8odKw" text="@author daeta&#xD;&#xA; *" item="_w5c02aZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJPf4KZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5Foc6ZvEeyL89Psa8odKw" sourceConnectionVisual="_w5FodKZvEeyL89Psa8odKw" text="Default constructor of 4-by-4 maze." item="_w5c1JKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQG8KZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5GPgKZvEeyL89Psa8odKw" sourceConnectionVisual="_w5GPgaZvEeyL89Psa8odKw" text="A constructor that creates a custom-size maze.&#xD;&#xA;     * @param theRows, the rows of the custom maze.&#xD;&#xA;     * @param theCols, the columns of the custom maze." item="_w5c1KqZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQG8aZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5G2kKZvEeyL89Psa8odKw" sourceConnectionVisual="_w5G2kaZvEeyL89Psa8odKw" text="Getter for the room the user is in.&#xD;&#xA;     * @return ModelRoom, the room of the user." item="_w5c1OKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQG8qZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5G2kqZvEeyL89Psa8odKw" sourceConnectionVisual="_w5G2k6ZvEeyL89Psa8odKw" text="A setup method that initializes the 2d room and door and visited-rooms arrays,&#xD;&#xA;     * places the user, marks the winning room, and initializes the database." item="_w5c1PaZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQG86ZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5G2lKZvEeyL89Psa8odKw" sourceConnectionVisual="_w5HdoKZvEeyL89Psa8odKw" text="Uses a 2d for-loop to create new rooms. Padded by null. TODO refactor to pad with unreachable, empty rooms?" item="_w5c1QKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQG9KZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5HdoaZvEeyL89Psa8odKw" sourceConnectionVisual="_w5HdoqZvEeyL89Psa8odKw" text="Uses a 2d for-loop to create new doors iff the row xor column of the door 2d array is odd (the location of a room-connecting door)." item="_w5c1Q6ZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQG9aZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5Hdo6ZvEeyL89Psa8odKw" sourceConnectionVisual="_w5HdpKZvEeyL89Psa8odKw" text="Uses a 2d for-loop to set all visitedRooms to false." item="_w5c1RqZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQuAKZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5IEsKZvEeyL89Psa8odKw" sourceConnectionVisual="_w5IEsaZvEeyL89Psa8odKw" text="Method determines if the maze is solvable using depth-first search." item="_w5c1SaZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQuAaZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5IEsqZvEeyL89Psa8odKw" sourceConnectionVisual="_w5IrwKZvEeyL89Psa8odKw" text="Depth-first search to reach the user's room from the exit/winning room.&#xD;&#xA;     * Bypass more searching if the user is found.&#xD;&#xA;     * @param int theRow, the row of the room to search.&#xD;&#xA;     * @param int theCol, the column of the room to search." item="_w5c1TKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQuAqZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5IrwaZvEeyL89Psa8odKw" sourceConnectionVisual="_w5IrwqZvEeyL89Psa8odKw" text="Moves the user by calling a column, row move method.&#xD;&#xA;     * @param String theMove" item="_w5c1VaZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQuA6ZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5JS0KZvEeyL89Psa8odKw" sourceConnectionVisual="_w5JS0aZvEeyL89Psa8odKw" text="Moves the user.&#xD;&#xA;     * @param theRow&#xD;&#xA;     * @param theCol&#xD;&#xA;     * @return boolean if the user moved." item="_w5c1XKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQuBKZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5JS0qZvEeyL89Psa8odKw" sourceConnectionVisual="_w5JS06ZvEeyL89Psa8odKw" text="Saves the state to save.tm." item="_w5c1aaZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQuBaZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5JS1KZvEeyL89Psa8odKw" sourceConnectionVisual="_w5JS1aZvEeyL89Psa8odKw" text="Presents information about the project." item="_w5c1bKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQuB6ZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5J54KZvEeyL89Psa8odKw" sourceConnectionVisual="_w5J54aZvEeyL89Psa8odKw" text="Exit dialog." item="_w5c1b6ZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQuCKZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5J54qZvEeyL89Psa8odKw" sourceConnectionVisual="_w5J546ZvEeyL89Psa8odKw" text="Win dialog." item="_w5c1cqZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQuCaZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5Kg8KZvEeyL89Psa8odKw" sourceConnectionVisual="_w5Kg8aZvEeyL89Psa8odKw" text="Lose dialog." item="_w5c1daZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJRVEKZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5Kg8qZvEeyL89Psa8odKw" sourceConnectionVisual="_w5LIAKZvEeyL89Psa8odKw" text="Returns true iff a room exists at the specified location.&#xD;&#xA;     * @param int theRow&#xD;&#xA;     * @param int theCol&#xD;&#xA;     * @return boolean if a room exists at the location." item="_w5c1eKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJRVEaZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5LIAaZvEeyL89Psa8odKw" sourceConnectionVisual="_w5LIAqZvEeyL89Psa8odKw" text="Calls toString while iterating through myDoors with algorithm to identify rooms." item="_w5c1haZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJRVEqZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5LIA6ZvEeyL89Psa8odKw" sourceConnectionVisual="_w5LIBKZvEeyL89Psa8odKw" text="Getter for myRooms.&#xD;&#xA;     * @return ModelRoom[][] myRooms" item="_w5c1iKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJRVE6ZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5LvEKZvEeyL89Psa8odKw" sourceConnectionVisual="_w5LvEaZvEeyL89Psa8odKw" text="Getter for columns.&#xD;&#xA;     * @return int myCols" item="_w5c1jqZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJRVFKZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5MWIKZvEeyL89Psa8odKw" sourceConnectionVisual="_w5MWIaZvEeyL89Psa8odKw" text="Main method that takes user input.&#xD;&#xA;     * @param args" item="_w5c1k6ZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJRVFaZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w5M9MKZvEeyL89Psa8odKw" sourceConnectionVisual="_w5M9MaZvEeyL89Psa8odKw" text="Loads a maze from a file.&#xD;&#xA;     * @param theMaze&#xD;&#xA;     * @return the loaded maze." item="_w5c1mqZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJQuBqZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w6U-kKZvEeyL89Psa8odKw" sourceConnectionVisual="_w6U-kaZvEeyL89Psa8odKw" text="Class that stores both the Question and Answer" item="_w6YB4KZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJR8IKZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w6VloKZvEeyL89Psa8odKw" sourceConnectionVisual="_w6VloaZvEeyL89Psa8odKw" text="Creates a question object that has &#xD;&#xA;     * both a question and answer&#xD;&#xA;     * &#xD;&#xA;     * @param theQuestion&#xD;&#xA;     * @param theAnswer" item="_w6YB8aZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJR8IaZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w6WMsKZvEeyL89Psa8odKw" sourceConnectionVisual="_w6WMsaZvEeyL89Psa8odKw" text="Returns question&#xD;&#xA;     * &#xD;&#xA;     * @return" item="_w6YB_6ZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJR8IqZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w6WzwKZvEeyL89Psa8odKw" sourceConnectionVisual="_w6WzwaZvEeyL89Psa8odKw" text="Returns answer for the question&#xD;&#xA;     * &#xD;&#xA;     * @return" item="_w6YCBKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJR8I6ZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w6eIgKZvEeyL89Psa8odKw" sourceConnectionVisual="_w6evkKZvEeyL89Psa8odKw" text=" Class that connects to the database and pulls &#xD;&#xA; questions and answers from the tables in the database&#xD;&#xA; and loads them into Lists that can be easily used.&#xD;&#xA;      1. call databaseConnection in order to setup the database&#xD;&#xA;      2. call createQuestion() to create a question object&#xD;&#xA; *" item="_w6jBAKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJR8JKZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w6evkaZvEeyL89Psa8odKw" sourceConnectionVisual="_w6evkqZvEeyL89Psa8odKw" text="Connects to database and loads data within tables into lists." item="_w6jBFqZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJR8JaZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w6fWoKZvEeyL89Psa8odKw" sourceConnectionVisual="_w6fWoaZvEeyL89Psa8odKw" text="Creates question and answer from data in lists&#xD;&#xA;     * &#xD;&#xA;     * @return Question object" item="_w6jBGaZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJR8JqZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w6fWoqZvEeyL89Psa8odKw" sourceConnectionVisual="_w6fWo6ZvEeyL89Psa8odKw" text="Gets Question&#xD;&#xA;     * &#xD;&#xA;     * @return question at Index" item="_w6jBHqZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJR8J6ZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w6f9sKZvEeyL89Psa8odKw" sourceConnectionVisual="_w6f9saZvEeyL89Psa8odKw" text="Gets Answer&#xD;&#xA;     * &#xD;&#xA;     * @return Answer at Index" item="_w6jBI6ZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJR8KKZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w6n5gKZvEeyL89Psa8odKw" sourceConnectionVisual="_w6ogkKZvEeyL89Psa8odKw" text="@author daeta&#xD;&#xA; *" item="_w6qVwKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJSjMKZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w6pHoKZvEeyL89Psa8odKw" sourceConnectionVisual="_w6pHoaZvEeyL89Psa8odKw" text="@param myIsWinningRoom the myIsWinningRoom to set" item="_w6qV26ZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJSjMaZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_w60GwKZvEeyL89Psa8odKw" sourceConnectionVisual="_w60GwaZvEeyL89Psa8odKw" text="@author daeta&#xD;&#xA; *" item="_w6178KZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wJSjMqZvEeyL89Psa8odKw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_w4iO0KZvEeyL89Psa8odKw" name="ModelDoor" associationsIn="_w5ClIKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wAHZEKZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_w4iO0aZvEeyL89Psa8odKw" position="50.0,50.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_w4iO0qZvEeyL89Psa8odKw" label="~"/>
+    <attributes xmi:id="_w4iO06ZvEeyL89Psa8odKw" defaultValue="2742738560353830826L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="triviamaze.uml#_wIn00KZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w4iO1KZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w4iO1aZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w4iO1qZvEeyL89Psa8odKw" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w4iO16ZvEeyL89Psa8odKw" name="myIsLocked">
+      <modelElement href="triviamaze.uml#_wIob4KZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w4iO2KZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIpqAKZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w4iO2aZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w4iO2qZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w4iO26ZvEeyL89Psa8odKw" name="boolean">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w4iO3KZvEeyL89Psa8odKw" name="myIsBlocked">
+      <modelElement href="triviamaze.uml#_wIpqAaZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w4iO3aZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIqREKZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w4iO3qZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w4iO36ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w4iO4KZvEeyL89Psa8odKw" name="boolean">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w4iO4aZvEeyL89Psa8odKw" name="myStateString">
+      <modelElement href="triviamaze.uml#_wIqREaZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w4iO4qZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIq4IKZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w4iO46ZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w4iO5KZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w4iO5aZvEeyL89Psa8odKw" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_w4iO5qZvEeyL89Psa8odKw" name="ModelDoor">
+      <modelElement href="triviamaze.uml#_wANfsKZvEeyL89Psa8odKw"/>
+      <keywords xmi:id="_w4iO56ZvEeyL89Psa8odKw" keyword="create"/>
+      <visibility xmi:id="_w4iO6KZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w4iO6aZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w4iO6qZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wAPU4KZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w4iO66ZvEeyL89Psa8odKw" name="ModelDoor">
+          <modelElement href="triviamaze.uml#_wAHZEKZvEeyL89Psa8odKw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_w4iO7KZvEeyL89Psa8odKw" name="getMyIsLocked">
+      <modelElement href="triviamaze.uml#_wAPU4aZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w4iO7aZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w4iO7qZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w4iO76ZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wAP78KZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w4iO8KZvEeyL89Psa8odKw" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_w4iO8aZvEeyL89Psa8odKw" name="setMyIsLocked">
+      <modelElement href="triviamaze.uml#_wAQjAKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w4iO8qZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w4iO86ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_w4iO9KZvEeyL89Psa8odKw" name="theIsLocked">
+        <modelElement href="triviamaze.uml#_wAQjAaZvEeyL89Psa8odKw"/>
+        <keywords xmi:id="_w4iO9aZvEeyL89Psa8odKw" keyword="final"/>
+        <cardinality xmi:id="_w4iO9qZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w4iO96ZvEeyL89Psa8odKw" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_w4iO-KZvEeyL89Psa8odKw" name="getMyIsBlocked">
+      <modelElement href="triviamaze.uml#_wARKEqZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w4iO-aZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w4iO-qZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w4iO-6ZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wARKE6ZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w4iO_KZvEeyL89Psa8odKw" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_w4iO_aZvEeyL89Psa8odKw" name="setMyIsBlocked">
+      <modelElement href="triviamaze.uml#_wARxIKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w4iO_qZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w4iO_6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_w4iPAKZvEeyL89Psa8odKw" name="theIsBlocked">
+        <modelElement href="triviamaze.uml#_wARxIaZvEeyL89Psa8odKw"/>
+        <keywords xmi:id="_w4iPAaZvEeyL89Psa8odKw" keyword="final"/>
+        <cardinality xmi:id="_w4iPAqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w4iPA6ZvEeyL89Psa8odKw" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_w4iPBKZvEeyL89Psa8odKw" name="toString">
+      <modelElement href="triviamaze.uml#_wARxJKZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w4iPBaZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wAS_QKZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_w4iPBqZvEeyL89Psa8odKw" name="Annotations">
+        <modelElement href="triviamaze.uml#_wAUNYKZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w4iPB6ZvEeyL89Psa8odKw" label="+"/>
+      <cardinality xmi:id="_w4iPCKZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w4iPCaZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wASYMKZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w4iPCqZvEeyL89Psa8odKw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_w5c02aZvEeyL89Psa8odKw" comments="_w5DzQKZvEeyL89Psa8odKw" targetConnectionVisual="_w5EaUKZvEeyL89Psa8odKw" name="ModelMaze" associationsOut="_w5ClIKZvEeyL89Psa8odKw _w5YjYKZvEeyL89Psa8odKw _w5aYkKZvEeyL89Psa8odKw _w5bmsKZvEeyL89Psa8odKw _w5c00KZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wAWCkKZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_w5c02qZvEeyL89Psa8odKw" position="591.0,437.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_w5c026ZvEeyL89Psa8odKw" label="~"/>
+    <attributes xmi:id="_w5c03KZvEeyL89Psa8odKw" defaultValue="-3365061151045669276L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="triviamaze.uml#_wIq4IaZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c03aZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5c03qZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w5c036ZvEeyL89Psa8odKw" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w5c04KZvEeyL89Psa8odKw" name="myRows">
+      <modelElement href="triviamaze.uml#_wIrfMaZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w5c04aZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIrfMqZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w5c04qZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c046ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w5c05KZvEeyL89Psa8odKw" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w5c05aZvEeyL89Psa8odKw" name="myCols">
+      <modelElement href="triviamaze.uml#_wIstUKZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w5c05qZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIstUaZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w5c056ZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5c06KZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w5c06aZvEeyL89Psa8odKw" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w5c06qZvEeyL89Psa8odKw" name="myIsSolvable">
+      <modelElement href="triviamaze.uml#_wIstUqZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w5c066ZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIstU6ZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w5c07KZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c07aZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w5c07qZvEeyL89Psa8odKw" name="boolean">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w5c076ZvEeyL89Psa8odKw" name="myRooms">
+      <modelElement href="triviamaze.uml#_wIt7c6ZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w5c08KZvEeyL89Psa8odKw" name="Array">
+        <modelElement href="triviamaze.uml#_wIuigKZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_w5c08aZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIuigaZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w5c08qZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5c086ZvEeyL89Psa8odKw" label="1..*" max="-1" min="1"/>
+      <type xmi:id="_w5c09KZvEeyL89Psa8odKw" name="ModelRoom">
+        <modelElement href="triviamaze.uml#_wBD0QKZvEeyL89Psa8odKw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w5c09aZvEeyL89Psa8odKw" name="myDoors">
+      <modelElement href="triviamaze.uml#_wIuigqZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w5c09qZvEeyL89Psa8odKw" name="Array">
+        <modelElement href="triviamaze.uml#_wIvJkaZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_w5c096ZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIvJkqZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w5c0-KZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5c0-aZvEeyL89Psa8odKw" label="1..*" max="-1" min="1"/>
+      <type xmi:id="_w5c0-qZvEeyL89Psa8odKw" name="ModelDoor">
+        <modelElement href="triviamaze.uml#_wAHZEKZvEeyL89Psa8odKw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w5c0-6ZvEeyL89Psa8odKw" name="myUser">
+      <modelElement href="triviamaze.uml#_wIvJk6ZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w5c0_KZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIvwoKZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w5c0_aZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5c0_qZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w5c0_6ZvEeyL89Psa8odKw" name="ModelUser">
+        <modelElement href="triviamaze.uml#_wBJ64KZvEeyL89Psa8odKw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w5c1AKZvEeyL89Psa8odKw" defaultValue="new Scanner(System.in)" name="myScanner" staticAttribute="true">
+      <modelElement href="triviamaze.uml#_wIvwoaZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w5c1AaZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIvwo6ZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w5c1AqZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5c1A6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w5c1BKZvEeyL89Psa8odKw" name="Scanner">
+        <modelElement href="triviamaze.uml#_wIAJwKZvEeyL89Psa8odKw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w5c1BaZvEeyL89Psa8odKw" name="myWinningCol">
+      <modelElement href="triviamaze.uml#_wIwXsKZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w5c1BqZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIwXsaZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w5c1B6ZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5c1CKZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w5c1CaZvEeyL89Psa8odKw" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w5c1CqZvEeyL89Psa8odKw" name="myWinningRow">
+      <modelElement href="triviamaze.uml#_wIwXsqZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w5c1C6ZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIwXs6ZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w5c1DKZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5c1DaZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w5c1DqZvEeyL89Psa8odKw" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w5c1D6ZvEeyL89Psa8odKw" name="myWinningRoom">
+      <modelElement href="triviamaze.uml#_wIw-wKZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w5c1EKZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIw-waZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w5c1EaZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5c1EqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w5c1E6ZvEeyL89Psa8odKw" name="ModelRoom">
+        <modelElement href="triviamaze.uml#_wBD0QKZvEeyL89Psa8odKw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w5c1FKZvEeyL89Psa8odKw" name="myFoundUser">
+      <modelElement href="triviamaze.uml#_wIw-wqZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w5c1FaZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIw-w6ZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w5c1FqZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5c1F6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w5c1GKZvEeyL89Psa8odKw" name="boolean">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w5c1GaZvEeyL89Psa8odKw" name="myVisitedRooms">
+      <modelElement href="triviamaze.uml#_wIxl0KZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w5c1GqZvEeyL89Psa8odKw" name="Array">
+        <modelElement href="triviamaze.uml#_wIxl0qZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_w5c1G6ZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIxl06ZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w5c1HKZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5c1HaZvEeyL89Psa8odKw" label="1..*" max="-1" min="1"/>
+      <type xmi:id="_w5c1HqZvEeyL89Psa8odKw" name="boolean">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w5c1H6ZvEeyL89Psa8odKw" name="myIsWin">
+      <modelElement href="triviamaze.uml#_wIxl1KZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w5c1IKZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wIyM4KZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w5c1IaZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1IqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w5c1I6ZvEeyL89Psa8odKw" name="boolean">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_w5c1JKZvEeyL89Psa8odKw" comments="_w5Foc6ZvEeyL89Psa8odKw" targetConnectionVisual="_w5FodKZvEeyL89Psa8odKw" name="ModelMaze">
+      <modelElement href="triviamaze.uml#_wAZs8KZvEeyL89Psa8odKw"/>
+      <keywords xmi:id="_w5c1JaZvEeyL89Psa8odKw" keyword="create"/>
+      <visibility xmi:id="_w5c1JqZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1J6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w5c1KKZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wAaUAqZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w5c1KaZvEeyL89Psa8odKw" name="ModelMaze">
+          <modelElement href="triviamaze.uml#_wAWCkKZvEeyL89Psa8odKw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_w5c1KqZvEeyL89Psa8odKw" comments="_w5GPgKZvEeyL89Psa8odKw" targetConnectionVisual="_w5GPgaZvEeyL89Psa8odKw" name="ModelMaze">
+      <modelElement href="triviamaze.uml#_wAa7EKZvEeyL89Psa8odKw"/>
+      <keywords xmi:id="_w5c1K6ZvEeyL89Psa8odKw" keyword="create"/>
+      <visibility xmi:id="_w5c1LKZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1LaZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w5c1LqZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wAbiI6ZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w5c1L6ZvEeyL89Psa8odKw" name="ModelMaze">
+          <modelElement href="triviamaze.uml#_wAWCkKZvEeyL89Psa8odKw"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_w5c1MKZvEeyL89Psa8odKw" name="theRows">
+        <modelElement href="triviamaze.uml#_wAa7EaZvEeyL89Psa8odKw"/>
+        <keywords xmi:id="_w5c1MaZvEeyL89Psa8odKw" keyword="final"/>
+        <cardinality xmi:id="_w5c1MqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w5c1M6ZvEeyL89Psa8odKw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_w5c1NKZvEeyL89Psa8odKw" name="theCols">
+        <modelElement href="triviamaze.uml#_wAbiIKZvEeyL89Psa8odKw"/>
+        <keywords xmi:id="_w5c1NaZvEeyL89Psa8odKw" keyword="final"/>
+        <cardinality xmi:id="_w5c1NqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w5c1N6ZvEeyL89Psa8odKw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_w5c1OKZvEeyL89Psa8odKw" comments="_w5G2kKZvEeyL89Psa8odKw" targetConnectionVisual="_w5G2kaZvEeyL89Psa8odKw" name="getPlayerRoom">
+      <modelElement href="triviamaze.uml#_wAcJM6ZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1OaZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1OqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w5c1O6ZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wIB-8KZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w5c1PKZvEeyL89Psa8odKw" name="ModelRoom">
+          <modelElement href="triviamaze.uml#_wBD0QKZvEeyL89Psa8odKw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_w5c1PaZvEeyL89Psa8odKw" comments="_w5G2kqZvEeyL89Psa8odKw" targetConnectionVisual="_w5G2k6ZvEeyL89Psa8odKw" name="start">
+      <modelElement href="triviamaze.uml#_wAcwQKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1PqZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1P6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_w5c1QKZvEeyL89Psa8odKw" comments="_w5G2lKZvEeyL89Psa8odKw" targetConnectionVisual="_w5HdoKZvEeyL89Psa8odKw" name="startRooms">
+      <modelElement href="triviamaze.uml#_wAdXUKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1QaZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1QqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_w5c1Q6ZvEeyL89Psa8odKw" comments="_w5HdoaZvEeyL89Psa8odKw" targetConnectionVisual="_w5HdoqZvEeyL89Psa8odKw" name="startDoors">
+      <modelElement href="triviamaze.uml#_wAd-YKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1RKZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1RaZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_w5c1RqZvEeyL89Psa8odKw" comments="_w5Hdo6ZvEeyL89Psa8odKw" targetConnectionVisual="_w5HdpKZvEeyL89Psa8odKw" name="startVisitedRooms">
+      <modelElement href="triviamaze.uml#_wAd-YaZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1R6ZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1SKZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_w5c1SaZvEeyL89Psa8odKw" comments="_w5IEsKZvEeyL89Psa8odKw" targetConnectionVisual="_w5IEsaZvEeyL89Psa8odKw" name="calculateSolvable">
+      <modelElement href="triviamaze.uml#_wAelcKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1SqZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1S6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_w5c1TKZvEeyL89Psa8odKw" comments="_w5IEsqZvEeyL89Psa8odKw" targetConnectionVisual="_w5IrwKZvEeyL89Psa8odKw" name="depthFirstSearch">
+      <modelElement href="triviamaze.uml#_wAfMgKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1TaZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w5c1TqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_w5c1T6ZvEeyL89Psa8odKw" name="theRow">
+        <modelElement href="triviamaze.uml#_wAfMgaZvEeyL89Psa8odKw"/>
+        <cardinality xmi:id="_w5c1UKZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w5c1UaZvEeyL89Psa8odKw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_w5c1UqZvEeyL89Psa8odKw" name="theCol">
+        <modelElement href="triviamaze.uml#_wAfMgqZvEeyL89Psa8odKw"/>
+        <cardinality xmi:id="_w5c1U6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w5c1VKZvEeyL89Psa8odKw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_w5c1VaZvEeyL89Psa8odKw" comments="_w5IrwaZvEeyL89Psa8odKw" targetConnectionVisual="_w5IrwqZvEeyL89Psa8odKw" name="move">
+      <modelElement href="triviamaze.uml#_wAfzkKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1VqZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1V6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_w5c1WKZvEeyL89Psa8odKw" name="theMove">
+        <modelElement href="triviamaze.uml#_wAfzkaZvEeyL89Psa8odKw"/>
+        <keywords xmi:id="_w5c1WaZvEeyL89Psa8odKw" keyword="final"/>
+        <cardinality xmi:id="_w5c1WqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w5c1W6ZvEeyL89Psa8odKw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_w5c1XKZvEeyL89Psa8odKw" comments="_w5JS0KZvEeyL89Psa8odKw" targetConnectionVisual="_w5JS0aZvEeyL89Psa8odKw" name="move">
+      <modelElement href="triviamaze.uml#_wAgaoKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1XaZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1XqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w5c1X6ZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wAhBsKZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w5c1YKZvEeyL89Psa8odKw" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_w5c1YaZvEeyL89Psa8odKw" name="theRow">
+        <modelElement href="triviamaze.uml#_wAgaoaZvEeyL89Psa8odKw"/>
+        <keywords xmi:id="_w5c1YqZvEeyL89Psa8odKw" keyword="final"/>
+        <cardinality xmi:id="_w5c1Y6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w5c1ZKZvEeyL89Psa8odKw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_w5c1ZaZvEeyL89Psa8odKw" name="theCol">
+        <modelElement href="triviamaze.uml#_wAgaoqZvEeyL89Psa8odKw"/>
+        <keywords xmi:id="_w5c1ZqZvEeyL89Psa8odKw" keyword="final"/>
+        <cardinality xmi:id="_w5c1Z6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w5c1aKZvEeyL89Psa8odKw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_w5c1aaZvEeyL89Psa8odKw" comments="_w5JS0qZvEeyL89Psa8odKw" targetConnectionVisual="_w5JS06ZvEeyL89Psa8odKw" name="save">
+      <modelElement href="triviamaze.uml#_wAhowKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1aqZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1a6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_w5c1bKZvEeyL89Psa8odKw" comments="_w5JS1KZvEeyL89Psa8odKw" targetConnectionVisual="_w5JS1aZvEeyL89Psa8odKw" name="about">
+      <modelElement href="triviamaze.uml#_wAiP0KZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1baZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1bqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_w5c1b6ZvEeyL89Psa8odKw" comments="_w5J54KZvEeyL89Psa8odKw" targetConnectionVisual="_w5J54aZvEeyL89Psa8odKw" name="exit">
+      <modelElement href="triviamaze.uml#_wAi24KZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1cKZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1caZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_w5c1cqZvEeyL89Psa8odKw" comments="_w5J54qZvEeyL89Psa8odKw" targetConnectionVisual="_w5J546ZvEeyL89Psa8odKw" name="win">
+      <modelElement href="triviamaze.uml#_wAi24aZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1c6ZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1dKZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_w5c1daZvEeyL89Psa8odKw" comments="_w5Kg8KZvEeyL89Psa8odKw" targetConnectionVisual="_w5Kg8aZvEeyL89Psa8odKw" name="lose">
+      <modelElement href="triviamaze.uml#_wAjd8KZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1dqZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1d6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_w5c1eKZvEeyL89Psa8odKw" comments="_w5Kg8qZvEeyL89Psa8odKw" targetConnectionVisual="_w5LIAKZvEeyL89Psa8odKw" name="isValidRoom">
+      <modelElement href="triviamaze.uml#_wAkFAKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1eaZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1eqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w5c1e6ZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wAksEKZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w5c1fKZvEeyL89Psa8odKw" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_w5c1faZvEeyL89Psa8odKw" name="theRow">
+        <modelElement href="triviamaze.uml#_wAkFAaZvEeyL89Psa8odKw"/>
+        <keywords xmi:id="_w5c1fqZvEeyL89Psa8odKw" keyword="final"/>
+        <cardinality xmi:id="_w5c1f6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w5c1gKZvEeyL89Psa8odKw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_w5c1gaZvEeyL89Psa8odKw" name="theCol">
+        <modelElement href="triviamaze.uml#_wAkFAqZvEeyL89Psa8odKw"/>
+        <keywords xmi:id="_w5c1gqZvEeyL89Psa8odKw" keyword="final"/>
+        <cardinality xmi:id="_w5c1g6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w5c1hKZvEeyL89Psa8odKw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_w5c1haZvEeyL89Psa8odKw" comments="_w5LIAaZvEeyL89Psa8odKw" targetConnectionVisual="_w5LIAqZvEeyL89Psa8odKw" name="print">
+      <modelElement href="triviamaze.uml#_wAlTIKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1hqZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1h6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_w5c1iKZvEeyL89Psa8odKw" comments="_w5LIA6ZvEeyL89Psa8odKw" targetConnectionVisual="_w5LIBKZvEeyL89Psa8odKw" name="getMyRooms">
+      <modelElement href="triviamaze.uml#_wAlTIaZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w5c1iaZvEeyL89Psa8odKw" name="Array">
+        <modelElement href="triviamaze.uml#_wAl6MqZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w5c1iqZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1i6ZvEeyL89Psa8odKw" label="1..*" max="-1" min="1"/>
+      <outParameters xmi:id="_w5c1jKZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wAl6MKZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w5c1jaZvEeyL89Psa8odKw" name="ModelRoom">
+          <modelElement href="triviamaze.uml#_wBD0QKZvEeyL89Psa8odKw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_w5c1jqZvEeyL89Psa8odKw" comments="_w5LvEKZvEeyL89Psa8odKw" targetConnectionVisual="_w5LvEaZvEeyL89Psa8odKw" name="getMyCols">
+      <modelElement href="triviamaze.uml#_wAnIUKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1j6ZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1kKZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w5c1kaZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wAnIUaZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w5c1kqZvEeyL89Psa8odKw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_w5c1k6ZvEeyL89Psa8odKw" comments="_w5MWIKZvEeyL89Psa8odKw" targetConnectionVisual="_w5MWIaZvEeyL89Psa8odKw" name="main" staticOperation="true">
+      <modelElement href="triviamaze.uml#_wAnvYKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1lKZvEeyL89Psa8odKw" label="+"/>
+      <cardinality xmi:id="_w5c1laZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_w5c1lqZvEeyL89Psa8odKw" name="args">
+        <modelElement href="triviamaze.uml#_wAnvYaZvEeyL89Psa8odKw"/>
+        <keywords xmi:id="_w5c1l6ZvEeyL89Psa8odKw" keyword="final"/>
+        <cardinality xmi:id="_w5c1mKZvEeyL89Psa8odKw" label="1..*" max="-1" min="1"/>
+        <type xmi:id="_w5c1maZvEeyL89Psa8odKw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_w5c1mqZvEeyL89Psa8odKw" comments="_w5M9MKZvEeyL89Psa8odKw" targetConnectionVisual="_w5M9MaZvEeyL89Psa8odKw" name="load">
+      <modelElement href="triviamaze.uml#_wIB-8aZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w5c1m6ZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w5c1nKZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w5c1naZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wICmAKZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w5c1nqZvEeyL89Psa8odKw" name="ModelMaze">
+          <modelElement href="triviamaze.uml#_wAWCkKZvEeyL89Psa8odKw"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_w5c1n6ZvEeyL89Psa8odKw" name="theMaze">
+        <modelElement href="triviamaze.uml#_wIB-8qZvEeyL89Psa8odKw"/>
+        <cardinality xmi:id="_w5c1oKZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w5c1oaZvEeyL89Psa8odKw" name="ModelMaze">
+          <modelElement href="triviamaze.uml#_wAWCkKZvEeyL89Psa8odKw"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_w6YB4KZvEeyL89Psa8odKw" comments="_w6U-kKZvEeyL89Psa8odKw" targetConnectionVisual="_w6U-kaZvEeyL89Psa8odKw" name="ModelQuestion">
+    <modelElement href="triviamaze.uml#_wAz8oKZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_w6YB4aZvEeyL89Psa8odKw" position="1222.0,783.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_w6YB4qZvEeyL89Psa8odKw" label="~"/>
+    <attributes xmi:id="_w6YB46ZvEeyL89Psa8odKw" defaultValue="-402422357913381703L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="triviamaze.uml#_wIzbAKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6YB5KZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w6YB5aZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w6YB5qZvEeyL89Psa8odKw" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w6YB56ZvEeyL89Psa8odKw" name="myQuestion">
+      <modelElement href="triviamaze.uml#_wIzbAqZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w6YB6KZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wI0CEKZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w6YB6aZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w6YB6qZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w6YB66ZvEeyL89Psa8odKw" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w6YB7KZvEeyL89Psa8odKw" name="myAnswer">
+      <modelElement href="triviamaze.uml#_wI0pIKZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w6YB7aZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wI0pIaZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w6YB7qZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w6YB76ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w6YB8KZvEeyL89Psa8odKw" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_w6YB8aZvEeyL89Psa8odKw" comments="_w6VloKZvEeyL89Psa8odKw" targetConnectionVisual="_w6VloaZvEeyL89Psa8odKw" name="ModelQuestion">
+      <modelElement href="triviamaze.uml#_wA2_8KZvEeyL89Psa8odKw"/>
+      <keywords xmi:id="_w6YB8qZvEeyL89Psa8odKw" keyword="create"/>
+      <visibility xmi:id="_w6YB86ZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w6YB9KZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w6YB9aZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wA4OEKZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w6YB9qZvEeyL89Psa8odKw" name="ModelQuestion">
+          <modelElement href="triviamaze.uml#_wAz8oKZvEeyL89Psa8odKw"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_w6YB96ZvEeyL89Psa8odKw" name="theQuestion">
+        <modelElement href="triviamaze.uml#_wA3nAKZvEeyL89Psa8odKw"/>
+        <keywords xmi:id="_w6YB-KZvEeyL89Psa8odKw" keyword="final"/>
+        <cardinality xmi:id="_w6YB-aZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w6YB-qZvEeyL89Psa8odKw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_w6YB-6ZvEeyL89Psa8odKw" name="theAnswer">
+        <modelElement href="triviamaze.uml#_wA3nAaZvEeyL89Psa8odKw"/>
+        <keywords xmi:id="_w6YB_KZvEeyL89Psa8odKw" keyword="final"/>
+        <cardinality xmi:id="_w6YB_aZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w6YB_qZvEeyL89Psa8odKw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_w6YB_6ZvEeyL89Psa8odKw" comments="_w6WMsKZvEeyL89Psa8odKw" targetConnectionVisual="_w6WMsaZvEeyL89Psa8odKw" name="getQuestion">
+      <modelElement href="triviamaze.uml#_wA41IKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6YCAKZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w6YCAaZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w6YCAqZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wA41IaZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w6YCA6ZvEeyL89Psa8odKw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_w6YCBKZvEeyL89Psa8odKw" comments="_w6WzwKZvEeyL89Psa8odKw" targetConnectionVisual="_w6WzwaZvEeyL89Psa8odKw" name="getAnswer">
+      <modelElement href="triviamaze.uml#_wA5cMKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6YCBaZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w6YCBqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w6YCB6ZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wA5cMaZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w6YCCKZvEeyL89Psa8odKw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_w6jBAKZvEeyL89Psa8odKw" comments="_w6eIgKZvEeyL89Psa8odKw" targetConnectionVisual="_w6evkKZvEeyL89Psa8odKw" name="ModelQuestionDatabase" associationsOut="_w6hy4KZvEeyL89Psa8odKw _w6iZ8KZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wA7RYKZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_w6jBAaZvEeyL89Psa8odKw" position="58.0,727.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_w6jBAqZvEeyL89Psa8odKw" label="+"/>
+    <attributes xmi:id="_w6jBA6ZvEeyL89Psa8odKw" defaultValue="7843813149543978519L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="triviamaze.uml#_wI1QMKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6jBBKZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w6jBBaZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w6jBBqZvEeyL89Psa8odKw" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w6jBB6ZvEeyL89Psa8odKw" defaultValue="0" name="dbIndex" staticAttribute="true">
+      <modelElement href="triviamaze.uml#_wI13QKZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w6jBCKZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wI2eUKZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w6jBCaZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w6jBCqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w6jBC6ZvEeyL89Psa8odKw" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w6jBDKZvEeyL89Psa8odKw" defaultValue="new ArrayList&lt;>()" name="Questions" staticAttribute="true">
+      <modelElement href="triviamaze.uml#_wI2eUaZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w6jBDaZvEeyL89Psa8odKw" name="Generics">
+        <modelElement href="triviamaze.uml#_wI3scKZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w6jBDqZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w6jBD6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w6jBEKZvEeyL89Psa8odKw" name="ArrayList">
+        <modelElement href="triviamaze.uml#_wIPaUaZvEeyL89Psa8odKw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w6jBEaZvEeyL89Psa8odKw" defaultValue="new ArrayList&lt;>()" name="Answers" staticAttribute="true">
+      <modelElement href="triviamaze.uml#_wI4TgKZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w6jBEqZvEeyL89Psa8odKw" name="Generics">
+        <modelElement href="triviamaze.uml#_wI5hoKZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w6jBE6ZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w6jBFKZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w6jBFaZvEeyL89Psa8odKw" name="ArrayList">
+        <modelElement href="triviamaze.uml#_wIPaUaZvEeyL89Psa8odKw"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_w6jBFqZvEeyL89Psa8odKw" comments="_w6evkaZvEeyL89Psa8odKw" targetConnectionVisual="_w6evkqZvEeyL89Psa8odKw" name="databaseConnection" staticOperation="true">
+      <modelElement href="triviamaze.uml#_wA9GkKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6jBF6ZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w6jBGKZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+    </operations>
+    <operations xmi:id="_w6jBGaZvEeyL89Psa8odKw" comments="_w6fWoKZvEeyL89Psa8odKw" targetConnectionVisual="_w6fWoaZvEeyL89Psa8odKw" name="createQuestion" staticOperation="true">
+      <modelElement href="triviamaze.uml#_wA9toKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6jBGqZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w6jBG6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w6jBHKZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wIR2kKZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w6jBHaZvEeyL89Psa8odKw" name="ModelQuestion">
+          <modelElement href="triviamaze.uml#_wAz8oKZvEeyL89Psa8odKw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_w6jBHqZvEeyL89Psa8odKw" comments="_w6fWoqZvEeyL89Psa8odKw" targetConnectionVisual="_w6fWo6ZvEeyL89Psa8odKw" name="getQuestion" staticOperation="true">
+      <modelElement href="triviamaze.uml#_wA-7wKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6jBH6ZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w6jBIKZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w6jBIaZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wA_i0KZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w6jBIqZvEeyL89Psa8odKw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_w6jBI6ZvEeyL89Psa8odKw" comments="_w6f9sKZvEeyL89Psa8odKw" targetConnectionVisual="_w6f9saZvEeyL89Psa8odKw" name="getAnswer" staticOperation="true">
+      <modelElement href="triviamaze.uml#_wA_i0aZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6jBJKZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w6jBJaZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w6jBJqZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wBAJ4KZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w6jBJ6ZvEeyL89Psa8odKw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_w6178KZvEeyL89Psa8odKw" comments="_w60GwKZvEeyL89Psa8odKw" targetConnectionVisual="_w60GwaZvEeyL89Psa8odKw" name="ModelUser" associationsIn="_w5aYkKZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wBJ64KZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_w6178aZvEeyL89Psa8odKw" position="1222.0,218.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_w6178qZvEeyL89Psa8odKw" label="~"/>
+    <attributes xmi:id="_w61786ZvEeyL89Psa8odKw" defaultValue="-6750355880804259040L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="triviamaze.uml#_wI8k8KZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6179KZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w6179aZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w6179qZvEeyL89Psa8odKw" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w61796ZvEeyL89Psa8odKw" name="myCol">
+      <modelElement href="triviamaze.uml#_wI8k8qZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w617-KZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w617-aZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w617-qZvEeyL89Psa8odKw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w617-6ZvEeyL89Psa8odKw" name="myRow">
+      <modelElement href="triviamaze.uml#_wI8k86ZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w617_KZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w617_aZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w617_qZvEeyL89Psa8odKw" name="Integer">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_w617_6ZvEeyL89Psa8odKw" name="ModelUser">
+      <modelElement href="triviamaze.uml#_wBLwEKZvEeyL89Psa8odKw"/>
+      <keywords xmi:id="_w618AKZvEeyL89Psa8odKw" keyword="create"/>
+      <visibility xmi:id="_w618AaZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w618AqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w618A6ZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wBLwE6ZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w618BKZvEeyL89Psa8odKw" name="ModelUser">
+          <modelElement href="triviamaze.uml#_wBJ64KZvEeyL89Psa8odKw"/>
+        </type>
+      </outParameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_w6qVwKZvEeyL89Psa8odKw" comments="_w6n5gKZvEeyL89Psa8odKw" targetConnectionVisual="_w6ogkKZvEeyL89Psa8odKw" name="ModelRoom" associationsIn="_w5YjYKZvEeyL89Psa8odKw _w5c00KZvEeyL89Psa8odKw">
+    <modelElement href="triviamaze.uml#_wBD0QKZvEeyL89Psa8odKw"/>
+    <visualProperties xmi:id="_w6qVwaZvEeyL89Psa8odKw" position="638.0,52.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_w6qVwqZvEeyL89Psa8odKw" label="~"/>
+    <attributes xmi:id="_w6qVw6ZvEeyL89Psa8odKw" defaultValue="4116940108462532359L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="triviamaze.uml#_wI6IsKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6qVxKZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w6qVxaZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w6qVxqZvEeyL89Psa8odKw" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w6qVx6ZvEeyL89Psa8odKw" name="myUserString">
+      <modelElement href="triviamaze.uml#_wI6IsqZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w6qVyKZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wI6vwKZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w6qVyaZvEeyL89Psa8odKw" label="-"/>
+      <cardinality xmi:id="_w6qVyqZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w6qVy6ZvEeyL89Psa8odKw" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w6qVzKZvEeyL89Psa8odKw" name="myHasUser">
+      <modelElement href="triviamaze.uml#_wI6vwaZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w6qVzaZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wI6vwqZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w6qVzqZvEeyL89Psa8odKw" label="+"/>
+      <cardinality xmi:id="_w6qVz6ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w6qV0KZvEeyL89Psa8odKw" name="boolean">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_w6qV0aZvEeyL89Psa8odKw" name="myIsWinningRoom">
+      <modelElement href="triviamaze.uml#_wI794KZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6qV0qZvEeyL89Psa8odKw" label="+"/>
+      <cardinality xmi:id="_w6qV06ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <type xmi:id="_w6qV1KZvEeyL89Psa8odKw" name="boolean">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_w6qV1aZvEeyL89Psa8odKw" name="ModelRoom">
+      <modelElement href="triviamaze.uml#_wBFpcKZvEeyL89Psa8odKw"/>
+      <keywords xmi:id="_w6qV1qZvEeyL89Psa8odKw" keyword="create"/>
+      <visibility xmi:id="_w6qV16ZvEeyL89Psa8odKw" label="~"/>
+      <cardinality xmi:id="_w6qV2KZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w6qV2aZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wBFpc6ZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w6qV2qZvEeyL89Psa8odKw" name="ModelRoom">
+          <modelElement href="triviamaze.uml#_wBD0QKZvEeyL89Psa8odKw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_w6qV26ZvEeyL89Psa8odKw" comments="_w6pHoKZvEeyL89Psa8odKw" targetConnectionVisual="_w6pHoaZvEeyL89Psa8odKw" name="setMyIsWinningRoom">
+      <modelElement href="triviamaze.uml#_wBGQgKZvEeyL89Psa8odKw"/>
+      <visibility xmi:id="_w6qV3KZvEeyL89Psa8odKw" label="+"/>
+      <cardinality xmi:id="_w6qV3aZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_w6qV3qZvEeyL89Psa8odKw" name="theIsWinningRoom">
+        <modelElement href="triviamaze.uml#_wBGQgaZvEeyL89Psa8odKw"/>
+        <cardinality xmi:id="_w6qV36ZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+        <type xmi:id="_w6qV4KZvEeyL89Psa8odKw" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_w6qV4aZvEeyL89Psa8odKw" name="toString">
+      <modelElement href="triviamaze.uml#_wBGQgqZvEeyL89Psa8odKw"/>
+      <stereotypes xmi:id="_w6qV4qZvEeyL89Psa8odKw" name="LegacyStyledElement">
+        <modelElement href="triviamaze.uml#_wBG3kaZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_w6qV46ZvEeyL89Psa8odKw" name="Annotations">
+        <modelElement href="triviamaze.uml#_wBHeoKZvEeyL89Psa8odKw"/>
+      </stereotypes>
+      <visibility xmi:id="_w6qV5KZvEeyL89Psa8odKw" label="+"/>
+      <cardinality xmi:id="_w6qV5aZvEeyL89Psa8odKw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_w6qV5qZvEeyL89Psa8odKw">
+        <modelElement href="triviamaze.uml#_wBG3kKZvEeyL89Psa8odKw"/>
+        <type xmi:id="_w6qV56ZvEeyL89Psa8odKw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>
