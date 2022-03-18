@@ -1,5 +1,7 @@
 /**
- * 
+ * Trivia Maze
+ * Group 6: Abdulrehim Shuba, Daetan Huck, and Hanad Pellissier
+ * TCSS 360 Winter 2022
  */
 package triviamaze;
 
@@ -11,43 +13,22 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author daeta
- *
+ * Test class for ModelDoor.
  */
 class ModelDoorTest {
 
+    /**
+     * A test door.
+     */
     static ModelDoor myTestDoor;
 
-    static ModelRoom myTestRoom;
-
     /**
-     * @throws java.lang.Exception
-     */
-    @BeforeAll
-    static void setUpBeforeClass() throws Exception {
-        myTestDoor = new ModelDoor();
-        myTestRoom = new ModelRoom();
-    }
-
-    /**
-     * @throws java.lang.Exception
-     */
-    @AfterAll
-    static void tearDownAfterClass() throws Exception {
-    }
-
-    /**
+     * Re-initializes door before each test.
      * @throws java.lang.Exception
      */
     @BeforeEach
     void setUp() throws Exception {
-    }
-
-    /**
-     * @throws java.lang.Exception
-     */
-    @AfterEach
-    void tearDown() throws Exception {
+        myTestDoor = new ModelDoor();
     }
 
     @Test
@@ -62,12 +43,16 @@ class ModelDoorTest {
         myTestDoor.setMyIsLocked(true);
         assertTrue(myTestDoor.getMyIsLocked());
     }
+    
+    @Test
+    void doorStartsUnblocked() {
+        assertFalse(myTestDoor.getMyIsBlocked());
+    }    
 
-    void testRoomLocked() {
-        assertTrue(myTestRoom.getMyEDoor().getMyIsLocked());
-        assertTrue(myTestRoom.getMySDoor().getMyIsLocked());
-        assertTrue(myTestRoom.getMyWDoor().getMyIsLocked());
-        assertTrue(myTestRoom.getMyNDoor().getMyIsLocked());
+    void testDoorBlocksAndUnBlocks() {
+        assertFalse(myTestDoor.getMyIsBlocked());
+        myTestDoor.setMyIsBlocked(true);
+        assertTrue(myTestDoor.getMyIsBlocked());
     }
 
 }

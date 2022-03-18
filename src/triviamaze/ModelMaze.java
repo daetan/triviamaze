@@ -1,5 +1,7 @@
 /**
- * 
+ * Trivia Maze
+ * Group 6: Abdulrehim Shuba, Daetan Huck, and Hanad Pellissier
+ * TCSS 360 Winter 2022
  */
 package triviamaze;
 
@@ -7,13 +9,12 @@ import java.util.Scanner;
 import java.io.*;
 
 /**
- * @author daeta
- *
+ * The model of the maze.
  */
 class ModelMaze implements Serializable {
 
     /**
-     * Serializable long.
+     * A long for serialization.
      */
     private static final long serialVersionUID = -3365061151045669276L;
 
@@ -102,8 +103,8 @@ class ModelMaze implements Serializable {
     
     /**
      * A constructor that creates a custom-size maze.
-     * @param theRows, the rows of the custom maze.
-     * @param theCols, the columns of the custom maze.
+     * @param int theRows, the rows of the custom maze.
+     * @param int theCols, the columns of the custom maze.
      */
     ModelMaze(final int theRows, final int theCols) {
         if (theRows < 2 || theCols < 2) {
@@ -144,7 +145,7 @@ class ModelMaze implements Serializable {
     }
     
     /**
-     * Uses a 2d for-loop to create new rooms. Padded by null. TODO refactor to pad with unreachable, empty rooms?
+     * Uses a 2d for-loop to create new rooms. Padded by null.
      */
     void startRooms() {
         for (int i = 1; i < myRooms.length-1; i++) {
@@ -155,7 +156,8 @@ class ModelMaze implements Serializable {
     }
     
     /**
-     * Uses a 2d for-loop to create new doors iff the row xor column of the door 2d array is odd (the location of a room-connecting door).
+     * Uses a 2d for-loop to create new doors iff the row xor column of the 
+     * door 2d array is odd (the location of a room-connecting door).
      */
     void startDoors() {
         for (int i = 1; i < myDoors.length-1; i++) {
@@ -183,7 +185,7 @@ class ModelMaze implements Serializable {
      * Method determines if the maze is solvable using depth-first search.
      */
     void calculateSolvable() {
-        //Initialize (or reinitialize) visitedRooms, myFoundUser to false.
+        //Initialize visitedRooms, myFoundUser to false.
         startVisitedRooms();
         myFoundUser = false;
         
@@ -197,38 +199,41 @@ class ModelMaze implements Serializable {
     
     /**
      * Depth-first search to reach the user's room from the exit/winning room.
-     * Bypass more searching if the user is found.
+     * Bypasses more searching if the user is found.
      * @param int theRow, the row of the room to search.
      * @param int theCol, the column of the room to search.
      */
-    private void depthFirstSearch(int theRow, int theCol) {
+    private void depthFirstSearch(final int theRow, final int theCol) {
+        // Mark this room visited.
         myVisitedRooms[theRow][theCol] = true;
         
+        // If this room has the user, set myFoundUser to true.
         if (theRow == myUser.getMyRow() && theCol == myUser.getMyCol()) {
             myFoundUser = true;
         }
         
+        // If the user is not found, run recursive search.
         if (!myFoundUser) {
             final int myDoorArrayRows = theRow * 2 - 1;
             final int myDoorArrayCols = theCol * 2 - 1;
             
-            //  Is there a door to the:
-            //  North?
+            // Is there an unvisited room to the:
+            // North?
             if (theRow - 1 > 0 && !myVisitedRooms[theRow - 1][theCol]
                     && !myDoors[myDoorArrayRows - 1][myDoorArrayCols].getMyIsBlocked()) {
                 depthFirstSearch(theRow - 1, theCol);
             }
-            //  West?
+            // West?
             if (theCol - 1 > 0 && !myVisitedRooms[theRow][theCol - 1]
                     && !myDoors[myDoorArrayRows][myDoorArrayCols - 1].getMyIsBlocked()) {
                 depthFirstSearch(theRow, theCol - 1);
             }
-            //  South?
+            // South?
             if (theRow + 1 < myRooms.length - 1 && !myVisitedRooms[theRow + 1][theCol]
                     && !myDoors[myDoorArrayRows + 1][myDoorArrayCols].getMyIsBlocked()) {
                 depthFirstSearch(theRow + 1, theCol);
             }
-            //  East?
+            // East?
             if (theCol + 1 < myRooms[0].length - 1 && !myVisitedRooms[theRow][theCol + 1]
                     && !myDoors[myDoorArrayRows][myDoorArrayCols + 1].getMyIsBlocked()) {
                 depthFirstSearch(theRow, theCol + 1);
@@ -258,8 +263,8 @@ class ModelMaze implements Serializable {
 
     /**
      * Moves the user.
-     * @param theRow
-     * @param theCol
+     * @param int theRow
+     * @param int theCol
      * @return boolean if the user moved.
      */
     boolean move(final int theRow, final int theCol) {
@@ -271,23 +276,27 @@ class ModelMaze implements Serializable {
         
         boolean aBoolean = false;
         
+        // Check if move is valid.
         if (isValidRoom(moveToRow, moveToCol)) {
-            //Identify door
+            // Identify door
             int doorRow = userRow * 2 - 1 + theRow;
             int doorCol = userCol * 2 - 1 + theCol;
             
-            //If door locked, query user for trivia
+            // If door is blocked, don't move.
             if (myDoors[doorRow][doorCol].getMyIsBlocked()) {
                 System.out.println("Door is blocked.");
             } else {
+                // If door is locked, query user for trivia.
                 if (myDoors[doorRow][doorCol].getMyIsLocked()) {
                     final ModelQuestion QA = ModelQuestionDatabase.createQuestion();
                     System.out.print(QA.getQuestion() + " ");
                     String aSelection = "";
                     aSelection = myScanner.nextLine();
+                    // If answer is correct, unlock door and move.
                     if (QA.getAnswer().equalsIgnoreCase(aSelection)) {
                         myDoors[doorRow][doorCol].setMyIsLocked(false);
                         aBoolean = true;
+                    // If answer is wrong, block door and check solvability.
                     } else {
                         System.out.println("Incorrect answer.");
                         myDoors[doorRow][doorCol].setMyIsBlocked(true);
@@ -296,16 +305,19 @@ class ModelMaze implements Serializable {
                 } else {
                     aBoolean = true;
                 }
-            
             }
         } else {
             System.out.println("There's no door that way.");
         }
+        
+        // If user successfully moved, update room and user information.
         if (aBoolean) {
             myRooms[userRow][userCol].setMyHasUser(false);
             myRooms[moveToRow][moveToCol].setMyHasUser(true);
             myUser.setMyCol(myUser.getMyCol() + theCol);
             myUser.setMyRow(myUser.getMyRow() + theRow);
+            
+            // Check if the user moved to the winning room.
             if (myUser.getMyCol() == myWinningCol && myUser.getMyRow() == myWinningRow) {
                 setMyIsWin(true);
             }
@@ -344,14 +356,13 @@ class ModelMaze implements Serializable {
 
     /**
      * Loads a maze from a file.
-     * @param theMaze
-     * @return the loaded maze.
+     * @param ModelMaze theMaze
+     * @return the loaded maze
      */
-    ModelMaze load(ModelMaze theMaze) {
+    ModelMaze load(ModelMaze theMaze) { // Final parameter not used to allow reassignment.
         String filename = "save.tm";
         
         try { 
-            
             // Reading the object from a file 
             FileInputStream file = new FileInputStream 
                                          (filename); 
@@ -499,7 +510,7 @@ class ModelMaze implements Serializable {
     
     /**
      * Main method that takes user input.
-     * @param args
+     * @param String[] args
      */
     public static void main(final String[] args) {
         System.out.println("Welcome to Trivia Maze!");

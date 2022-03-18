@@ -1,7 +1,9 @@
 /**
- * 
+ * Trivia Maze
+ * Group 6: Abdulrehim Shuba, Daetan Huck, and Hanad Pellissier
+ * TCSS 360 Winter 2022
  */
-package model;
+package triviamaze;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,107 +14,53 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author daeta
- *
+ * Tests the ModelUser class.
  */
 class ModelUserTest {
 
-    private static ModelUser my3by3MazeUser;
+    /**
+     * A test user.
+     */
+    private static ModelUser myTestUser;
 
     /**
+     * Sets up a single test user.
      * @throws java.lang.Exception
      */
     @BeforeAll
     static void setUpBeforeClass() throws Exception {
-        my3by3MazeUser = new ModelUser(new ModelMaze(3, 3));
+        myTestUser = new ModelUser();
     }
 
     /**
-     * @throws java.lang.Exception
-     */
-    @AfterAll
-    static void tearDownAfterClass() throws Exception {
-    }
-
-    /**
+     * Sets user to column and row 2 before each test.
      * @throws java.lang.Exception
      */
     @BeforeEach
     void setUp() throws Exception {
-        my3by3MazeUser.setMyX(2);
-        my3by3MazeUser.setMyY(2);
-    }
-
-    /**
-     * @throws java.lang.Exception
-     */
-    @AfterEach
-    void tearDown() throws Exception {
+        myTestUser.setMyCol(2);
+        myTestUser.setMyRow(2);
     }
 
     @Test
-    void testGetMyX() {
-        assertEquals(my3by3MazeUser.getMyX(), 2);
+    void testGetMyCol() {
+        assertEquals(myTestUser.getMyCol(), 2);
     }
 
     @Test
-    void testGetMyY() {
-        assertEquals(my3by3MazeUser.getMyY(), 2);
+    void testGetMyRow() {
+        assertEquals(myTestUser.getMyRow(), 2);
     }
 
     @Test
-    void testMoveE() {
-        assertTrue(my3by3MazeUser.move('E'));
-        assertEquals(my3by3MazeUser.getMyX(), 3);
-        assertEquals(my3by3MazeUser.getMyY(), 2);
+    void testMoveCol() {
+        myTestUser.setMyCol(3);
+        assertEquals(myTestUser.getMyCol(), 3);
     }
 
     @Test
-    void testMoveS() {
-        assertTrue(my3by3MazeUser.move('S'));
-        assertEquals(my3by3MazeUser.getMyX(), 2);
-        assertEquals(my3by3MazeUser.getMyY(), 3);
-    }
-
-    @Test
-    void testMoveW() {
-        assertTrue(my3by3MazeUser.move('W'));
-        assertEquals(my3by3MazeUser.getMyX(), 1);
-        assertEquals(my3by3MazeUser.getMyY(), 2);
-    }
-
-    @Test
-    void testMoveN() {
-        assertTrue(my3by3MazeUser.move('N'));
-        assertEquals(my3by3MazeUser.getMyX(), 2);
-        assertEquals(my3by3MazeUser.getMyY(), 1);
-    }
-
-    @Test
-    void testMoveNWByXY() {
-        assertTrue(my3by3MazeUser.move(-1, -1));
-        assertEquals(my3by3MazeUser.getMyX(), 1);
-        assertEquals(my3by3MazeUser.getMyY(), 1);
-    }
-
-    @Test
-    void testMoveNEByXY() {
-        assertTrue(my3by3MazeUser.move(1, -1));
-        assertEquals(my3by3MazeUser.getMyX(), 3);
-        assertEquals(my3by3MazeUser.getMyY(), 1);
-    }
-
-    @Test
-    void testMoveSWByXY() {
-        assertTrue(my3by3MazeUser.move(-1, 1));
-        assertEquals(my3by3MazeUser.getMyX(), 1);
-        assertEquals(my3by3MazeUser.getMyY(), 3);
-    }
-
-    @Test
-    void testMoveSEByXY() {
-        assertTrue(my3by3MazeUser.move(1, 1));
-        assertEquals(my3by3MazeUser.getMyX(), 3);
-        assertEquals(my3by3MazeUser.getMyY(), 3);
+    void testMoveRow() {
+        myTestUser.setMyRow(3);
+        assertEquals(myTestUser.getMyRow(), 3);
     }
 }

@@ -1,3 +1,8 @@
+/**
+ * Trivia Maze
+ * Group 6: Abdulrehim Shuba, Daetan Huck, and Hanad Pellissier
+ * TCSS 360 Winter 2022
+ */
 package triviamaze;
 
 import java.io.Serializable;
@@ -23,11 +28,9 @@ class ModelQuestion implements Serializable {
     private final String myAnswer;
 
     /**
-     * Creates a question object that has 
-     * both a question and answer
-     * 
-     * @param theQuestion
-     * @param theAnswer
+     * Creates a question object that has both a question and answer.
+     * @param theQuestion String
+     * @param theAnswer String
      */
     ModelQuestion(final String theQuestion, final String theAnswer) {
             myQuestion = theQuestion;
@@ -35,18 +38,16 @@ class ModelQuestion implements Serializable {
         }
 
     /**
-     * Returns question
-     * 
-     * @return
+     * Returns question.
+     * @return String
      */
     String getQuestion() {
         return myQuestion;
     }
 
     /**
-     * Returns answer for the question
-     * 
-     * @return
+     * Returns answer for the question.
+     * @return String
      */
     String getAnswer() {
         return myAnswer;

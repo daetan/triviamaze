@@ -1,3 +1,8 @@
+/**
+ * Trivia Maze
+ * Group 6: Abdulrehim Shuba, Daetan Huck, and Hanad Pellissier
+ * TCSS 360 Winter 2022
+ */
 package triviamaze;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,8 +15,7 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Field;
 
 /**
- * 
- *
+ * A test class for the ModelMaze.
  */
 class ModelMazeTest {
 
@@ -43,18 +47,6 @@ class ModelMazeTest {
         testDefaultMazeStarted.start();
     }
 
-    @AfterAll
-    static void tearDownAfterClass() throws Exception {
-    }
-
-    @BeforeEach
-    void setUp() throws Exception {
-    }
-
-    @AfterEach
-    void tearDown() throws Exception {
-    }
-
     @Test
     void testDefaultConstructorHeight() {
         assertEquals(testDefaultMaze.getMyRows(), 6);
@@ -80,9 +72,6 @@ class ModelMazeTest {
         assertEquals(testDefaultRooms[0].length, 6);
     }
 
-    /**
-     * Maze constructs a
-     */
     @Test
     void testDefaultIsValidRoom() {
         assertFalse(testDefaultMaze.isValidRoom(0, 0), "Room 0, 0 returned true instead of false.");
@@ -238,11 +227,11 @@ class ModelMazeTest {
 
         final Field myWinningRowField = testBigMaze.getClass().getDeclaredField("myWinningRow");
         myWinningRowField.setAccessible(true);
-        assertEquals(rows - 2, myWinningRowField.get(testBigMaze));
+        assertEquals(rows, myWinningRowField.get(testBigMaze));
 
         final Field myWinningColField = testBigMaze.getClass().getDeclaredField("myWinningCol");
         myWinningColField.setAccessible(true);
-        assertEquals(cols - 2, myWinningColField.get(testBigMaze));
+        assertEquals(cols - 4, myWinningColField.get(testBigMaze));
 
         final Field myIsWinField = testBigMaze.getClass().getDeclaredField("myIsWin");
         myIsWinField.setAccessible(true);

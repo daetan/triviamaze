@@ -1,77 +1,69 @@
 /**
- * 
+ * Trivia Maze
+ * Group 6: Abdulrehim Shuba, Daetan Huck, and Hanad Pellissier
+ * TCSS 360 Winter 2022
  */
 package triviamaze;
 
 import java.io.Serializable;
 
-//import java.beans.PropertyChangeEvent;
-//import java.beans.PropertyChangeListener;
-//import java.util.ArrayList;
-//import java.util.List;
-
 /**
- * @author daeta
- *
+ * The user class that stores the user's column and row.
  */
 class ModelUser implements Serializable {
 
     /**
-     * 
+     * A long for serializing the user's position.
      */
     private static final long serialVersionUID = -6750355880804259040L;
 
+    /**
+     * User's column.
+     */
     private Integer myCol;
 
+    /**
+     * User's row.
+     */
     private Integer myRow;
 
-//    private List<PropertyChangeListener> myListeners = new ArrayList<PropertyChangeListener>();
-
+    /**
+     * Default constructor
+     */
     ModelUser() {
         myCol = 1;
         myRow = 1;
     }
 
-    void setMyCol(final Integer theX) {
-        myCol = theX;
+    /**
+     * Sets the user column. Input values are error-checked in the trivia maze.
+     * @param theCol
+     */
+    void setMyCol(final Integer theCol) {
+        myCol = theCol;
     }
 
-    void setMyRow(final Integer theY) {
-        myRow = theY;
+    /**
+     * Sets the user row. Input values are error-checked in the trivia maze.
+     * @param theRow
+     */
+    void setMyRow(final Integer theRow) {
+        myRow = theRow;
     }
 
+    /**
+     * Gets the user column.
+     * @return int
+     */
     Integer getMyCol() {
         return myCol;
     }
 
+    /**
+     * Gets the user row.
+     * @return int
+     */
     Integer getMyRow() {
         return myRow;
     }
-
-//    private void notifyMove(final int theX, final int theY) {
-//        String theMyIntString;
-//        String theIntString;
-//        if (theX != 0) {
-//            theMyIntString = Integer.toString(myX);
-//            theIntString = Integer.toString(myX + theX);
-//            notifyListeners(this, "myX", theMyIntString, theIntString);
-//        }
-//        if (theY != 0) {
-//            theMyIntString = Integer.toString(myY);
-//            theIntString = Integer.toString(myY + theY);
-//            notifyListeners(this, "myY", theMyIntString, theIntString);
-//        }
-//    }
-
-//    private void notifyListeners(final Object theObject, final String theProperty, final String theOldValue,
-//            final String theNewValue) {
-//        for (PropertyChangeListener aListener : myListeners) {
-//            aListener.propertyChange(new PropertyChangeEvent(this, theProperty, theOldValue, theNewValue));
-//        }
-//    }
-//
-//    void addChangeListener(final PropertyChangeListener theNewListener) {
-//        myListeners.add(theNewListener);
-//    }
-
 }
