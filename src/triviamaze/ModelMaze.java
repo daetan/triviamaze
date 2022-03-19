@@ -540,7 +540,6 @@ class ModelMaze implements Serializable {
                 myMaze.exit();
             }
         }
-        myScanner.close();
         if (!myMaze.getMyIsSolvable()) {
             myMaze.print();
             myMaze.lose();
@@ -550,5 +549,8 @@ class ModelMaze implements Serializable {
             myMaze.print();
             myMaze.win();
         }
+        System.out.print("Press enter to exit.");
+        mySelection = myScanner.nextLine();
+        myScanner.close();
     }
 }

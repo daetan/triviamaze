@@ -22,7 +22,7 @@ import java.util.Random;
  *       1. call databaseConnection in order to setup the database
  *       2. call createQuestion() to create a question object
  */
-public class ModelQuestionDatabase implements Serializable {
+class ModelQuestionDatabase implements Serializable {
     
     /**
      *  A long for serialization.

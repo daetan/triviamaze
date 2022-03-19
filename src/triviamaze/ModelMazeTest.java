@@ -239,7 +239,7 @@ class ModelMazeTest {
     }
 
     @Test
-    public void getMyPlayerRoomTest() throws Exception {
+    void getMyPlayerRoomTest() throws Exception {
         ModelRoom playerRoom = testDefaultMazeStarted.getPlayerRoom();
 
         final Field myUserField = testDefaultMazeStarted.getClass().getDeclaredField("myUser");
@@ -253,7 +253,7 @@ class ModelMazeTest {
     }
 
     @Test
-    public void startRoomsTest() throws Exception {
+    void startRoomsTest() throws Exception {
         final Field myRoomsField = testDefaultMazeStarted.getClass().getDeclaredField("myRooms");
         myRoomsField.setAccessible(true);
         ModelRoom[][] rooms = (ModelRoom[][]) myRoomsField.get(testDefaultMazeStarted);
@@ -269,7 +269,7 @@ class ModelMazeTest {
     }
 
     @Test
-    public void startDoorTest() throws Exception {
+    void startDoorTest() throws Exception {
         final Field myDoorsField = testDefaultMazeStarted.getClass().getDeclaredField("myDoors");
         myDoorsField.setAccessible(true);
         ModelDoor[][] doors = (ModelDoor[][]) myDoorsField.get(testDefaultMazeStarted);
@@ -285,7 +285,7 @@ class ModelMazeTest {
     }
 
     @Test
-    public void startVisitedRooms() throws Exception {
+    void startVisitedRooms() throws Exception {
         testDefaultMazeStarted.startVisitedRooms();
         final Field myVisitedRoomsField = testDefaultMazeStarted.getClass().getDeclaredField("myVisitedRooms");
         myVisitedRoomsField.setAccessible(true);
@@ -298,7 +298,7 @@ class ModelMazeTest {
     }
 
     @Test
-    public void calculateSolvableTest() throws Exception {
+    void calculateSolvableTest() throws Exception {
         testDefaultMazeStarted.calculateSolvable();
         final Field myIsSolvableField = testDefaultMazeStarted.getClass().getDeclaredField("myIsSolvable");
         myIsSolvableField.setAccessible(true);
@@ -314,7 +314,7 @@ class ModelMazeTest {
     }
 
     @Test
-    public void isValidRoomTest() {
+    void isValidRoomTest() {
         for (int i = 0; i < DEFAULT_ROWS + 2; i++) {
             for (int j = 0; j < DEFAULT_COLS + 2; j++) {
                 assertEquals((i > 0 && j > 0 && i <= DEFAULT_ROWS && j <= DEFAULT_COLS), testDefaultMazeStarted.isValidRoom(i, j));
