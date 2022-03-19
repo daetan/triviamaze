@@ -10,7 +10,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{9A905A06-14BC-4E18-8C47-F9B3B3F368BC}
+AppId={{10C61F19-1D00-499F-864E-135904B64769}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -20,9 +20,9 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf}\{#MyAppName}
 DisableProgramGroupPage=yes
-; Remove the following line to run in administrative install mode (install for all users.)
-PrivilegesRequired=lowest
-OutputBaseFilename=mysetup
+; Uncomment the following line to run in non administrative install mode (install for current user only.)
+;PrivilegesRequired=lowest
+OutputBaseFilename=setup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -35,6 +35,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "E:\Documents\OneDrive\202201 Winter\TCSS 360 Software Development and Quality Assurance\eclipse-workspace\triviamaze\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\Documents\OneDrive\202201 Winter\TCSS 360 Software Development and Quality Assurance\eclipse-workspace\triviamaze\sqlite-jdbc-3.36.0.3.jar"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\Documents\OneDrive\202201 Winter\TCSS 360 Software Development and Quality Assurance\eclipse-workspace\triviamaze\TMazeQandA.db"; DestDir: "{app}"; Flags: ignoreversion
 Source: "E:\Documents\OneDrive\202201 Winter\TCSS 360 Software Development and Quality Assurance\eclipse-workspace\triviamaze\triviamaze.jar"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
