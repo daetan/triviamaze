@@ -11,7 +11,7 @@ import java.io.*;
 /**
  * The model of the maze.
  */
-class ModelMaze implements Serializable {
+public class ModelMaze implements Serializable {
 
     /**
      * A long for serialization.
